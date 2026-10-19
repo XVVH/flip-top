@@ -1,92 +1,118 @@
 # Full Flavor (working name): pack study and journal
 
-*Status: **study, awaiting the owner's review.** No CSS until it's approved. The id and name are working choices; see "The page".*
+*Status: **study, revised with web research, awaiting the owner's review.** No CSS until it's approved. The id and name are working choices; see "The page".*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
 ## The pack
 
 - **Pack** (research name only): Marlboro, the red box.
-- **Variant studied:** Red, the "full flavor" pack, in the flip-top box. The family is colour-coded: Red; Gold (formerly Lights); Silver (formerly Ultra Lights); green for Menthol. Lights and Ultra Lights became Gold and Silver when the 2009 Tobacco Control Act banned those descriptors from 2010.
+- **Variant studied:** Red, US king box (flip-top). The family is colour-coded: Red; Gold (formerly Lights; an olive gold roof); Menthol (an emerald green roof); Silver (not found in the US). Lights and Ultra Lights became Gold and Silver when the 2009 Tobacco Control Act banned those descriptors from 2010.
 - **References** (links only; nothing is committed):
-  - History and the 1955 redesign: <https://en.wikipedia.org/wiki/Marlboro>
-  - Logo history, including the wordmark's typeface: <https://logos.fandom.com/wiki/Marlboro>
-  - Logo eras and the crest: <https://1000logos.net/marlboro-logo/>
-  - The 2015 refresh (deeper red, brighter white, matt finish): <https://www.designweek.co.uk/marlboro-rolls-out-new-look-cigarette-packs/>
-- **Caveat:** this container can't open those pages (its network policy blocks them), so the study is built from search summaries and general knowledge. Every colour below is an estimate; match it against a real pack or a photo before building.
+  - A flat, front-on US pack, 2010 (geometry and lettering): <https://commons.wikimedia.org/wiki/File:Marlboro_cigarette_pack_(2010)_from_US_duty-free_shop_without_any_warnings_etc._(edited,_white_background).jpg>
+  - A current US pack beside an EU one, 2024 (the gold tear strip): <https://commons.wikimedia.org/wiki/File:German_and_American_Marlboro_Red.jpg>
+  - An open pack, 2024 (lid, inner frame, foil): <https://commons.wikimedia.org/wiki/File:Open_Pack_of_Marlboro_Reds_(American).jpg>
+  - A manufacturer carton render (the cleanest colour): <https://app.warehouserunner.com/costco/165709-marlboro-red-king-box>
+  - Logo history and typefaces: <https://logos.fandom.com/wiki/Marlboro>
+  - US Reg. 938,510, the "Red Roof" design, red and gold claimed: <https://tsdr.uspto.gov/statusview/rn0938510>
+  - US Reg. 1,038,989 (the gold Lights version), the clearest written description of the layout: <https://trademarks.justia.com/724/30/marlboro-lights-filter-cigarettes-lowered-tar-nicotine-veni-vidi-72430003.html>
+- **How the research was done** (October 2026, a separate browser session; the full report is [`docs/research/2026-10-first-three-packs.md`](../research/2026-10-first-three-packs.md)): colours were read from decoded image pixels, not screenshots. Each value is checked across a photo and a manufacturer render where possible.
 
 ## What's on it
 
 - **Palette:**
-  - **Red**, the top of the pack and down its sides: a warm, full red. Estimate `#C8102E`. The 2015 refresh deepened it.
-  - **White**, the body below the red: bright, and matt since 2015. About half the face.
-  - **Black**, the wordmark.
-  - **Gold**, the crest: two rampant lions holding a red medallion, under a crown, with "Veni, vidi, vici" (the 1955 crest). Foil-like; a small area.
+
+  | Colour | Where | Value | Confidence |
+  |---|---|---|---|
+  | Red | Roof, sides, bottom band | `#c41e2a`, a slightly blue-leaning signal red (photo corrects to about `#be0c12`; render `#ca2332`–`#cf262f`) | medium-high |
+  | Off-white | The chevron field, the pill | `#e9e7e3`, neutral to warm, not paper-bright | medium |
+  | Charcoal | The wordmark | `#323b43`, a cool charcoal, not black | medium |
+  | Gold | Crest; tear strip | metallic foil; `#c9a85e` as a flat stand-in, shading to `#b18641` and up to `#f3eaae` | medium that it's foil |
+  | Medallion red | The crest's oval, with white "PM USA" | about `#aa463b` | medium |
+  | Dark khaki | "20 CLASS A CIGARETTES" | about `#6b6b55`; not red | low |
+
 - **Lettering:**
-  - **The wordmark:** black capitals in a condensed, high-contrast modern serif. Logopedia's summary says the 1955 wordmark is a modified Onyx (Gerry Powell, 1937, a condensed Didone). Thick vertical stems with hairline joins and narrow white counters: this is what gives it the black-and-white striped look the owner noticed.
-  - **Secondary type:** small capitals beneath the wordmark naming the product. Character to confirm by eye.
-- **Shapes:** the red "roof", a chevron: the boundary between red and white rises from each side to a peak at the centre, so the white body looks like the gable end of a house under a red roof. The crest sits at the top of the white, under the peak.
-- **Material:** a hard flip-top box (Marlboro introduced the format in 1955). Matt print; gold on the crest.
-- **Proportion:** strongly divided: red above, white below, the boundary steep. Lots of empty white around a narrow, centred wordmark.
+  - **The wordmark** (seen, high confidence): mixed case, upright, very condensed and very high contrast. Heavy stems, near-invisible hairlines, flat unbracketed hairline serifs: a didone. Tall ascenders (about 1.45 times the cap height) and an x-height about 0.7 of the cap height; a double-storey **a** with a small tear terminal, a flagged **r**, an **M** with thin left strokes and heavy right ones. It spans about 90% of the face's width. Logopedia: the 1955 pack wordmark is "Onyx (modified)". The standalone logo since 1977, and the carton, use a wider modified Contact; that's not the pack.
+  - **Secondary type** (high confidence): "FILTER CIGARETTES" and "20 CLASS A CIGARETTES" in a geometric sans, all capitals, very widely tracked (about +200 to +300), regular to medium weight, round C, G and O, a pointed A.
+- **Shapes** (measured from the front-on photo, as fractions of the front face, lid included):
+  - **The roof:** a symmetric white chevron cut into the red, peaked at the centre. The peak is about 17% from the top; the boundary meets the sides about 48% from the top; each side slopes about 43° from horizontal, so the apex is nearly a right angle.
+  - **The pill:** a white lozenge with fully rounded ends, about 75% of the width, near the top, with "FILTER CIGARETTES" in red.
+  - **The crest:** centred, about 39% of the width, just below the lid seam (about 31% from the top), inside the white chevron.
+  - **The foot:** the small khaki line at about 94%, then a red band, then a white sliver at the very bottom edge.
+- **Material:** a hard flip-top box. Gold tear strip, silver foil liner, metallic gold crest. The board's finish can't be seen through the cellophane.
 
 ## What makes it recognizable
 
-1. **Red over white along a steep angle.** The single strongest element; you'd know it from across a room.
-2. **Black condensed high-contrast capitals,** striped by their thick stems.
-3. **Restraint:** three colours and a small touch of gold, nothing else.
+1. **Red with a white chevron cut into it, peaked at the centre, steep.** The single strongest element.
+2. **The condensed didone wordmark,** striped by its heavy stems, in charcoal on off-white.
+3. **Restraint:** red, off-white and charcoal, with small touches of gold.
 
 ## Treatment
 
 | Element | Mirror, signal or leave out | How |
 |---|---|---|
-| Red and white, in roughly half-and-half proportion | Mirror | The page ground is white; a red band holds the top of the first screen. |
-| The roof | Signal | The red band ends in an angled edge, but not the roof's symmetric peak: a single diagonal, or a peak pushed off centre, so the angle reads without being the mark. To settle in the gallery. |
-| Condensed high-contrast capitals | Mirror the character | A freely licensed condensed Didone for the site name and headings. Candidates: Noto Serif Display at its narrowest width and heaviest weight (OFL), or Oranienbaum (OFL). Never Onyx, and never the wordmark's own letters. |
-| Black lettering on white | Mirror | Site name and headings in black on the white body, under the red. |
-| Gold | Signal | A thin foil line (a CSS gradient) where the red meets the white, and in the tear strip. No crest, no lions, no crown, no motto. |
-| The crest | Leave out | It's a mark. |
-| The product line | Mirror the character | Small spaced capitals for dates, tags and navigation. |
-| The flip-top box | Possible experiment | See "Literal pack parts" below. |
+| Red and off-white, in the pack's proportion | Mirror | The page ground is the off-white. The red holds the top of the first screen. |
+| The roof | Signal | The red band ends in an angled edge at the pack's slope (about 43°), but not as a centred symmetric chevron: a single diagonal, or a peak pushed well off centre. To settle in the gallery. |
+| The condensed didone | Mirror the character | A freely licensed condensed, high-contrast didone for the site name and headings, in charcoal. Candidates to compare in a specimen: Noto Serif Display at its narrowest width and heaviest weight (OFL; it has a real width axis), and Bodoni Moda Black (OFL; not condensed, so it's the fallback). Never Onyx, and never the wordmark's letters. |
+| Mixed case | Mirror | The site name reads "The Smokepit", in title case like the wordmark. |
+| Wide-tracked geometric capitals | Mirror the character | Dates, tags, navigation and labels in Jost (OFL), regular or medium, capitals tracked about +0.2em. |
+| Charcoal, not black | Mirror | `#323b43` for headings and the site name; the article ink is a near-black in the same cool family. |
+| Gold | Signal | A thin foil hairline (a CSS gradient) where the red meets the off-white, and the tear strip. Nowhere else. |
+| The pill, the crest, the medallion | Leave out | Parts of the registered design. (A pill shape is also the smell's own badge, which makes leaving it out easy.) |
+| The foot: red band and white sliver | Signal | The footer closes with a thin red band and a sliver of off-white below it. |
+| The flip-top box | Possible experiment | See "Literal pack parts". |
 
 ## The page
 
 - **Theme name** (shown to readers), for the owner to choose:
-  - descriptive: **Full Flavor**, the counter term for the red pack of any brand
+  - descriptive: **Full Flavor**, the counter term for any brand's red pack
   - or a faux brand in the same register (an English place name under a crest), for example **Ashcombe**. Check it isn't a real tobacco brand before using it.
 - **Working id:** `full-flavor`.
-- **Site name case:** THE SMOKEPIT, in capitals, like the wordmark.
+- **Site name case:** The Smokepit, in title case. (The first draft said capitals; the wordmark is mixed case.)
 - **Template slots:**
-  - **Page ground and masthead band:** white page; a red band across the top of the first screen with an angled lower edge, a foil hairline along it.
-  - **Site name and headings:** black condensed Didone capitals on white, just below the red.
-  - **Secondary type:** small spaced capitals.
-  - **Signature shape:** the angle, again small: list markers and section breaks as short angled strokes.
-  - **Material:** gold foil, only on the hairline, the tear strip and focus rings.
-  - **Footer and metadata:** small capitals on white, with a red rule.
-  - **The article:** a serif text face with moderate contrast, black on white. Candidate: Noto Serif, the text cut of the same family, so the display and text faces agree.
-- **Tear strip colour:** gold.
-- **Literal pack parts:** a candidate testbed. The format is the brand's own invention, and the repository is named after it: the red band could open like a lid when Fresh pack is pressed. The owner decides whether this is the experiment theme.
+  - **Page ground and masthead band:** off-white page; a red band across the top of the first screen with an angled lower edge and a gold hairline along it.
+  - **Site name and headings:** the condensed didone in charcoal, on the off-white, just below the red.
+  - **Secondary type:** Jost capitals, widely tracked.
+  - **Signature shape:** the 43° angle, small: list markers and section breaks as short angled strokes.
+  - **Material:** gold foil on the hairline, the tear strip and focus rings only.
+  - **Footer and metadata:** tracked capitals on the off-white; the red band and white sliver at the very bottom.
+  - **The article:** a text serif with moderate contrast in the same family as the display face (Noto Serif), near-black on off-white.
+- **Tear strip colour:** gold (`#c9a85e`), as on the pack.
+- **Literal pack parts:** the candidate testbed. The brand introduced the flip-top box in 1955 and the repository is named after it: the red band could open like the lid when Fresh pack is pressed, showing a sliver of silver foil. The owner decides.
 - **Every surface:**
-  - **Home:** each post a white block under a short red angle, title in the display capitals.
-  - **Code blocks:** black on a very light grey-white, with a red rule on the left; tokens in black, red and grey.
-  - **Tables:** hairline black rules, small-capital headers.
-  - **Images:** plain, edge to edge in the column.
-  - **Links:** red, underlined. `#C8102E` on white is about 5.9:1.
-  - **Fresh pack:** black capitals on white with a red underline, or white on red, to try both.
-- **Legibility plan:** black body text on white (over 18:1). Red only for links, rules and the band; white text on the red band is about 5.9:1. The condensed display face goes on headings and the site name only.
-- **Endorsement test:** the closest point is the red band over white with black condensed capitals beneath it. It stays on the right side because the roof's exact shape is gone, there's no crest or wordmark, the name in that position is the site's own, and the page isn't laid out like the face of the pack.
+  - **Home:** each post title in the display face under a short angled red rule; dates in tracked capitals.
+  - **Code blocks:** charcoal on a slightly darker off-white, with a red rule on the left; tokens in charcoal, red and khaki.
+  - **Tables:** hairline charcoal rules, tracked-capital headers.
+  - **Images:** plain, full column width.
+  - **Links:** red, underlined: `#c41e2a` on `#e9e7e3` is 4.8:1, just above AA, so links stay at body size or larger.
+  - **Fresh pack:** off-white on red (5.9:1 for white), in tracked capitals.
+- **Legibility plan:** near-black and charcoal text on the off-white (charcoal 9.2:1). Red only for links, rules and the band. Gold never carries text: it's 2.6:1 on red.
+- **Endorsement test:** the closest point is the red band with an angled edge over the off-white, with a condensed didone beneath it. It stays on the right side because the roof isn't the centred chevron, there's no pill, crest or wordmark, the name in that face is the site's own, and the page isn't laid out like the face of the pack.
 
 ## First instincts
 
-- **Playfair Display Black for the capitals.** It's high-contrast and heavy, and it's the editorial smell's own display serif (SMELL.md). It's also not condensed, so it wouldn't stripe. Replaced with condensed Didone candidates.
-- **The roof as a symmetric centred chevron on the masthead.** That's copying the mark. The study signals the angle instead.
-- **Gold everywhere,** for "premium". The pack uses gold sparingly, on the crest only; so does the theme.
+- **Playfair Display Black for the wordmark.** It's the editorial smell's display serif (SMELL.md), and it isn't condensed. Replaced with condensed didone candidates.
+- **The roof as a centred chevron.** Copying the mark. The study signals the angle instead.
+- **Gold everywhere,** for "premium". The pack uses gold on the crest and the tear strip only.
+
+## What the research corrected
+
+The first draft was written from memory and search summaries. The research session (October 2026) found:
+
+- **The wordmark is mixed case, not capitals,** so the site name is title case. The draft assumed capitals because the brand's logo is so often written that way.
+- **It's charcoal, not black,** and the white is a warm off-white, not bright.
+- **The secondary type is a wide-tracked geometric sans,** which the draft didn't know at all.
+- **The roof's geometry:** a 43° slope, peak at 17%, sides at 48%. The draft guessed "steep".
+- **The foot:** a red band and a white sliver, with khaki (not red) small print.
+- The draft's "modified Onyx" was right for the pack, but the standalone logo is a different face.
 
 ## Log
 
 - 2026-10-19: Study written for the owner's review.
+- 2026-10-19: Revised with the owner's web research (above).
 
 ## Open questions
 
 - The theme name: descriptive or faux brand?
-- Is this the testbed for literal pack parts (the lid)?
-- The red, the gold and the secondary type need checking against a real pack.
+- Is this the testbed for the lid?
+- The display face: compare the candidates in a specimen before building.

@@ -51,9 +51,9 @@ Every theme, built or in study, with its private source. This table and each `th
 
 | Theme (working id) | Pack | Variant | Status |
 |---|---|---|---|
-| [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Study, awaiting review |
-| [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Study, awaiting review |
-| [`sun-cured`](themes/sun-cured.md) | Camel | Filters (box) | Study, awaiting review |
+| [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Study, revised with research, awaiting review |
+| [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Study, revised with research, awaiting review |
+| [`sun-cured`](themes/sun-cured.md) | Camel | Filters (box), current design (since about 2017), to confirm | Study, revised with research, awaiting review |
 
 ## Candidate packs
 
@@ -61,9 +61,9 @@ Research names only; none of them appears on the site. Notes are what's known be
 
 | Pack | First notes |
 |---|---|
-| Marlboro (red) | Red chevron "roof" over white; heavy serif capitals whose thick strokes read almost as stripes; a gold crest. A colour-coded family: red, gold, silver, menthol green. The owner's first example. |
-| Newport | A white top over a band of blue in a gradient, with a bold sans-serif (the owner's description). |
-| Camel | A tan-gold field, the animal and its desert scene, ornate lettering. The animal is a mark: signal the scene's palette and lettering, never the figure. |
+| Marlboro (red) | Studied: see `full-flavor`. |
+| Newport | Studied: see `menthol-stripe`. |
+| Camel | Studied: see `sun-cured`. The previous tan design could be a later variant. |
 | Lucky Strike | A white field with a red roundel ringed in black; the pack was famously green until the 1940s. |
 | Pall Mall | A deep red long pack with a crest and a Latin motto. |
 | Benson & Hedges | A gold box. To study. |

@@ -1,6 +1,6 @@
-# Turrible Takes. The misspelling is intentional; never correct it.
+# Flip-Top. "Flip-Top" is a working name for the site; the owner picks the real one (docs/ROADMAP.md).
 baseURL = "https://synchromeshi.com/"
-title = "Turrible Takes"
+title = "Flip-Top"
 locale = "en-US"
 enableRobotsTXT = true
 timeZone = "UTC"

@@ -1,8 +1,8 @@
 {
-  "name": "turrible-takes",
+  "name": "flip-top",
   "private": true,
   "type": "module",
-  "description": "Turrible Takes: a Markdown blog with deliberately bad design. Hugo builds the site; Node is only for the hit counter function and the tests.",
+  "description": "Flip-Top: a Markdown blog whose themes take their palettes, type and shapes from US cigarette pack design. Hugo builds the site; Node is only for the hit counter function and the tests.",
   "scripts": {
     "build:test": "hugo --environment development --panicOnWarning --gc -d .test-site",
     "serve": "node tests/serve.mjs .test-site 8787",

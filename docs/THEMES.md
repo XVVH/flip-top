@@ -47,11 +47,13 @@ What doesn't change between themes: the markup, the floor, the theme controls' p
 
 ## The catalogue
 
-Every built theme, with its private source. This table and each `theme.yaml` are the registry; neither ships.
+Every theme, built or in study, with its private source. This table and each `theme.yaml` are the registry; neither ships.
 
-| Theme | Pack | Variant |
-|---|---|---|
-| *(none yet)* | | |
+| Theme (working id) | Pack | Variant | Status |
+|---|---|---|---|
+| [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Study, awaiting review |
+| [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Study, awaiting review |
+| [`sun-cured`](themes/sun-cured.md) | Camel | Filters (box) | Study, awaiting review |
 
 ## Candidate packs
 

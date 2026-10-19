@@ -22,8 +22,9 @@ Update this as work lands. Tick boxes; don't delete history.
 
 ## Phase 2: the first packs
 
-- [ ] The owner picks three to five packs to start with
-- [ ] A study for each (`docs/themes/<id>.md`), reviewed by the owner before any CSS
+- [x] The owner picks three packs to start with: Marlboro red, Newport and Camel (F19)
+- [x] A study for each: `full-flavor`, `menthol-stripe`, `sun-cured` (working ids)
+- [ ] The owner reviews the studies, picks each theme's name, and confirms colours and lettering against real packs
 - [ ] Build them, with the floor, legibility and trade dress checked on every surface
 - [ ] The owner reviews them in the gallery
 
@@ -37,6 +38,6 @@ Update this as work lands. Tick boxes; don't delete history.
 
 For the owner:
 
-- **The first packs.** Which three to five to start with (THEMES.md, "Candidate packs"), and which one, if any, is the testbed for literal pack parts (F15).
+- **The studies** (`docs/themes/full-flavor.md`, `menthol-stripe.md`, `sun-cured.md`): each theme's name, descriptive or faux brand; whether Full Flavor is the testbed for the lid (F15); and the colours and lettering, which are estimates until checked against real packs.
 
 Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18).

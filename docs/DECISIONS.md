@@ -40,6 +40,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F18. Fresh pack pulls a tear strip.** The slot-machine reels inherited from Turrible Takes are replaced with something pack-like (the owner): a strip with a pull tab runs across the foot of the bar, like the cellophane tape on a new pack, before the next theme arrives. Themes can colour it (`--ft-strip`). It's skipped under reduced motion.
 
+**F19. The first three packs:** Marlboro red, Newport and Camel, "distinctive enough to allow us to exercise our design theories" (the owner). Between them: an angled colour field with condensed serif capitals, a striped gradient with a bold sans, and an illustrated scene that's a registered mark and has to be evoked without it.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

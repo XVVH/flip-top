@@ -1,0 +1,12 @@
+id: menthol-stripe
+name: Menthol Stripe
+front_door: true
+legible: true
+motion: false
+# Private: the source pack, for the registry (docs/THEMES.md). Never ships.
+pack: "Newport"
+variant: "Menthol (box)"
+sources:
+  - "docs/research/2026-10-first-three-packs.md"
+summary: "An off-white top, a thin gold rule, and a field of teal lines that thicken toward the foot of the page until they run solid, under a heavy grotesque."
+smell_exemptions: []

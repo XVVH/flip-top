@@ -55,8 +55,8 @@ A definition list:
 Theme
 : A stylesheet laid over the same page.
 
-Not Bad
-: The readable theme, where escapees land.
+Plain
+: The fallback theme, for printing and for readers without JavaScript.
 
 ## Quotes
 

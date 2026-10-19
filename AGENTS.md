@@ -48,4 +48,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phase 1 is done: the plumbing is imported from Turrible Takes and reworked (one Fresh pack button with a tear strip, no escape, the plain theme only as a fallback, a private pack registry), and every open question is answered. It's tested, with no pack themes yet. Next is phase 2: the owner picks the first packs, and each gets a study before any CSS. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phase 1 is done: the plumbing is imported from Turrible Takes and reworked (one Fresh pack button with a tear strip, no escape, the plain theme only as a fallback, a private pack registry). Phase 2 is built: the first three pack themes, Full Flavor, Menthol Stripe and Sun Cured, each from an approved study, all passing the floor. They await the owner's review in the gallery; Full Flavor also carries the lid experiment (F15, F20). See [`docs/ROADMAP.md`](docs/ROADMAP.md).

@@ -4,7 +4,7 @@ The source of The Smokepit, a Markdown blog whose themes take their palettes, le
 
 Built with Hugo, hosted on Netlify, on the plumbing of Turrible Takes (`bad-blog`, archived). Start with [AGENTS.md](AGENTS.md) and [docs/INTENT.md](docs/INTENT.md).
 
-*Status: phase 1 done. The plumbing, rules and template are in place; no pack themes yet.*
+*Status: phase 2 built. The first three pack themes (Full Flavor, Menthol Stripe, Sun Cured) are live in the build and await the owner's review in the gallery.*
 
 ```sh
 npm ci && hugo server   # preview

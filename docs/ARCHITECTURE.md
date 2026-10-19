@@ -222,7 +222,8 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 - **Budgets:**
   - First visit: about 250KB or less, not counting post images.
   - Bar and switcher JavaScript: about 8KB or less.
-  - Each theme's CSS, fonts and assets: about 150KB or less. Every theme's CSS is in the one bundle, so keep theme CSS lean.
+  - Each theme's CSS, fonts and assets: about 150KB or less. Every theme's CSS is in the one bundle, so keep theme CSS lean. A theme's fonts load only when it's shown. Full Flavor is a little over (about 170KB of fonts, mostly the display face's two axes); see its journal.
+  - Fonts are OFL faces taken from the fontsource npm packages, the Latin subset only, as `woff2`, each with its licence text beside it in `fonts/`.
   - Post images are the biggest lever: resize them, use modern formats, and lazy-load them.
 - **Deploys:** production deploys happen only on merge to main, so batch your work. Review themes from the CI screenshot gallery. Before relying on deploy previews, check whether they use credits.
 

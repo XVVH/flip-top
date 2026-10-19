@@ -1,6 +1,6 @@
-# Full Flavor (working name): pack study and journal
+# Full Flavor: pack study and journal
 
-*Status: **study, revised with web research, awaiting the owner's review.** No CSS until it's approved. The id and name are working choices; see "The page".*
+*Status: **built; awaiting the owner's review in the gallery.** Full Flavor is also the testbed for literal pack parts: its red band opens like the lid (DECISIONS.md F20).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -78,7 +78,7 @@
   - **Footer and metadata:** tracked capitals on the off-white; the red band and white sliver at the very bottom.
   - **The article:** a text serif with moderate contrast in the same family as the display face (Noto Serif), near-black on off-white.
 - **Tear strip colour:** gold (`#c9a85e`), as on the pack.
-- **Literal pack parts:** the candidate testbed. The brand introduced the flip-top box in 1955 and the repository is named after it: the red band could open like the lid when Fresh pack is pressed, showing a sliver of silver foil. The owner decides.
+- **Literal pack parts:** **the testbed** (F20). The brand introduced the flip-top box in 1955 and the repository is named after it: the red band opens like the lid when Fresh pack is pressed, showing the silver foil behind it.
 - **Every surface:**
   - **Home:** each post title in the display face under a short angled red rule; dates in tracked capitals.
   - **Code blocks:** charcoal on a slightly darker off-white, with a red rule on the left; tokens in charcoal, red and khaki.
@@ -110,9 +110,12 @@ The first draft was written from memory and search summaries. The research sessi
 
 - 2026-10-19: Study written for the owner's review.
 - 2026-10-19: Revised with the owner's web research (above).
+- 2026-10-19: Approved by the owner: named Full Flavor, and made the lid testbed.
+- 2026-10-19: Built. Display face settled by specimen: Noto Serif Display at its narrowest width (62.5%) and heaviest weight (900), which stripes like the wordmark. The band is a 43-degree step rather than a chevron: shallow on the left, one drop, full depth to the right, with a gold-foil hairline under it.
+- 2026-10-19: **The lid (the F15 experiment).** Three layers on the page's top edge: silver foil, the gold hairline, the red. While the tear strip runs, the red and the gold swing up on a hinge at the top (`rotateX`, with perspective) and show the foil; hovering Fresh pack lifts them a crack first. It's pure CSS, keyed on the strip's presence (`:has(.bar .bar-strip)`), so the switcher needed no change, and it's off under reduced motion. First attempt didn't move at all: pseudo-elements aren't allowed inside `:is()`, so the selectors were silently dropped. The tear strip also came out white, from a misnamed variable. Both fixed. All floor tests pass.
+- 2026-10-19: Fonts come to about 170KB (the display face's two axes are most of it), a little over the 150KB budget per theme in ARCHITECTURE.md. They load only when the theme is shown.
 
 ## Open questions
 
-- The theme name: descriptive or faux brand?
-- Is this the testbed for the lid?
-- The display face: compare the candidates in a specimen before building.
+- Does the lid read as a lid, or only as motion? The owner's call in the browser.
+- Font weight: drop the italic text face (48KB) if the budget matters more than real italics.

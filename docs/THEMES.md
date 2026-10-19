@@ -1,6 +1,6 @@
 # Themes
 
-*A draft for the owner's review, October 2026. No pack themes are built yet.*
+*Reviewed by the owner, October 2026. The first three pack themes are built and await review in the gallery.*
 
 ## How to make a theme
 
@@ -51,9 +51,9 @@ Every theme, built or in study, with its private source. This table and each `th
 
 | Theme (working id) | Pack | Variant | Status |
 |---|---|---|---|
-| [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Study, revised with research, awaiting review |
-| [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Study, revised with research, awaiting review |
-| [`sun-cured`](themes/sun-cured.md) | Camel | Filters (box), current design (since about 2017), to confirm | Study, revised with research, awaiting review |
+| [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Built; in review |
+| [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Built; in review |
+| [`sun-cured`](themes/sun-cured.md) | Camel | Filters (box), previous design (cream, brown panels, oval) | Built; in review |
 
 ## Candidate packs
 
@@ -63,7 +63,7 @@ Research names only; none of them appears on the site. Notes are what's known be
 |---|---|
 | Marlboro (red) | Studied: see `full-flavor`. |
 | Newport | Studied: see `menthol-stripe`. |
-| Camel | Studied: see `sun-cured`. The previous tan design could be a later variant. |
+| Camel | Studied: see `sun-cured`, which takes the previous design. The current white-and-red box could be a later variant. |
 | Lucky Strike | A white field with a red roundel ringed in black; the pack was famously green until the 1940s. |
 | Pall Mall | A deep red long pack with a crest and a Latin motto. |
 | Benson & Hedges | A gold box. To study. |

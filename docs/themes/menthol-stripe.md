@@ -1,6 +1,6 @@
-# Menthol Stripe (working name): pack study and journal
+# Menthol Stripe: pack study and journal
 
-*Status: **study, revised with web research, awaiting the owner's review.** No CSS until it's approved. The id and name are working choices; see "The page".*
+*Status: **built; awaiting the owner's review in the gallery.** Its closeness to the pack is accepted for now and judged in the gallery (DECISIONS.md F20).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -105,8 +105,9 @@
 
 - 2026-10-19: Study written for the owner's review.
 - 2026-10-19: Revised with the owner's web research (above).
+- 2026-10-19: Approved by the owner: named Menthol Stripe; closeness accepted, to be checked in the gallery.
+- 2026-10-19: Built, in Archivo (OFL). The lined field is the footer: gold rule, plain light-teal band, then six pairs of lines at a constant 28px pitch whose dark share grows from a third to 84%, ending in solid dark teal where the footer's white text sits. The masthead closes with the same gold rule and teal band, with no lines, so nothing striped is on the first screen. Fixes from the first screenshots and tests: the footer and masthead bands were capped at the column width by a more specific rule, and are now full width without `vw` units (which overflow beside a classic scrollbar); heading anchors were told apart from their headings only by a slight colour change (axe `link-in-text-block`), so they keep their underline. All floor tests pass.
 
 ## Open questions
 
-- The theme name: descriptive or faux brand?
-- The endorsement test: this theme carries the most of its pack's structure of the three. Is that too close?
+- The endorsement test: this theme carries the most of its pack's structure of the three. The owner accepts it for now and will judge it in the gallery.

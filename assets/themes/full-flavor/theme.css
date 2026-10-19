@@ -1,0 +1,220 @@
+/*
+  Full Flavor. Red over off-white along a steep 43-degree angle, a condensed
+  high-contrast didone in charcoal, widely tracked geometric capitals, and a
+  gold hairline. The red band is a lid: it opens while the tear strip runs.
+  See docs/themes/full-flavor.md. Signal, don't copy: no centred chevron, no
+  pill, no crest.
+*/
+@font-face {
+  font-family: "Noto Serif Display";
+  src: url("../themes/full-flavor/fonts/noto-serif-display.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62.5% 100%;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Noto Serif";
+  src: url("../themes/full-flavor/fonts/noto-serif.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Noto Serif";
+  src: url("../themes/full-flavor/fonts/noto-serif-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("../themes/full-flavor/fonts/jost-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* The lid, opening on its hinge at the top. */
+@keyframes full-flavor-lid {
+  from { transform: perspective(1400px) rotateX(0deg); }
+  to { transform: perspective(1400px) rotateX(-112deg); }
+}
+
+@layer theme {
+  :root[data-theme="full-flavor"] {
+    --ff-red: #c41e2a;
+    --ff-red-deep: #a8161f;
+    --ff-paper: #e9e7e3;
+    --ff-paper-deep: #dfddd8;
+    --ff-ink: #1f252b;
+    --ff-charcoal: #323b43;
+    --ff-khaki: #5e5d46;
+    --ff-gold: #c9a85e;
+    --ff-foil: linear-gradient(100deg, #9aa0a6, #eef0f2 28%, #b7bcc1 52%, #f6f7f8 74%, #a2a7ad);
+    --ff-gold-foil: linear-gradient(90deg, #b18641, #f3eaae 40%, #c9a85e 70%, #b18641);
+    --ft-strip: var(--ff-gold);
+    --ff-display: "Noto Serif Display", "Bodoni 72", Didot, serif;
+    --ff-text: "Noto Serif", Georgia, serif;
+    --ff-label: "Jost", "Futura", "Century Gothic", sans-serif;
+    /* The band: shallow on the left, then one 43-degree drop to its full
+       depth (tan 43deg is about 0.93, so the run is about 1.07 x the drop). */
+    --ff-band: clamp(120px, 24vh, 230px);
+    --ff-drop: calc(var(--ff-band) * 0.42);
+    --ff-step: clamp(40px, 14vw, 220px);
+    /* The same step in miniature, for section breaks and post lists. */
+    --ff-mini: polygon(0 0, 100% 0, 100% 100%, 22px 100%, 14px 45%, 0 45%);
+    --ff-shape: polygon(0 0, 100% 0, 100% var(--ff-band), calc(var(--ff-step) + var(--ff-drop) * 1.07) var(--ff-band), var(--ff-step) calc(var(--ff-band) - var(--ff-drop)), 0 calc(var(--ff-band) - var(--ff-drop)));
+
+    color-scheme: light;
+    background: var(--ff-paper);
+    color: var(--ff-ink);
+    font: 400 1.1875rem/1.6 var(--ff-text);
+
+    body { background: var(--ff-paper); }
+    /* The foot of the pack: a red band and a sliver of off-white. */
+    body::after { content: ""; display: block; height: 10px; background: var(--ff-red); border-bottom: 4px solid var(--ff-paper); }
+
+    a { color: var(--ff-red); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+    a:hover { color: var(--ff-red-deep); text-decoration-thickness: 2px; }
+    :focus-visible { outline-color: var(--ff-gold); }
+
+    /* The top of the pack: the bar is red, and Fresh pack is set like the
+       pack's small capitals. */
+    .bar { background: var(--ff-red); color: var(--ff-paper); }
+    .bar-next {
+      padding: 0 12px;
+      font: 500 0.875rem/1 var(--ff-label);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--ff-paper);
+      background: none;
+      border: 0;
+      border-bottom: 2px solid var(--ff-gold);
+      cursor: pointer;
+    }
+    .bar-plain { margin: 0; font: 500 0.8125rem/1.3 var(--ff-label); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ff-paper); }
+
+    /* Full-width page; each region keeps its own measure. */
+    .page { position: relative; padding: 0 0 48px; }
+    .page > :not(.deco) { max-width: 44rem; margin-inline: auto; padding-inline: 20px; }
+
+    /* The lid. Three layers on the page's top edge: the silver foil (seen
+       only when the lid is open), the gold hairline, and the red. */
+    .page::before, .masthead::before, .masthead::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: calc(var(--ff-band) + 4px);
+      clip-path: var(--ff-shape);
+      transform-origin: 50% 0;
+      pointer-events: none;
+    }
+    .page::before { z-index: 0; background: var(--ff-foil); }
+    .masthead::before { z-index: 1; background: var(--ff-gold-foil); clip-path: polygon(0 0, 100% 0, 100% calc(var(--ff-band) + 4px), calc(var(--ff-step) + var(--ff-drop) * 1.07) calc(var(--ff-band) + 4px), var(--ff-step) calc(var(--ff-band) - var(--ff-drop) + 4px), 0 calc(var(--ff-band) - var(--ff-drop) + 4px)); }
+    .masthead::after { z-index: 2; background: var(--ff-red); }
+    @media (prefers-reduced-motion: no-preference) {
+      .masthead::before, .masthead::after { transition: transform 0.3s ease-out; }
+      /* Reaching for Fresh pack lifts the lid a crack. (Pseudo-elements
+         can't go inside :is(), so each is listed.) */
+      &:has(.bar-next:hover) .masthead::before, &:has(.bar-next:hover) .masthead::after { transform: perspective(1400px) rotateX(-14deg); }
+      /* Pulling the tear strip opens it. */
+      &:has(.bar .bar-strip) .masthead::before, &:has(.bar .bar-strip) .masthead::after { animation: full-flavor-lid 0.5s cubic-bezier(0.4, 0, 0.6, 1) 0.05s both; }
+    }
+
+    .masthead { position: static; padding-top: calc(var(--ff-band) + 28px); padding-bottom: 8px; }
+    .masthead > * { position: relative; z-index: 3; }
+    .site-name { margin: 0; font: 900 clamp(3rem, 11vw, 6.5rem)/0.95 var(--ff-display); font-stretch: 62.5%; color: var(--ff-charcoal); }
+    .site-name a { color: inherit; text-decoration: none; }
+    .site-tagline { margin: 10px 0 0; font: 500 0.8125rem/1.5 var(--ff-label); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ff-khaki); }
+    .site-nav ul { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 14px 0 0; padding: 0; list-style: none; }
+    .site-nav a { display: inline-block; padding: 6px 0; font: 500 0.8125rem/1.3 var(--ff-label); letter-spacing: 0.22em; text-transform: uppercase; color: var(--ff-charcoal); text-decoration-color: var(--ff-red); }
+
+    .main { margin-top: 28px; }
+    .main:focus { outline: none; }
+
+    .post-head { margin: 0 0 1.6em; }
+    .post-title, .listing-title { margin: 0 0 0.3em; font: 900 clamp(2.25rem, 7vw, 3.75rem)/1 var(--ff-display); font-stretch: 62.5%; color: var(--ff-charcoal); }
+    .post-meta, .post-tags { font: 500 0.8125rem/1.6 var(--ff-label); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ff-khaki); }
+    .post-meta { margin: 0; }
+    .post-reading { margin-left: 0.8em; }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 0 18px; margin: 6px 0 0; padding: 0; }
+    .post-tags a { display: inline-block; padding: 4px 0; color: var(--ff-red); }
+
+    .post-body { max-width: 36em; }
+    .post-body > * { margin: 0 0 1.05em; }
+    .post-body h2 { margin: 1.7em 0 0.4em; font: 800 2.125rem/1.08 var(--ff-display); font-stretch: 62.5%; color: var(--ff-charcoal); }
+    .post-body h3 { margin: 1.4em 0 0.35em; font: 800 1.625rem/1.12 var(--ff-display); font-stretch: 70%; color: var(--ff-charcoal); }
+    .post-body :is(h4, h5, h6) { margin: 1.4em 0 0.4em; font: 500 0.875rem/1.5 var(--ff-label); letter-spacing: 0.22em; text-transform: uppercase; color: var(--ff-charcoal); }
+    .h-anchor { color: var(--ff-red); text-decoration: none; font-weight: 400; }
+    .post-body :is(ul, ol) { padding-left: 1.3em; }
+    .post-body ul { list-style: square; }
+    .post-body li::marker { color: var(--ff-red); }
+    .post-body li:has(> input[type="checkbox"]) { list-style: none; }
+    .post-body dt { font: 500 0.875rem/1.6 var(--ff-label); letter-spacing: 0.2em; text-transform: uppercase; }
+    .post-body dd { margin: 0 0 0.6em 1.4em; }
+    .post-body blockquote { margin: 0 0 1.2em; padding: 0.1em 0 0.1em 1.1em; font-style: italic; border-left: 4px solid var(--ff-red); }
+    .post-body blockquote blockquote { border-left-color: var(--ff-gold); }
+    .post-body hr { width: 120px; height: 16px; margin: 2.2em 0; border: 0; background: var(--ff-red); clip-path: var(--ff-mini); }
+
+    .code { margin: 0 0 1.3em; border-left: 4px solid var(--ff-red); background: var(--ff-paper-deep); }
+    .code-lang { margin: 0; padding: 8px 14px 0; font: 500 0.75rem/1.4 var(--ff-label); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ff-khaki); }
+    .code pre { margin: 0; padding: 8px 14px 12px; font: 0.9375rem/1.55 ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: var(--ff-charcoal); background: none; }
+    .code pre code { font: inherit; }
+    .chroma .line.hl { display: block; background: #d3d0c9; }
+    .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .nt) { color: var(--ff-red-deep); font-weight: 600; }
+    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { color: var(--ff-khaki); }
+    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: var(--ff-khaki); font-style: italic; }
+    .post-body :not(pre) > code { padding: 0 0.25em; font: 0.88em ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; background: var(--ff-paper-deep); }
+
+    .table-scroll table { font-size: 1rem; }
+    .table-scroll :is(th, td) { padding: 6px 14px 6px 0; vertical-align: top; text-align: left; border-bottom: 1px solid #b9b6af; }
+    .table-scroll th { font: 500 0.75rem/1.4 var(--ff-label); letter-spacing: 0.2em; text-transform: uppercase; border-bottom: 2px solid var(--ff-charcoal); }
+    .table-scroll .align-right { text-align: right; }
+    .table-scroll .align-center { text-align: center; }
+
+    .fig figcaption { margin-top: 8px; font: 500 0.75rem/1.5 var(--ff-label); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ff-khaki); }
+
+    .footnotes { margin-top: 2.5em; padding-top: 1em; font-size: 0.95rem; border-top: 1px solid var(--ff-charcoal); }
+    .footnotes hr { display: none; }
+
+    .post-foot { margin-top: 2.5em; }
+    .post-nav { display: grid; gap: 10px; }
+    .post-nav p { margin: 0; }
+    .post-nav-label { display: block; font: 500 0.75rem/1.4 var(--ff-label); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ff-khaki); }
+
+    .post-list { margin: 0; }
+    .post-item { margin: 0 0 2.1em; }
+    .post-item::before { content: ""; display: block; width: 72px; height: 12px; margin-bottom: 12px; background: var(--ff-red); clip-path: var(--ff-mini); }
+    .post-summary-title { margin: 0 0 0.2em; font: 900 clamp(1.75rem, 5vw, 2.5rem)/1.05 var(--ff-display); font-stretch: 62.5%; }
+    .post-summary-title a { color: var(--ff-charcoal); text-decoration: none; }
+    .post-summary-title a:hover { color: var(--ff-red); }
+    .post-summary-meta { margin: 0 0 0.3em; font: 500 0.75rem/1.6 var(--ff-label); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ff-khaki); }
+    .post-summary-desc { margin: 0; }
+
+    .term-list { display: grid; gap: 4px; margin: 0; padding: 0; }
+    .term-list a { display: inline-block; padding: 4px 0; font: 500 0.875rem/1.4 var(--ff-label); letter-spacing: 0.2em; text-transform: uppercase; }
+    .tag-count { color: var(--ff-khaki); }
+
+    .rail { margin-top: 2.5em; font-size: 1rem; }
+    .rail-section { margin: 0 0 1.6em; }
+    .rail-title { margin: 0 0 0.5em; padding-bottom: 6px; font: 500 0.75rem/1.4 var(--ff-label); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ff-charcoal); border-bottom: 2px solid var(--ff-red); }
+    .rail ul { margin: 0; padding: 0; list-style: none; }
+    .rail li { padding: 2px 0; }
+    .rail a { display: inline-block; padding: 3px 0; }
+    .rail-date { margin-left: 6px; font: 500 0.6875rem/1 var(--ff-label); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ff-khaki); }
+    .rail p { margin: 0 0 0.5em; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0 16px; }
+    .archive-year-label { font: 500 0.75rem/1.4 var(--ff-label); letter-spacing: 0.2em; }
+
+    .site-foot { margin-top: 3em; padding-top: 14px; font: 500 0.75rem/1.8 var(--ff-label); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ff-khaki); border-top: 1px solid #b9b6af; }
+    .site-foot p { margin: 0; }
+    .site-foot-name { color: var(--ff-charcoal); }
+  }
+}

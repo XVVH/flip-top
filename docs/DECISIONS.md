@@ -42,6 +42,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F19. The first three packs:** Marlboro red, Newport and Camel, "distinctive enough to allow us to exercise our design theories" (the owner). Between them: an angled colour field with condensed serif capitals, a striped gradient with a bold sans, and an illustrated scene that's a registered mark and has to be evoked without it.
 
+**F20. The first three themes are Full Flavor, Menthol Stripe and Sun Cured** (the owner, October 2026). Sun Cured studies **the previous Camel design** (cream field, brown panels, the oval), the owner's preference over the current white-and-red box, which stays available as a later variant. **Full Flavor is the testbed for literal pack parts** (F15): its red band opens like a flip-top lid. Menthol Stripe's closeness to its pack is accepted for now, and judged in the gallery once built.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

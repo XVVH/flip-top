@@ -25,8 +25,8 @@ Update this as work lands. Tick boxes; don't delete history.
 - [x] The owner picks three packs to start with: Marlboro red, Newport and Camel (F19)
 - [x] A study for each: `full-flavor`, `menthol-stripe`, `sun-cured` (working ids)
 - [x] Research the three packs' colours, lettering and layout from real references (the owner's browser session; `docs/research/2026-10-first-three-packs.md`), and revise the studies
-- [ ] The owner reviews the studies and picks each theme's name
-- [ ] Build them, with the floor, legibility and trade dress checked on every surface
+- [x] The owner reviews the studies and picks each theme's name (F20)
+- [x] Build them, with the floor, legibility and trade dress checked on every surface
 - [ ] The owner reviews them in the gallery
 
 ## Phase 3: launch
@@ -39,6 +39,9 @@ Update this as work lands. Tick boxes; don't delete history.
 
 For the owner:
 
-- **The studies** (`docs/themes/full-flavor.md`, `menthol-stripe.md`, `sun-cured.md`): each theme's name, descriptive or faux brand; whether Full Flavor is the testbed for the lid (F15); which Camel design to study (current, recommended, or the previous tan one); and whether Menthol Stripe carries too much of its pack's structure.
+- The gallery review of the first three themes. Each journal's open questions list what to look at:
+  - Full Flavor: does the lid read as a lid, or only as motion? (Press Fresh pack; hover first.)
+  - Menthol Stripe: the endorsement test. It carries the most of its pack's structure.
+  - Sun Cured: the colours, which are low confidence, and whether a deeper top panel is worth it.
 
-Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18).
+Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20).

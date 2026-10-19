@@ -1,0 +1,12 @@
+id: sun-cured
+name: Sun Cured
+front_door: true
+legible: true
+motion: false
+# Private: the source pack, for the registry (docs/THEMES.md). Never ships.
+pack: "Camel"
+variant: "Filters (box), previous design"
+sources:
+  - "docs/research/2026-10-first-three-packs.md"
+summary: "Cream between brown panels, flared calligraphic capitals in navy, gold lettering on brown, and an oval medallion holding the date."
+smell_exemptions: []

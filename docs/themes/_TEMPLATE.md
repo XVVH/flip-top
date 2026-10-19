@@ -36,7 +36,10 @@ Marks and signature shapes are signalled, never reproduced; names, logos, wordma
 
 ## The page
 
-- **Theme name** (shown to readers; no brand names or brand puns):
+- **Theme name** (shown to readers): descriptive, or a faux brand that's genuinely invented, never a sound-alike or pun of the real one (DECISIONS.md F16).
+- **Site name case**, to match the wordmark: THE SMOKEPIT, The Smokepit or the smokepit (F17).
+- **Tear strip colour** (`--ft-strip`), if the pack has one.
+- **Literal pack parts** (lid, foil liner, tear strip): none by default; if this theme is the experiment, say what it tries (F15).
 - **Template slots** (THEMES.md): page ground and masthead band; site name and headings; secondary type; signature shape; material; footer and metadata; the article.
 - **Typefaces** (freely licensed, self-hosted or system), and why each matches the pack's character:
 - **Every surface:** post, home, tag list, about, 404, code blocks, tables, images, links, footnotes, the theme controls.

@@ -11,6 +11,7 @@ A theme evokes a pack; it never claims to be one. Breaking any of these is a bug
 - **Lettering is never redrawn.** Choose a freely licensed typeface with the same character as the pack's lettering: weight, width, contrast, serif style, case, spacing. Never trace, redraw or rebuild a wordmark, letter by letter or as an image.
 - **Signal, don't copy.** An element may echo a mark's geometry (an angle, a band, a proportion, a placement) but must not be the mark: not its outline, and not the mark's shape in the mark's colours in the mark's place. The owner's example: an angled element that nods to a chevron "roof" without being the roof.
 - **Don't lay the page out as the pack's face.** The whole arrangement of a pack (these colours, in these zones, with these shapes) is its trade dress. Take the distinctive elements and arrange them for a page.
+- **Faux brands are invented.** A theme named as a made-up brand (DECISIONS.md F16) never uses a sound-alike, pun, anagram, abbreviation or translation of the real brand, and never puts its own name in the place or style of the real wordmark.
 - **The endorsement test:** would a reader think the brand made, sponsored or approved the page? If so, pull back. The goal is "that reminds me of…", never "that's their site".
 - **Health warnings are left out entirely** (DECISIONS.md F13). The subject is brand design.
 - Brands may be named in the docs, the journals and each theme's private `pack:` field, none of which ships. The lint and a production test check this (DECISIONS.md F11).

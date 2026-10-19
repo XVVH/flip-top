@@ -30,7 +30,7 @@ How a pack maps onto a page. Every theme fills the same slots, so packs can be c
 | On the pack | On the page |
 |---|---|
 | The main colour field and its partner (a red top over white, a white top over blue) | The page ground and the masthead band. The proportion matters: if the pack is a third red, the masthead is roughly a third of the first screen. |
-| The wordmark's lettering | The site name and headings, in a display face with the same character |
+| The wordmark's lettering | The site name and headings, in a display face with the same character. The site name takes the wordmark's case too: THE SMOKEPIT, The Smokepit or the smokepit (DECISIONS.md F17). |
 | The secondary lettering (the descriptor line, the small capitals) | Dates, tags, navigation, labels |
 | The signature shape, signalled (an angle, a band, a roundel, a crest's outline language) | The masthead's edge, dividers, list markers, the theme controls |
 | Material (foil, embossing, gloss) | Accents, sparingly: rules, the site name, focus and hover states |
@@ -41,9 +41,9 @@ What doesn't change between themes: the markup, the floor, the theme controls' p
 
 **Variants** of one pack (red, gold, silver, menthol) are separate themes, each registered with its own `variant:` (DECISIONS.md F11).
 
-Open questions for the owner:
-- **How literal.** Does any theme draw the pack itself (a lid, a foil liner, a tear strip), or only borrow its language?
-- **Names.** Theme names are shown to readers, so they can't be brand names, or puns that are really brand names. One convention: counter vocabulary and colour ("Full Flavor", "Box", "Soft Pack", "King Size"), which describes without naming.
+**How literal.** By default a theme borrows the pack's language and doesn't draw the pack. Literal parts (the lid, the foil liner, the tear strip) are an area of investigation: one theme at a time can try them, and its journal says what worked (DECISIONS.md F15).
+
+**Names.** A theme is named either descriptively, from its core elements, or as a faux brand, a made-up name standing in for the real one (F16). A faux brand has to be invented, not a sound-alike or pun of the real brand, and the lint rejects a name that contains its pack's name.
 
 ## The catalogue
 

@@ -4,7 +4,7 @@
 
 ## What this is
 
-**Flip-Top** (a working name) is a personal blog for long-form writing, built from Markdown into a static site and served at `synchromeshi.com`. Every page wears a theme drawn from the design of a US cigarette pack. A first visit gets one at random; readers can switch to explore the rest.
+**The Smokepit** is a personal blog for long-form writing, built from Markdown into a static site and served at `synchromeshi.com`. Every page wears a theme drawn from the design of a US cigarette pack. A first visit gets one at random; readers can switch to explore the rest.
 
 It replaces Turrible Takes, an experiment in deliberately bad design, and reuses its plumbing. That project is archived, with its record, in the `bad-blog` repository.
 
@@ -23,7 +23,7 @@ How much of a brand's identity lives in its palette, the style of its lettering 
 
 That's recognition without the marks, and it's a test of looking closely. Each theme starts by studying one pack: what makes it that pack and not another, element by element. Then it carries those few elements onto a page that still has to work as a page.
 
-There's a model angle too. Turrible Takes found that the model building it was good at faithful recreation from references, and bad at being bad on purpose. Flip-Top uses the strength deliberately: careful study and translation, not invention. The journals in [`themes/`](themes/) record what the model picks out as distinctive, and where it gets that wrong. That record is the experiment's data.
+There's a model angle too. Turrible Takes found that the model building it was good at faithful recreation from references, and bad at being bad on purpose. The Smokepit uses the strength deliberately: careful study and translation, not invention. The journals in [`themes/`](themes/) record what the model picks out as distinctive, and where it gets that wrong. That record is the experiment's data.
 
 ## What a theme is
 

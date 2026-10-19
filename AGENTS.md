@@ -1,11 +1,12 @@
-# Flip-Top: read this first
+# The Smokepit: read this first
 
-This repository is **Flip-Top** (a working name), a Markdown-to-static-site blog. Each of its themes is drawn from the design of a US cigarette pack: its palette, the style of its lettering, its shapes and its materials. It replaces Turrible Takes on `synchromeshi.com` and is built on that project's plumbing (the `bad-blog` repository, archived).
+This repository, `flip-top`, builds **The Smokepit**, a Markdown-to-static-site blog. Each of its themes is drawn from the design of a US cigarette pack: its palette, the style of its lettering, its shapes and its materials. It replaces Turrible Takes on `synchromeshi.com` and is built on that project's plumbing (the `bad-blog` repository, archived).
 
 ## The short version
 
 - Each theme studies one pack, picks out what makes it recognizable, and carries those elements onto the page. Someone who knows the pack should feel it at once; nobody should mistake the page for the brand.
-- **No brand names, logos, wordmarks or marks** on the site, in theme names or ids, or in any shipped file. **Signal, don't copy:** an angled element can nod to a pack's chevron without being it. See `docs/RULES.md`, "Trade dress".
+- The site name is **The Smokepit**, and each theme sets its case to match its pack's lettering: THE SMOKEPIT, The Smokepit or the smokepit.
+- **No brand names, logos, wordmarks or marks** on the site, in theme names or ids, or in any shipped file. A theme's name is descriptive or a faux brand, and a faux brand is invented, never a sound-alike or pun of the real one. **Signal, don't copy:** an angled element can nod to a pack's chevron without being it. See `docs/RULES.md`, "Trade dress".
 - Every page renders in one of the pack themes, picked at random on a first visit. **Fresh pack**, the only control, deals the next one.
 - Readable, accessible and well engineered on desktop and mobile. The floor from Turrible Takes carries over unchanged.
 
@@ -47,4 +48,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phase 1, in progress. The plumbing is imported from Turrible Takes and reworked: one Fresh pack button, no escape, the plain theme only as a fallback, and a private pack registry. It's tested, with no pack themes yet. Still open before the first theme: how literal a theme may be, theme names, and the site's name. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phase 1 is done: the plumbing is imported from Turrible Takes and reworked (one Fresh pack button with a tear strip, no escape, the plain theme only as a fallback, a private pack registry), and every open question is answered. It's tested, with no pack themes yet. Next is phase 2: the owner picks the first packs, and each gets a study before any CSS. See [`docs/ROADMAP.md`](docs/ROADMAP.md).

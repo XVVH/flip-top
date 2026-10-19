@@ -2,9 +2,9 @@
 
 What's been decided, why, and what was rejected, so none of it needs deciding again. Changing an entry needs the owner's agreement; when one changes, edit it and add the date. Open questions are in [ROADMAP.md](ROADMAP.md#open-questions).
 
-## Flip-Top (October 2026)
+## The Smokepit (October 2026)
 
-**F1. Flip-Top replaces Turrible Takes on `synchromeshi.com`.** Turrible Takes, an experiment in deliberately bad design, is archived for posterity in the `bad-blog` repository, with its journals and decisions. Its plumbing is reused here; its themes and its premise aren't. *Rejected:* a long-lived branch of `bad-blog` (its docs steer agents toward the opposite goal), and a GitHub fork (which implies changes flowing back).
+**F1. The Smokepit replaces Turrible Takes on `synchromeshi.com`.** Turrible Takes, an experiment in deliberately bad design, is archived for posterity in the `bad-blog` repository, with its journals and decisions. Its plumbing is reused here; its themes and its premise aren't. *Rejected:* a long-lived branch of `bad-blog` (its docs steer agents toward the opposite goal), and a GitHub fork (which implies changes flowing back).
 
 **F2. Themes come from US cigarette pack design:** each pack's palette, the style of its lettering, its shapes and materials. The owner calls it thematic matching.
 
@@ -16,7 +16,7 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F6. A first visit gets a random theme, and readers can explore the rest** (as in Turrible Takes). How they explore is open.
 
-**F7. Working names:** the repository is `flip-top`, and the site is "Flip-Top" until the owner names it.
+**F7. Names:** the repository is `flip-top`, and the site is The Smokepit (F17).
 
 **F8. One control: Fresh pack.** It deals the next theme (the owner: "Next theme should be 'fresh pack'"). *Rejected:* a Less bad escape; there's nothing to escape from.
 
@@ -31,6 +31,14 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 **F13. Health warnings are excluded entirely.** The owner: "this is a study in brand design, not the government-required stickers."
 
 **F14. `_control` and the smell lint stay**, as a guard against defaults filling the gaps a pack leaves (recommended to the owner, who was open to it). `_control` also keeps the tests exercising the switcher until two pack themes exist; revisit it then.
+
+**F15. Themes borrow a pack's language by default; literal pack parts are an experiment.** A theme doesn't draw the pack itself unless it's the investigation: one theme can try the lid, the foil liner or the tear strip, and its journal records how it went (the owner: "this is an area of investigation").
+
+**F16. Theme names are descriptive or faux brands.** Either a generic name from the theme's core elements, or a made-up brand standing in for the real one. A faux brand is invented: never a sound-alike, pun, anagram, abbreviation or translation of the real brand (RULES.md tier 1). The lint already rejects a name that contains its pack's name.
+
+**F17. The site is called The Smokepit, cased to match each theme.** If a pack's wordmark is set in capitals, the site name reads THE SMOKEPIT; in title case, The Smokepit; in lower case, the smokepit. Each theme sets it with `text-transform`; titles, feeds and metadata use "The Smokepit".
+
+**F18. Fresh pack pulls a tear strip.** The slot-machine reels inherited from Turrible Takes are replaced with something pack-like (the owner): a strip with a pull tab runs across the foot of the bar, like the cellophane tape on a new pack, before the next theme arrives. Themes can colour it (`--ft-strip`). It's skipped under reduced motion.
 
 ## Inherited from Turrible Takes
 
@@ -54,7 +62,7 @@ Still in force unless changed. Numbers in brackets are Turrible Takes' own, for 
 
 **I9. Netlify** [D18], on the Free plan for now. Production deploys are batched, because each costs 15 credits from a 300-credit monthly cap.
 
-**I10. The domain** [D19]: `synchromeshi.com`, now Flip-Top's. Posts live under `/posts/<slug>/`.
+**I10. The domain** [D19]: `synchromeshi.com`, now The Smokepit's. Posts live under `/posts/<slug>/`.
 
 **I11. Hit counts only; no analytics** [D20]. A Netlify Function and Netlify Blobs store a count per page path, counted once per visit. No IPs, cookies or visitor input. No theme shows the number (F12).
 

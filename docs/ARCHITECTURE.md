@@ -184,7 +184,7 @@ Without JavaScript, the page keeps the `data-theme="plain"` it was built with, a
 The switcher (`assets/js/switcher.js`) is a small module, deferred:
 
 - **Fresh pack:**
-  - Spins first: three slot-machine reels in the bar (`.bar-spin`, styled in `_base`) for about 0.6 seconds, skipped under reduced motion. Clicks during the spin are ignored.
+  - Pulls a tear strip first: a strip with a pull tab runs across the foot of the bar (`.bar-strip`, styled in `_base`, coloured by a theme's `--ft-strip`) for about 0.55 seconds, skipped under reduced motion. Clicks meanwhile are ignored.
   - Deals the next theme from a shuffled deck, kept for the visit.
   - Crossfades to the new theme with the View Transitions API where the browser has it, skipped under reduced motion.
   - Changes `data-theme`, runs the old theme's `deactivate` and the new one's `activate`, and restores the reader's position.

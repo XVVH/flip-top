@@ -1,6 +1,8 @@
-# Flip-Top. "Flip-Top" is a working name for the site; the owner picks the real one (docs/ROADMAP.md).
+# The Smokepit, built from the flip-top repository. Each theme sets the site
+# name's case to match its pack's lettering (DECISIONS.md F17); this is the
+# canonical form, used in titles, feeds and metadata.
 baseURL = "https://synchromeshi.com/"
-title = "Flip-Top"
+title = "The Smokepit"
 locale = "en-US"
 enableRobotsTXT = true
 timeZone = "UTC"

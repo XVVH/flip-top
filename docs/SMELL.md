@@ -2,7 +2,7 @@
 
 The default look of AI-built websites: what a model produces when nobody steers it.
 
-In Turrible Takes this was the foundation: the whole project pushed against it. In Flip-Top it's a guard. A pack decides a theme's palette, lettering and shapes, but not its spacing, its link styles, its code blocks or its footer. Those gaps are exactly where a model's defaults come back. A page with a pack's red and white and gold, and Inter body text, rounded cards and a slate-grey footer, is the smell wearing the pack's colours.
+In Turrible Takes this was the foundation: the whole project pushed against it. In The Smokepit it's a guard. A pack decides a theme's palette, lettering and shapes, but not its spacing, its link styles, its code blocks or its footer. Those gaps are exactly where a model's defaults come back. A page with a pack's red and white and gold, and Inter body text, rounded cards and a slate-grey footer, is the smell wearing the pack's colours.
 
 **Nothing that ships may carry it.** The only place it lives is `assets/themes/_control/`, the dev-only scaffold and baseline (see [below](#the-control)).
 

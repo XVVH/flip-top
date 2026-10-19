@@ -175,31 +175,31 @@ const sync = () => {
   plain.hidden = !none;
 };
 
-// The spin: three reels in the bar, about 0.6s. The reels scroll rather than
-// flicker, so nothing flashes. Skipped under reduced motion.
-let spinning = false;
-const spin = () =>
+// The tear strip: the cellophane tape round a fresh pack, pulled across the
+// foot of the bar by its tab, about 0.55s. Nothing flashes. Skipped under
+// reduced motion.
+let tearing = false;
+const tear = () =>
   new Promise((done) => {
     if (reducedMotion.matches) return done();
-    const reel = document.createElement("span");
-    reel.className = "bar-spin";
-    reel.setAttribute("aria-hidden", "true");
-    reel.append(...[0, 1, 2].map(() => document.createElement("span")));
-    next.after(reel);
+    const strip = document.createElement("span");
+    strip.className = "bar-strip";
+    strip.setAttribute("aria-hidden", "true");
+    bar.append(strip);
     window.setTimeout(() => {
-      reel.remove();
+      strip.remove();
       done();
-    }, 650);
+    }, 600);
   });
 
 // Fresh pack: deal the next theme from the deck.
 next.addEventListener("click", async () => {
-  if (spinning) return;
+  if (tearing) return;
   const id = deal();
   if (!id) return;
-  spinning = true;
-  await spin();
-  spinning = false;
+  tearing = true;
+  await tear();
+  tearing = false;
   session?.setItem("ft:theme", id);
   const point = readingPoint();
   const swap = async () => {

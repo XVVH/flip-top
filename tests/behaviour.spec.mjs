@@ -162,14 +162,26 @@ test("the theme index is linked from every theme and lists every theme but the p
   await expect(page.locator("#design-plain")).toHaveCount(0);
 });
 
-test("the Fresh pack spin shows no text", async ({ page }) => {
+test("Fresh pack pulls a tear strip across the bar, then clears it", async ({ page }) => {
   test.skip(PACKS.length < 2, "needs at least two themes");
   await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
   await fresh(page).click();
-  const spin = page.locator(".bar-spin");
-  await expect(spin).toBeAttached();
-  expect(await spin.innerText()).toBe("");
-  await expect(spin).not.toBeAttached();
+  const strip = page.locator(".bar .bar-strip");
+  await expect(strip).toBeAttached();
+  expect(await strip.getAttribute("aria-hidden")).toBe("true");
+  expect(await strip.innerText()).toBe("");
+  await expect(strip).not.toBeAttached();
+});
+
+test("under reduced motion, Fresh pack switches without the tear strip", async ({ browser }) => {
+  test.skip(PACKS.length < 2, "needs at least two themes");
+  const context = await browser.newContext({ reducedMotion: "reduce" });
+  const page = await context.newPage();
+  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  await fresh(page).click();
+  await expect.poll(() => currentTheme(page)).not.toBe(PACKS[0].id);
+  await expect(page.locator(".bar-strip")).toHaveCount(0);
+  await context.close();
 });
 
 test("theme metadata is complete", () => {

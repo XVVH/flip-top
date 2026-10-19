@@ -1,6 +1,6 @@
 # Not Bad: design journal
 
-*Status: **proposed, awaiting the owner's approval.** Built in phase 0 because the escape hatch needs somewhere to land; everything here is open to change.*
+*Status: inherited from Turrible Takes, where it was the escape destination and awaited the owner's approval. In Flip-Top it's the plain fallback for readers without JavaScript and for printing. Whether readers can choose it, and what it should look like now, are open questions (ROADMAP.md). The journal below is Turrible Takes' and is kept for reference.*
 
 ## Brief
 

@@ -1,10 +1,10 @@
-# Turrible Takes
+# Flip-Top
 
-*(Yes, spelled like that.)* A Markdown blog with deliberately bad design. Every page appears in one of several bad themes, with a **More bad** button to spin to another and a **Less bad** button to escape to a readable one.
+*(A working name.)* A Markdown blog whose themes take their palettes, lettering styles and shapes from US cigarette pack design. A first visit gets a random theme, and readers can switch to explore the rest. No brand names or logos: each theme signals its pack without copying it.
 
-Built with Hugo, hosted on Netlify. Start with [AGENTS.md](AGENTS.md) and [docs/INTENT.md](docs/INTENT.md).
+Built with Hugo, hosted on Netlify, on the plumbing of Turrible Takes (`bad-blog`, archived). Start with [AGENTS.md](AGENTS.md) and [docs/INTENT.md](docs/INTENT.md).
 
-*Status: six bad themes, each built from a broken design principle rather than a recreation of something old (see [docs/THEMES.md](docs/THEMES.md)). Live, and under the owner's review.*
+*Status: phase 0. The plumbing is in place; the docs are a draft; no pack themes yet.*
 
 ```sh
 npm ci && hugo server   # preview

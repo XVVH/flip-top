@@ -1,6 +1,8 @@
 # Architecture
 
-*Phase 0 (the plumbing) is built, as of October 2026. Where the code and this file disagree, fix one of them.*
+*Inherited from Turrible Takes with its plumbing, October 2026. Where the code and this file disagree, fix one of them.*
+
+*Names in the code are Turrible Takes' until the theme controls are redesigned (ROADMAP.md, phase 1): `?bad=<id>`, the `not-bad` plain theme, `bad:` in front matter, the More bad / Less bad buttons and their escape note, `rules_broken` in `theme.yaml`, and the `tt:` storage keys. Read "bad theme" below as "pack theme", and "Not Bad" as the plain theme.*
 
 ## Overview
 
@@ -35,7 +37,7 @@ Hugo is pinned to the version in `netlify.toml` and `.github/workflows/ci.yml`; 
   description: "…"       # used in lists and feeds
   tags: [ … ]
   draft: false
-  bad: true              # or false (Not Bad only), or a list such as [vibrant, the-small-print]
+  bad: true              # or false (the plain theme only), or a list of theme ids
   ```
 
 - Page types are kept few, because each one multiplies the work for every theme: home (the post list), post, tag list, about, and 404.
@@ -91,7 +93,7 @@ Every page type renders the same semantic skeleton, in every theme (`layouts/bas
 - The rails (`aside` sidebars) hold real, useful content. Themes may hide them, move them or put them centre stage.
 - The `.deco` spans are empty hooks for decoration. Anything a theme injects goes inside an `aria-hidden` container.
 - Themes rearrange the page with CSS grid. A theme may not change the HTML for itself alone; if it needs a new hook, add it for every theme.
-- Decoration comes from the content, never from extra authoring: "NEW!" from the post date (`data-fresh` marks posts under 14 days old at build time), emoji or clip art chosen by hashing the heading text, testimonials from existing blockquotes, numbers from the hit counter.
+- Decoration comes from the content, never from extra authoring: from the post date (`data-fresh` marks posts under 14 days old at build time), from heading text, from existing blockquotes, from the hit counter.
 - Hooks themes can rely on: `.deco` and `.hits` (hidden until a theme shows them), `data-day`, `data-month`, `data-year` and `data-weekday` on post dates (for `content: attr(…)`), `data-fresh` on recent list items, `data-count` on tags, `data-date` on archive entries, `data-lang` on code figures, `html[data-hits]` once the counter answers.
 
 ## Theme packages
@@ -103,8 +105,8 @@ assets/themes/
   _base/              # layout primitives shared by every theme (not a look)
   _floor/             # tier 1 of RULES.md as CSS; always wins
   _control/           # the smell; dev-only, never shipped
-  not-bad/            # the readable theme
-  vibrant/
+  not-bad/            # the plain theme
+  <id>/
     theme.yaml
     theme.css
     theme.js          # optional
@@ -114,14 +116,14 @@ assets/themes/
 `theme.yaml`:
 
 ```yaml
-id: vibrant
-name: Vibrant
+id: <id>               # original; never a brand name (RULES.md tier 1)
+name: <Theme name>
 front_door: true        # eligible for the first-visit lottery
 legible: true           # passes RULES.md tier 2
 motion: false           # true if it animates (all of it switched off under reduced motion)
-axes: [colour, structure]  # structure, type, colour (D23)
-sources: [ … ]          # see THEMES.md
-rules_broken:           # shown only in the escape note
+axes: []               # inherited from Turrible Takes; unused
+sources: [ … ]          # research links, never shipped as page text
+rules_broken:           # inherited: shown in the escape note and the theme index; to be renamed
   - "…"
 smell_exemptions: []    # each with a reason
 ```
@@ -197,7 +199,7 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 
 ## The theme index
 
-`content/designs.md` with `layouts/designs.html` renders `/designs/` from the manifest: every shipped bad theme, its `rules_broken`, and a "Try it" link (`/?bad=<id>`). The page has `bad: false`, so it always shows in Not Bad. Links to it carry the class `designs-link` (in the escape note and the footer), and the floor hides them in every bad theme, because the index explains the joke.
+`content/designs.md` with `layouts/designs.html` renders `/designs/` from the manifest: every shipped bad theme, its `rules_broken`, and a "Try it" link (`/?bad=<id>`). The page has `bad: false`, so it always shows in Not Bad. Links to it carry the class `designs-link` (in the escape note and the footer), and the floor hides them in every theme but the plain one, a rule inherited from Turrible Takes, where the index explained the joke. Whether to keep that is open.
 
 ## Hit counter
 
@@ -205,8 +207,8 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 - Code: `netlify/functions/hit/counter.mjs` (the logic, unit-tested with a fake store) and `hit.mjs` (wires in Blobs). Served at `/api/hit`.
 - The page makes one `POST` per page per visit (marked in sessionStorage), in every theme, after it has loaded. The body is the page path. The function checks it against the allow-list Hugo generates (`hits-allowlist.json`, copied into the function by the build command), adds one, and returns `{ path, count }`. `GET /api/hit?path=…` reads a count without adding to it. There's no endpoint that lists everything.
 - It stores nothing about visitors. Two hits at the same instant may occasionally count as one; that's accepted.
-- Only The Small Print shows the number, enormous. Readers without JavaScript aren't counted.
-- The owner reads the totals through the Netlify dashboard or CLI (`netlify blobs:list hits`). Single counts are public anyway, via The Small Print.
+- No theme shows the number yet; whether any does is open. Readers without JavaScript aren't counted.
+- The owner reads the totals through the Netlify dashboard or CLI (`netlify blobs:list hits`). Single counts are public anyway, through `GET /api/hit?path=…`.
 - `tests/serve.mjs` runs the same logic against an in-memory store, so the counter works in local tests.
 - If the site is ever served under a subpath, `config.path` in `hit.mjs` must change to match.
 

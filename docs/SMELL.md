@@ -1,10 +1,12 @@
 # The smell
 
-The default look of AI-built websites: what a model produces when nobody steers it, and what this project exists to push against.
+The default look of AI-built websites: what a model produces when nobody steers it.
 
-**Nothing that ships may carry it**: not the bad themes, not Not Bad, not the bar, not the 404 page. The only place it lives is `assets/themes/_control/`, the baseline that never ships (see [below](#the-control)).
+In Turrible Takes this was the foundation: the whole project pushed against it. In Flip-Top it's a guard. A pack decides a theme's palette, lettering and shapes, but not its spacing, its link styles, its code blocks or its footer. Those gaps are exactly where a model's defaults come back. A page with a pack's red and white and gold, and Inter body text, rounded cards and a slate-grey footer, is the smell wearing the pack's colours.
 
-If you are a model reading this: these are your defaults. Expect to reach for them, especially when you're "just getting something working". Catch yourself, and write it down in the theme's journal when you do.
+**Nothing that ships may carry it.** The only place it lives is `assets/themes/_control/`, the dev-only scaffold and baseline (see [below](#the-control)).
+
+If you are a model reading this: these are your defaults. Expect to reach for them wherever the pack is silent. Choose for the pack instead, and write it down in the theme's journal when you catch yourself.
 
 ## Surface smell
 
@@ -45,18 +47,6 @@ A second default, which shows up when a model is asked for something "elegant", 
 - One muted terracotta, rust or olive accent.
 - Big italic serif pull quotes, thin rules, generous margins, small-caps eyebrow labels.
 
-## The costume smell
-
-A third default, which shows up when a model is asked for *bad* design. It's the one this project fell into first.
-
-- **Retrieval:** recreating a style already known to be bad. GeoCities and "under construction" signs, Comic Sans and Papyrus, MySpace glitter, WordArt and clip art, the 2006 blog sidebar, Web 2.0 gloss and BETA badges, skeuomorphic leather, Y2K chrome, vaporwave, XTREME energy-drink angles.
-- **Designer-bad:** the fashionable version. Web brutalism (raw HTML, system monospace, hard black borders), deconstructivist layouts after *Ray Gun* and Emigre, acid graphics, anti-design, maximalist collage. These break real principles, but expressively, and they're good taste now.
-- **The tell:** you can name it. If a brief contains a decade, a product, a site or a genre, it's a costume.
-
-The first launch set is the record. Four of its five themes were costumes: Under Construction (GeoCities), Sidebar Hell (2006 blogs), Office Suite (PowerPoint 2003) and Haute (luxury fashion sites). Only The Focus Group started somewhere else, from research. The pull didn't stop when the method changed. Drafting the principle shortlist, the first image for each candidate was still a reference: a ransom note for "never repeat a style", a 1960s psychedelic poster for equal-value colour, brutalist numerals for inverted hierarchy, Brat green for a page in one loud colour. Each is now named in its candidate's "Watch for".
-
-The costume smell was named after the first launch set was built; its four costumes retired in phase 3 (DECISIONS.md D24a). The check is the costume test in [THEMES.md](THEMES.md#the-costume-test). The lint can't see it.
-
 ## Deep smell
 
 What survives after the fonts and colours change. It's harder to see, and it's the main reason a "different" design can still smell.
@@ -70,7 +60,7 @@ What survives after the fonts and colours change. It's harder to see, and it's t
 - A 150–200ms eased transition on every hover.
 - Restraint: good taste applied evenly, nothing committed to.
 
-A bad theme that keeps all of these is the smell in fancy dress. Inconsistency, misalignment, crowding, asymmetry and commitment are all available tools.
+A theme that keeps all of these is the smell in a pack's colours. The pack decides the gaps: its spacing, its edges, its density.
 
 ## Copy smell
 
@@ -85,8 +75,8 @@ Words carry it too: button labels, taglines, 404 pages, empty states.
 
 `assets/themes/_control/` is a deliberately faithful rendition of the smell, kept for two reasons:
 
-1. **Scaffolding.** It's the theme used to prove the build and theme pipeline work before any bad theme exists.
-2. **Baseline.** Screenshot galleries show each bad theme beside the control, so the distance from the default is visible. That comparison is part of the experiment's record.
+1. **Scaffolding.** It's the theme that proves the build, the theme pipeline and the tests work before any pack theme exists.
+2. **Baseline.** Screenshot galleries show each theme beside the control, so the distance from the default is visible.
 
 It is excluded from production builds. It never appears in the rotation, can't be selected with `?bad=`, and nothing may be copied from it into a theme or into Not Bad.
 
@@ -102,5 +92,4 @@ It is excluded from production builds. It never appears in the rotation, can't b
   - `copy`: phrases from the copy smell
 
   A theme that uses one on purpose, for its own reasons, lists it in `theme.yaml` as `smell_exemptions: ["<rule-id>: <reason>"]`. The lint can't see the deep smell.
-- **Costume:** the costume test in [THEMES.md](THEMES.md#the-costume-test), on the brief and on the first screenshots.
 - **Human:** the owner reviews the screenshot gallery. That is the real test.

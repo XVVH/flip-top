@@ -1,46 +1,57 @@
 # Intent
 
+*A draft for the owner's review, October 2026.*
+
 ## What this is
 
-**Turrible Takes** (misspelled on purpose) is a personal blog for long-form writing, built from Markdown into a static site. No CMS, no database, no comments: less to manage and less to secure. The writing is the point; the designs are the joke.
+**Flip-Top** (a working name) is a personal blog for long-form writing, built from Markdown into a static site and served at `synchromeshi.com`. Every page wears a theme drawn from the design of a US cigarette pack. A first visit gets one at random; readers can switch to explore the rest.
 
-## Why the designs are bad
+It replaces Turrible Takes, an experiment in deliberately bad design, and reuses its plumbing. That project is archived, with its record, in the `bad-blog` repository.
 
-Most websites built by AI share a look. Ask a model for a blog, a portfolio or a landing page without steering it, and you get [the smell](SMELL.md): the same sans-serif, the same indigo-to-violet accent, the same rounded cards and soft shadows, the same tasteful restraint. It isn't bad engineering. It's a monoculture.
+## Why cigarette packs
 
-This blog is a counterweight to that, and an experiment:
+Few pieces of everyday graphic design have been worked over as hard. Once cigarette advertising left television and radio in 1971, and billboards with the 1998 Master Settlement Agreement, the pack carried more and more of a brand on its own. Each pack has a palette, a style of lettering, a few shapes, sometimes a material, and the best are recognizable from across a room:
 
-> What does "bad design" mean to a frontier LLM, when it is asked to commit to bad taste rather than avoid it?
+- red over white along a steep angle, with heavy serif capitals and a gold crest
+- a white top above a band of blue, in a bold sans-serif
 
-The model building the themes is the subject of the experiment as much as its author. Its instincts pull toward the smell, or toward "designer-bad": an ironic, curated ugliness that is really just another kind of good taste. Each theme is an attempt to get past both. The theme journals in [`themes/`](themes/) are the record of how that went.
+They also turned colour into a code. In 2010 federal law banned "light", "mild" and "low" from packs, so the colour carried the meaning instead: lights became gold, ultra lights became silver. A pack's palette is a language its buyers learned to read.
 
-The first launch set found a third pull. Asked for bad design, the model reached for things already known to be bad and recreated them: GeoCities, a 2006 blog, PowerPoint 2003, a luxury fashion site. Those are memories, not taste. And irony has turned most of them good: people now use GeoCities and XTREME styling for fun. So since October 2026, a theme starts from a design principle and breaks it, rather than from something that already exists ([DECISIONS.md](DECISIONS.md) D23).
+## The experiment
 
-## What "bad" means here
+How much of a brand's identity lives in its palette, the style of its lettering and a few shapes? Can a page evoke a pack, unmistakably to anyone who knows it, without its name, its logo or its marks?
 
-Bad means a **design principle broken on purpose**, along three axes:
+That's recognition without the marks, and it's a test of looking closely. Each theme starts by studying one pack: what makes it that pack and not another, element by element. Then it carries those few elements onto a page that still has to work as a page.
 
-- **Structure:** grouping, alignment, hierarchy, density, rhythm.
-- **Typography:** scale, spacing, texture, consistency, fit for the job.
-- **Colour:** value, proportion, harmony, meaning.
+There's a model angle too. Turrible Takes found that the model building it was good at faithful recreation from references, and bad at being bad on purpose. Flip-Top uses the strength deliberately: careful study and translation, not invention. The journals in [`themes/`](themes/) record what the model picks out as distinctive, and where it gets that wrong. That record is the experiment's data.
 
-Each principle has a source (Gestalt psychology, book typography, colour theory, preference research), and each theme follows a wrong version of one, faithfully. [THEMES.md](THEMES.md) lists principles to break. Graphics and decoration are no longer an axis of their own: kitsch, clip art and tired trends are costume material. A theme can still draw things when its principle calls for them.
+## What a theme is
 
-Bad does **not** mean:
+A translation of one pack's distinctive elements onto the page:
 
-- **Hostile.** Nothing tricks, traps, blocks or pesters the reader. No popups, autoplay, scroll hijacking or fake buttons.
-- **A costume.** Recreating an era, a site, a program or a genre is retrieval, and the reader is in on the joke. If a reader could name what a theme imitates, it's a costume ([THEMES.md](THEMES.md#the-costume-test)). That includes "it's old": age is never the joke.
-- **Badly engineered.** Every page works on desktop and mobile, loads fast, and is accessible and readable. The engineering should be better than the designs deserve.
+- **Palette:** its colours, matched closely, in proportions like the pack's.
+- **Lettering:** the character of its type (serif or sans, weight, width, contrast, case, spacing), in a freely licensed typeface with the same character. Never the wordmark itself.
+- **Shapes:** its bands, angles, crests and borders, signalled rather than copied.
+- **Material:** foil, embossing, gloss or matte, where they matter to the pack.
+- **Proportion:** how the pack divides its face, and how much it leaves empty.
+
+The article stays easy to read in every theme.
+
+## What a theme is not
+
+- **The brand.** No names, logos, wordmarks, slogans or marks, and nothing that suggests the brand made or endorsed the page ([RULES.md](RULES.md#1-trade-dress-every-theme-forever)).
+- **An advertisement.** The subject is the packs as graphic design.
+- **Hostile or broken.** Every page works on desktop and mobile, loads fast, and is accessible. The floor from Turrible Takes carries over unchanged.
 
 ## Principles
 
-1. **Bad taste, executed well.** Each theme takes one design principle, with a source, and follows the wrong version of it on every surface, built with care. Half-hearted bad just looks like a broken site. The wrong rule is followed sincerely: bad taste believes in itself, where designer-bad is making a point.
-2. **The badness is only a skin.** One Markdown file becomes one clean, semantic HTML page; themes are stylesheets laid over it (the CSS Zen Garden approach). Feed readers, print, search engines and screen readers get the plain writing.
-3. **The reader can always leave.** Less bad is an escape hatch, there to save the reader in the second before they close the tab. It's instant, keeps their place, and sticks.
-4. **Don't explain the joke.** A reader discovers it, or escapes from it. The explanation is the reward for escaping, never the welcome.
-5. **Not Bad is genuinely good, and doesn't smell.** The readable theme is built from book typography, not from the default AI look. If Not Bad looks like the smell, the whole joke undermines itself.
-6. **Nothing extra to write.** The author writes plain Markdown once. Themes derive all their decoration from the content.
+1. **Study first.** Every theme starts as a written study of its pack, reviewed by the owner, before any CSS.
+2. **Distinctive, not complete.** Carry the few elements that make the pack recognizable, and leave the rest.
+3. **Signal, don't copy.** An element can nod to a mark without being it. The owner's example: not the chevron "roof" itself, but an angled element that signals the relationship.
+4. **Readable first.** Body text and controls meet the floor in every theme.
+5. **One page, many themes.** One Markdown file becomes one clean, semantic HTML page; themes are stylesheets laid over it (the CSS Zen Garden approach).
+6. **Nothing extra to write.** The author writes plain Markdown once. Themes derive everything from the content.
 
 ## Who decides
 
-The site's owner is the judge of taste and of whether something smells. Agents propose, build and record; the owner reviews the screenshot galleries and decides.
+The owner is the judge of whether a theme reads as its pack, and whether it gets too close. Agents propose, build and record; the owner reviews the studies and the screenshot galleries and decides.

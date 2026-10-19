@@ -18,6 +18,20 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F7. Working names:** the repository is `flip-top`, and the site is "Flip-Top" until the owner names it.
 
+**F8. One control: Fresh pack.** It deals the next theme (the owner: "Next theme should be 'fresh pack'"). *Rejected:* a Less bad escape; there's nothing to escape from.
+
+**F9. No plain theme for readers.** Readers who want a plain view use their browser's reader view (the owner). The plain theme stays only as the fallback without JavaScript and for printing, where a pack's colours would print badly. It's never in the rotation, never offered, and `?pack=plain` is ignored.
+
+**F10. The theme index stays,** at `/designs/`, linked from every theme's footer. It never names the packs.
+
+**F11. A private pack registry.** Themes don't name their packs publicly, but without a record, duplicates creep in as the set grows (the owner). So each pack theme declares its source in `theme.yaml` (`pack:` and `variant:`), which never ships. The lint rejects two themes with the same pack and variant, and any theme whose id or name contains its pack's name; a production test fails if a declared pack name reaches the shipped CSS, scripts, theme assets, manifest or index. Variants of one pack are separate themes, told apart by `variant:`.
+
+**F12. No theme shows the hit count.** The owner: it was funnier as a joke in Turrible Takes, where it suited the designs of that era. Counting carries on, for the owner's page statistics.
+
+**F13. Health warnings are excluded entirely.** The owner: "this is a study in brand design, not the government-required stickers."
+
+**F14. `_control` and the smell lint stay**, as a guard against defaults filling the gaps a pack leaves (recommended to the owner, who was open to it). `_control` also keeps the tests exercising the switcher until two pack themes exist; revisit it then.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.
@@ -34,7 +48,7 @@ Still in force unless changed. Numbers in brackets are Turrible Takes' own, for 
 
 **I6. Every theme is legible** [D13] (RULES.md tier 3).
 
-**I7. Posts can opt out** [D15]: a post can stay in the plain theme, or be limited to listed themes.
+**I7. Posts can opt out** [D15]: `themes: false` keeps a post plain, and `themes: [ids]` limits it to those. This is the author's choice, not the reader's.
 
 **I8. Hugo** [D16], one pinned program with no npm dependency tree in the build.
 
@@ -42,14 +56,14 @@ Still in force unless changed. Numbers in brackets are Turrible Takes' own, for 
 
 **I10. The domain** [D19]: `synchromeshi.com`, now Flip-Top's. Posts live under `/posts/<slug>/`.
 
-**I11. Hit counts only; no analytics** [D20]. A Netlify Function and Netlify Blobs store a count per page path, counted once per visit. No IPs, cookies or visitor input. Whether any theme shows the number is open.
+**I11. Hit counts only; no analytics** [D20]. A Netlify Function and Netlify Blobs store a count per page path, counted once per visit. No IPs, cookies or visitor input. No theme shows the number (F12).
 
 **I12. No guestbook or any other form** [D21].
 
 **I13. No third-party requests** [D22]. Fonts are self-hosted, with no CDNs, embeds or trackers.
 
-**I14. The default AI look doesn't ship** [D4]. `_control` stays as the dev-only scaffold and the gallery's baseline ([SMELL.md](SMELL.md)).
+**I14. The default AI look doesn't ship** [D4]. `_control` stays as the dev-only scaffold and the gallery's baseline ([SMELL.md](SMELL.md), F14).
 
 ## Not inherited
 
-Turrible Takes decisions that ended with its premise: the bad-design definition and the costume rules [D2, D23, D24], the launch sets [D14, D24a], explaining the joke only after an escape and the escape note's copy [D9], and device preferences never choosing the readable theme because "that's cheating" [D14b]. The escape hatch itself [D6, D8] and the theme index [D14c] are open questions here, not decisions; the code still has them.
+Turrible Takes decisions that ended with its premise: the bad-design definition and the costume rules [D2, D23, D24], the launch sets [D14, D24a], the escape hatch and its note [D6, D8, D9] (replaced by F8 and F9), device preferences never choosing the readable theme [D14b], the theme index being reachable only after an escape [D14c] (replaced by F10), and the visible hit counter [D20's display] (F12).

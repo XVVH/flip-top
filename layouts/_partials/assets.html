@@ -32,7 +32,7 @@
       "front_door" ($t.front_door | default false)
       "legible" (cond (isset $t "legible") $t.legible true)
       "motion" ($t.motion | default false)
-      "rules" ($t.rules_broken | default slice)
+      "summary" ($t.summary | default "")
       "js" $js) -}}
 {{- end -}}
 {{- $css = $css | append (resources.Get "themes/_floor/floor.css") -}}

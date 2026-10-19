@@ -1,14 +1,13 @@
-// How the bar behaves: first visits, the deck, the escape hatch, the escape
-// note, persistence, per-post opt-outs, fallbacks and the hit counter.
-// The rules are in docs/DECISIONS.md (D6–D15) and docs/ARCHITECTURE.md.
+// How the bar behaves: first visits, the deck, persistence, per-post
+// opt-outs, fallbacks, the theme index and the hit counter.
+// The rules are in docs/DECISIONS.md and docs/ARCHITECTURE.md.
 import { expect, test } from "@playwright/test";
-import { BAD, currentTheme, FRONT_DOOR, loadImages, manifest, problems, theme, watch } from "./helpers.mjs";
+import { currentTheme, FRONT_DOOR, loadImages, manifest, PACKS, problems, theme, watch } from "./helpers.mjs";
 
 const KITCHEN = "/posts/kitchen-sink/";
 const OTHER = "/posts/sample-one/";
 const PLAIN = "/posts/sample-three/";
-const moreBad = (page) => page.getByRole("button", { name: "More bad", exact: true });
-const lessBad = (page) => page.getByRole("button", { name: "Less bad", exact: true });
+const fresh = (page) => page.getByRole("button", { name: manifest.copy.next, exact: true });
 
 test("a first visit gets a random front-door theme, kept for the whole visit", async ({ page }) => {
   await watch(page);
@@ -29,125 +28,77 @@ test("a new visit rolls a theme again", async ({ context }) => {
   expect(FRONT_DOOR).toContain(await currentTheme(b));
 });
 
-test("?bad= picks a theme and keeps it for the visit; unknown ids are ignored", async ({ page }) => {
-  const id = BAD[0].id;
-  await page.goto(`${KITCHEN}?bad=${id}`);
+test("?pack= picks a theme and keeps it for the visit; unknown ids and the plain theme are ignored", async ({ page }) => {
+  const id = PACKS[0].id;
+  await page.goto(`${KITCHEN}?pack=${id}`);
   expect(await currentTheme(page)).toBe(id);
   await page.goto(OTHER);
   expect(await currentTheme(page)).toBe(id);
-  await page.goto(`${OTHER}?bad=not-a-theme`);
+  await page.goto(`${OTHER}?pack=not-a-theme`);
+  expect(await currentTheme(page)).toBe(id);
+  await page.goto(`${OTHER}?pack=plain`);
   expect(await currentTheme(page)).toBe(id);
 });
 
-test("More bad deals every theme once before repeating, never the current one", async ({ page }) => {
-  test.skip(BAD.length < 2, "needs at least two bad themes");
-  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
+test("Fresh pack deals every theme once before repeating, never the current one", async ({ page }) => {
+  test.skip(PACKS.length < 2, "needs at least two themes");
+  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
   const seen = [await currentTheme(page)];
-  for (let i = 0; i < BAD.length - 1; i++) {
-    await moreBad(page).click();
+  for (let i = 0; i < PACKS.length - 1; i++) {
+    await fresh(page).click();
     await expect.poll(() => currentTheme(page)).not.toBe(seen.at(-1));
     seen.push(await currentTheme(page));
   }
-  expect(new Set(seen).size).toBe(BAD.length);
+  expect(new Set(seen).size).toBe(PACKS.length);
 });
 
-test("More bad announces the change without naming the theme", async ({ page }) => {
-  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
-  await moreBad(page).click();
-  await expect(page.locator(".sr-live")).toHaveText(manifest.copy.changed);
-  // Heard, never seen.
+test("Fresh pack announces the new theme by name, out of sight", async ({ page }) => {
+  test.skip(PACKS.length < 2, "needs at least two themes");
+  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  await fresh(page).click();
+  await expect.poll(() => currentTheme(page)).not.toBe(PACKS[0].id);
+  const now = theme(await currentTheme(page));
+  await expect(page.locator(".sr-live")).toHaveText(manifest.copy.changed.replace("{theme}", now.name));
   const box = await page.locator(".sr-live").boundingBox();
   expect(box.width * box.height, "the live region is visible").toBeLessThanOrEqual(1);
-  for (const t of BAD) await expect(page.locator(".sr-live")).not.toContainText(t.name);
 });
 
-test("bad themes never name themselves in the chrome", async ({ page }) => {
-  for (const t of BAD) {
-    await page.goto(`${KITCHEN}?bad=${t.id}`);
-    const visible = await page.evaluate(() =>
-      [".bar", ".masthead", ".rail", ".site-foot"].map((s) => [...document.querySelectorAll(s)].map((el) => el.innerText).join(" ")).join(" "),
-    );
-    expect(visible, `${t.id} shows its own name`).not.toContain(t.name);
-    await expect(page.locator(".bar-note")).toBeHidden();
-  }
-});
-
-test("Less bad escapes instantly, keeps the reader's place and explains the joke", async ({ page }) => {
-  const from = BAD[0];
+test("Fresh pack keeps the reader's place", async ({ page }) => {
+  test.skip(PACKS.length < 2, "needs at least two themes");
   await page.setViewportSize({ width: 390, height: 800 });
-  await watch(page);
-  await page.goto(`${KITCHEN}?bad=${from.id}`);
+  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
   await loadImages(page);
-
-  // Scroll so the "Code blocks" heading sits just under the bar.
   const heading = page.locator("#code-blocks");
   await heading.evaluate((el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 120));
-  const barBottom = async () => (await page.locator(".bar-inner").boundingBox()).height;
-  await lessBad(page).click();
-
-  expect(await currentTheme(page)).toBe("not-bad");
+  await fresh(page).click();
+  await expect.poll(() => currentTheme(page)).not.toBe(PACKS[0].id);
   await loadImages(page);
-  const top = (await heading.boundingBox()).y;
-  expect(top, "the reader's place moved").toBeGreaterThan(0);
-  expect(top).toBeLessThan((await barBottom()) + 400);
-
-  const note = page.locator(".bar-note");
-  await expect(note).toBeVisible();
-  await expect(note.locator(".bar-note-msg")).toHaveText(manifest.copy.escape);
-  await expect(note.locator(".bar-note-from")).toHaveText(manifest.copy.escaped_from.replace("{theme}", from.name));
-  await expect(note.locator(".bar-note-rules li")).toHaveCount(from.rules.length);
-  await expect(note).toBeFocused();
-  await expect(lessBad(page)).toBeHidden();
-  expect(await problems(page)).toEqual([]);
+  await expect.poll(async () => (await heading.boundingBox()).y).toBeGreaterThan(0);
+  expect((await heading.boundingBox()).y).toBeLessThan(500);
 });
 
-test("the escape sticks across pages and visits, and the note shows only once", async ({ context }) => {
-  const page = await context.newPage();
-  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
-  await lessBad(page).click();
-  await page.goto(OTHER);
-  expect(await currentTheme(page)).toBe("not-bad");
-  await expect(page.locator(".bar-note")).toBeHidden();
-  const later = await context.newPage();
-  await later.goto(OTHER);
-  expect(await currentTheme(later)).toBe("not-bad");
+test("there's no escape control", async ({ page }) => {
+  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  await expect(page.locator(".bar button")).toHaveCount(1);
+  await expect(fresh(page)).toBeVisible();
 });
 
-test("dismissing the note returns focus to More bad", async ({ page }) => {
-  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
-  await lessBad(page).click();
-  await page.getByRole("button", { name: manifest.copy.dismiss }).click();
-  await expect(page.locator(".bar-note")).toBeHidden();
-  await expect(moreBad(page)).toBeFocused();
-});
-
-test("More bad after an escape clears it", async ({ context }) => {
-  const page = await context.newPage();
-  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
-  await lessBad(page).click();
-  await moreBad(page).click();
-  await expect.poll(() => currentTheme(page)).not.toBe("not-bad");
-  const later = await context.newPage();
-  await later.goto(OTHER);
-  expect(FRONT_DOOR).toContain(await currentTheme(later));
-});
-
-test("a post with bad: false stays plain without changing the visit's theme", async ({ page }) => {
-  const id = BAD[0].id;
-  await page.goto(`${OTHER}?bad=${id}`);
+test("a post with themes: false stays plain without changing the visit's theme", async ({ page }) => {
+  const id = PACKS[0].id;
+  await page.goto(`${OTHER}?pack=${id}`);
   await page.goto(PLAIN);
-  expect(await currentTheme(page)).toBe("not-bad");
+  expect(await currentTheme(page)).toBe("plain");
   await expect(page.locator(".bar-plain")).toHaveText(manifest.copy.stays_plain);
-  await expect(moreBad(page)).toBeHidden();
+  await expect(fresh(page)).toBeHidden();
   await page.goto(OTHER);
   expect(await currentTheme(page)).toBe(id);
 });
 
-test("without JavaScript, readers get Not Bad and no bar", async ({ browser }) => {
+test("without JavaScript, readers get the plain theme and no bar", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto(KITCHEN);
-  expect(await page.getAttribute("html", "data-theme")).toBe("not-bad");
+  expect(await page.getAttribute("html", "data-theme")).toBe("plain");
   await expect(page.locator(".bar")).toBeHidden();
   await expect(page.locator(".post-title")).toBeVisible();
   await context.close();
@@ -168,32 +119,30 @@ test("with storage blocked, the theme rides on internal links instead", async ({
   const id = await currentTheme(page);
   expect(FRONT_DOOR).toContain(id);
   const href = await page.locator(".site-nav a").first().getAttribute("href");
-  expect(href).toContain(`bad=${id}`);
-  await lessBad(page).click();
-  expect(await page.locator(".site-nav a").first().getAttribute("href")).toContain("bad=not-bad");
+  expect(href).toContain(`pack=${id}`);
   await page.locator(".site-nav a").first().click();
-  expect(await currentTheme(page)).toBe("not-bad");
+  expect(await currentTheme(page)).toBe(id);
   expect(await problems(page)).toEqual([]);
 });
 
-test("printing always uses Not Bad", async ({ page }) => {
-  const id = BAD[0].id;
-  await page.goto(`${KITCHEN}?bad=${id}`);
+test("printing always uses the plain theme", async ({ page }) => {
+  const id = PACKS[0].id;
+  await page.goto(`${KITCHEN}?pack=${id}`);
   await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
-  expect(await currentTheme(page)).toBe("not-bad");
+  expect(await currentTheme(page)).toBe("plain");
   await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
   expect(await currentTheme(page)).toBe(id);
 });
 
-test("the hit counter counts once per visit and shows six digits", async ({ page, request }) => {
+test("the hit counter counts once per visit", async ({ page, request }) => {
   // A page no other test visits, because the test server's counts are shared.
   const COUNTED = "/posts/sample-two/";
   await page.goto(COUNTED);
-  await expect(page.locator(".hits-count")).toHaveText(/^\d{6}$/);
   const read = async () => (await (await request.get(`/api/hit?path=${encodeURIComponent(COUNTED)}`)).json()).count;
+  await expect.poll(read).toBeGreaterThan(0);
   const before = await read();
   await page.reload();
-  await expect(page.locator(".hits-count")).toHaveText(/^\d{6}$/);
+  await page.waitForLoadState("networkidle");
   expect(await read()).toBe(before);
 });
 
@@ -202,37 +151,21 @@ test("the hit counter refuses pages that don't exist", async ({ request }) => {
   expect(res.status()).toBe(404);
 });
 
-test("the theme index is reachable only from Not Bad, and always shows in Not Bad", async ({ page }) => {
+test("the theme index is linked from every theme and lists every theme but the plain one", async ({ page }) => {
   const link = page.locator(".site-foot .designs-link");
-  for (const t of BAD) {
-    await page.goto(`${OTHER}?bad=${t.id}`);
-    await expect(link, `${t.id} shows the theme index link`).toBeHidden();
+  for (const t of PACKS) {
+    await page.goto(`${OTHER}?pack=${t.id}`);
+    await expect(link, `${t.id} hides the theme index link`).toBeVisible();
   }
-  await page.goto(`${OTHER}?bad=not-bad`);
-  await expect(link).toBeVisible();
   await link.click();
-  expect(await currentTheme(page)).toBe("not-bad");
-  for (const t of BAD) await expect(page.locator(`#design-${t.id} h2`)).toHaveText(t.name);
+  for (const t of PACKS) await expect(page.locator(`#design-${t.id} h2`)).toHaveText(t.name);
+  await expect(page.locator("#design-plain")).toHaveCount(0);
 });
 
-test("the escape note links to the theme index", async ({ page }) => {
-  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
-  await lessBad(page).click();
-  await expect(page.locator(".bar-note .designs-link")).toBeVisible();
-});
-
-test("asking for a bad theme by name ends an escape", async ({ context }) => {
-  const page = await context.newPage();
-  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
-  await lessBad(page).click();
-  await page.goto(`${OTHER}?bad=${BAD[0].id}`);
-  await page.goto(KITCHEN);
-  expect(await currentTheme(page)).toBe(BAD[0].id);
-});
-
-test("the More bad spin names nothing", async ({ page }) => {
-  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
-  await moreBad(page).click();
+test("the Fresh pack spin shows no text", async ({ page }) => {
+  test.skip(PACKS.length < 2, "needs at least two themes");
+  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  await fresh(page).click();
   const spin = page.locator(".bar-spin");
   await expect(spin).toBeAttached();
   expect(await spin.innerText()).toBe("");
@@ -240,9 +173,6 @@ test("the More bad spin names nothing", async ({ page }) => {
 });
 
 test("theme metadata is complete", () => {
-  for (const t of BAD) {
-    expect(t.name, `${t.id} has a name`).toBeTruthy();
-    expect(t.rules.length, `${t.id} lists the rules it breaks, for the escape note`).toBeGreaterThan(0);
-  }
-  expect(theme("not-bad")).toBeTruthy();
+  for (const t of PACKS) expect(t.name, `${t.id} has a name`).toBeTruthy();
+  expect(theme("plain")).toBeTruthy();
 });

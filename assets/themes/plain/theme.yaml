@@ -1,0 +1,9 @@
+id: plain
+name: Plain
+# The fallback: what the page looks like without JavaScript, and when it's
+# printed. Never in the rotation and never offered to readers (DECISIONS.md
+# F9); readers who want a plain view use their browser's reader view.
+front_door: false
+legible: true
+motion: false
+smell_exemptions: []

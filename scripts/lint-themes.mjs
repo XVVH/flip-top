@@ -10,11 +10,19 @@
 // - url() points at a file inside the theme's own folder, or a data: URI;
 //   never at another site
 // - every folder holding font files also holds a licence file
+// - every pack theme names its source pack and variant (the private registry,
+//   docs/THEMES.md), no two themes share a pack and variant, and no theme's id
+//   or name contains its pack's name (RULES.md tier 1)
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 
 const THEMES = resolve("assets/themes");
 const SKIP = new Set(["_base", "_floor"]);
+// Themes that aren't drawn from a pack.
+const NOT_PACKS = new Set(["_control", "plain"]);
+const packs = new Map();
+const field = (yaml, key) => yaml.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+?)["']?\\s*$`, "m"))?.[1];
+const letters = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "");
 const errors = [];
 const fail = (file, msg) => errors.push(`${relative(process.cwd(), file)}: ${msg}`);
 
@@ -109,6 +117,20 @@ for (const id of readdirSync(THEMES)) {
     const declared = yaml.match(/^id:\s*["']?([^"'\s]+)/m)?.[1];
     if (declared !== id) fail(yamlFile, `id is "${declared}" but the folder is "${id}"`);
     if (!/^name:\s*\S/m.test(yaml)) fail(yamlFile, "missing name");
+    if (!NOT_PACKS.has(id)) {
+      const pack = field(yaml, "pack");
+      const variant = field(yaml, "variant");
+      if (!pack || !variant) fail(yamlFile, "a pack theme needs pack: and variant: (its private source; see docs/THEMES.md)");
+      else {
+        const key = `${letters(pack)}|${letters(variant)}`;
+        if (packs.has(key)) fail(yamlFile, `${pack} (${variant}) is already the source of ${packs.get(key)}`);
+        packs.set(key, id);
+        const name = field(yaml, "name") ?? "";
+        if (letters(id).includes(letters(pack)) || letters(name).includes(letters(pack))) {
+          fail(yamlFile, `the theme's id or name contains its pack's name, ${pack} (RULES.md tier 1)`);
+        }
+      }
+    }
   }
 
   const cssFile = join(dir, "theme.css");

@@ -3,15 +3,16 @@
   The markup contract (docs/ARCHITECTURE.md). Every page type renders this
   skeleton in every theme. Themes restyle it; they never change it.
 */ -}}
-{{- $bad := "" -}}
-{{- if isset .Params "bad" -}}
-  {{- with .Params.bad -}}
-    {{- if reflect.IsSlice . }}{{ $bad = delimit . " " }}{{ end -}}
+{{- /* themes: false keeps a post plain; themes: [ids] limits it to those. */ -}}
+{{- $allow := "" -}}
+{{- if isset .Params "themes" -}}
+  {{- with .Params.themes -}}
+    {{- if reflect.IsSlice . }}{{ $allow = delimit . " " }}{{ end -}}
   {{- else -}}
-    {{- $bad = "off" -}}
+    {{- $allow = "off" -}}
   {{- end -}}
 {{- end }}
-<html lang="{{ site.Language.Locale | default "en" }}" data-theme="not-bad"{{ with $bad }} data-bad="{{ . }}"{{ end }}>
+<html lang="{{ site.Language.Locale | default "en" }}" data-theme="plain"{{ with $allow }} data-themes="{{ . }}"{{ end }}>
 <head>
 {{ partial "head.html" . }}
 </head>

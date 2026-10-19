@@ -1,14 +1,15 @@
 /*
-  Not Bad: the readable theme, and the escape destination.
-  A book, not a startup. Built from book typography (Butterick, Bringhurst):
+  Plain: the fallback, for readers without JavaScript and for printing.
+  Never offered as a choice (DECISIONS.md F9). Inherited from Turrible Takes'
+  Not Bad. A book, not a startup. Built from book typography (Butterick, Bringhurst):
   one text face, first-line indents instead of paragraph gaps, a 33em
   measure, real italics, an asterism for section breaks. No cards, pills,
   gradients, shadows, accent colour or eyebrow labels (docs/SMELL.md).
-  Status: proposed, awaiting the owner. See docs/themes/not-bad.md.
+  See docs/themes/plain.md.
 */
 @font-face {
   font-family: "Literata";
-  src: url("../themes/not-bad/fonts/literata-roman.woff2") format("woff2");
+  src: url("../themes/plain/fonts/literata-roman.woff2") format("woff2");
   font-weight: 200 900;
   font-style: normal;
   font-display: swap;
@@ -16,7 +17,7 @@
 }
 @font-face {
   font-family: "Literata";
-  src: url("../themes/not-bad/fonts/literata-italic.woff2") format("woff2");
+  src: url("../themes/plain/fonts/literata-italic.woff2") format("woff2");
   font-weight: 200 900;
   font-style: italic;
   font-display: swap;
@@ -24,62 +25,58 @@
 }
 
 @layer theme {
-  :root[data-theme="not-bad"] {
-    --nb-paper: #ffffff;
-    --nb-ink: #1b1b1b;
-    --nb-rule: #8c8c8c;
-    --nb-hl: #fff3c4;
-    --nb-str: #2b5d34;
-    --nb-com: #5e5e5e;
-    --nb-num: #8a2a1e;
-    --nb-line: 1.45;
-    --nb-measure: 33em;
+  :root[data-theme="plain"] {
+    --pl-paper: #ffffff;
+    --pl-ink: #1b1b1b;
+    --pl-rule: #8c8c8c;
+    --pl-hl: #fff3c4;
+    --pl-str: #2b5d34;
+    --pl-com: #5e5e5e;
+    --pl-num: #8a2a1e;
+    --pl-line: 1.45;
+    --pl-measure: 33em;
 
     color-scheme: light dark;
-    background: var(--nb-paper);
-    color: var(--nb-ink);
+    background: var(--pl-paper);
+    color: var(--pl-ink);
     font-family: "Literata", Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
     font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
-    line-height: var(--nb-line);
+    line-height: var(--pl-line);
     font-optical-sizing: auto;
     font-kerning: normal;
     font-variant-ligatures: common-ligatures;
 
     @media (prefers-color-scheme: dark) {
-      --nb-paper: #151514;
-      --nb-ink: #e8e6e1;
-      --nb-rule: #7a7874;
-      --nb-hl: #3d3620;
-      --nb-str: #9fd0a6;
-      --nb-com: #a9a7a2;
-      --nb-num: #f0a597;
+      --pl-paper: #151514;
+      --pl-ink: #e8e6e1;
+      --pl-rule: #7a7874;
+      --pl-hl: #3d3620;
+      --pl-str: #9fd0a6;
+      --pl-com: #a9a7a2;
+      --pl-num: #f0a597;
     }
 
-    body { background: var(--nb-paper); }
+    body { background: var(--pl-paper); }
 
     a { color: inherit; text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
     a:hover { text-decoration-thickness: 2px; }
 
     .page {
-      max-width: calc(var(--nb-measure) + 2.5rem);
+      max-width: calc(var(--pl-measure) + 2.5rem);
       margin: 0 auto;
       padding: 0 1.25rem 4rem;
     }
 
-    /* The bar: a quiet strip. Only More bad shows here. */
+    /* The bar: a quiet strip. Readers see it here only on posts that stay
+       plain, or before any pack theme exists. */
     .bar {
-      background: var(--nb-paper);
-      border-bottom: 1px solid var(--nb-rule);
+      background: var(--pl-paper);
+      border-bottom: 1px solid var(--pl-rule);
     }
-    .bar-note {
-      max-width: calc(33rem + 2.5rem);
-      margin: 0 auto;
-      padding: 0 1.25rem;
-    }
-    /* The floor pins the bar's row edge to edge; line More bad up with the
+    /* The floor pins the bar's row edge to edge; line Fresh pack up with the
        text column instead. */
-    .bar-more { margin-left: max(1.25rem - 8px, (100% - 33rem) / 2 - 8px); }
-    .bar-more, .bar-note-dismiss {
+    .bar-next { margin-left: max(1.25rem - 8px, (100% - 33rem) / 2 - 8px); }
+    .bar-next {
       background: none;
       border: 0;
       padding: 0.25em 0;
@@ -90,19 +87,7 @@
       text-underline-offset: 0.18em;
       cursor: pointer;
     }
-    .bar-plain { margin: 0; font-style: italic; font-size: 0.9em; }
-    .bar-note {
-      max-height: 60vh;
-      overflow-y: auto;
-      padding-top: 0.75em;
-      padding-bottom: 1em;
-      border-top: 1px solid var(--nb-rule);
-      font-size: 0.9em;
-    }
-    .bar-note p { margin: 0 0 0.5em; }
-    .bar-note-from { font-style: italic; }
-    .bar-note-rules { margin: 0 0 0.75em; padding-left: 1.25em; }
-    .bar-note-dismiss { min-height: 44px; font-size: 1em; }
+    .bar-plain { margin: 0 0 0 max(1.25rem - 8px, (100% - 33rem) / 2 - 8px); font-style: italic; font-size: 0.9em; }
 
     /* Running head. */
     .masthead {
@@ -145,7 +130,7 @@
     .post-body > * { margin-top: 0; margin-bottom: 0; }
     .post-body p { margin: 0; text-wrap: pretty; }
     .post-body p + p { text-indent: 1.5em; }
-    .post-body > :is(ul, ol, dl, blockquote, figure, .table-scroll, .footnotes) { margin-top: calc(var(--nb-line) * 1em); margin-bottom: calc(var(--nb-line) * 1em); }
+    .post-body > :is(ul, ol, dl, blockquote, figure, .table-scroll, .footnotes) { margin-top: calc(var(--pl-line) * 1em); margin-bottom: calc(var(--pl-line) * 1em); }
 
     .post-body :is(h2, h3, h4) { line-height: 1.25; text-wrap: balance; }
     .post-body h2 { margin-top: 2.2em; margin-bottom: 0.6em; font-size: 1.2em; font-weight: 600; }
@@ -177,18 +162,18 @@
     .code pre {
       margin: 0;
       padding: 0.1em 0 0.3em 1em;
-      border-left: 1px solid var(--nb-rule);
+      border-left: 1px solid var(--pl-rule);
       font-size: 0.8em;
       line-height: 1.5;
       background: none;
       font-variant-numeric: lining-nums;
     }
     .code pre code { font-size: 1em; }
-    .chroma .line.hl { display: block; background: var(--nb-hl); }
+    .chroma .line.hl { display: block; background: var(--pl-hl); }
     .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .nt) { font-weight: 700; }
-    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { color: var(--nb-str); }
-    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: var(--nb-com); font-style: italic; }
-    .chroma :is(.m, .mb, .mf, .mh, .mi, .il, .mo) { color: var(--nb-num); }
+    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { color: var(--pl-str); }
+    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: var(--pl-com); font-style: italic; }
+    .chroma :is(.m, .mb, .mf, .mh, .mi, .il, .mo) { color: var(--pl-num); }
 
     /* Tables in the booktabs style: three rules, no grid. */
     .table-scroll { font-size: 0.9em; font-variant-numeric: lining-nums tabular-nums; }
@@ -199,7 +184,7 @@
     .fig figcaption { margin-top: 0.5em; font-size: 0.85em; font-style: italic; }
 
     .footnotes { font-size: 0.85em; }
-    .footnotes hr { width: 6em; margin: 0 0 1em; border: 0; border-top: 1px solid var(--nb-rule); text-align: left; }
+    .footnotes hr { width: 6em; margin: 0 0 1em; border: 0; border-top: 1px solid var(--pl-rule); text-align: left; }
     .footnotes hr::after { content: none; }
     .footnotes ol { padding-left: 1.25em; }
     .footnote-ref { text-decoration: none; }
@@ -222,7 +207,7 @@
       flex: 1 1 2em;
       min-width: 2em;
       margin: 0 0.5em;
-      border-bottom: 2px dotted var(--nb-rule);
+      border-bottom: 2px dotted var(--pl-rule);
       align-self: baseline;
       height: 0.2em;
     }
@@ -250,7 +235,7 @@
     .tag-count { font-variant-numeric: oldstyle-nums; }
     .rail-archive, .rail-about { display: none; }
     &:has(.listing-home) .rail-recent { display: none; }
-    .rail-a { border-top: 1px solid var(--nb-rule); padding-top: 2em; }
+    .rail-a { border-top: 1px solid var(--pl-rule); padding-top: 2em; }
     .rail-b { margin-top: 1.6em; }
 
     .site-foot { margin-top: 3em; font-size: 0.85em; font-style: italic; }

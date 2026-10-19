@@ -1,6 +1,6 @@
 // Runs inline in <head>, before anything is drawn, and picks the theme.
 // The order is documented in docs/ARCHITECTURE.md ("In the browser"):
-//   ?bad=<id>  >  escaped before  >  this visit's theme  >  a random front-door theme
+//   ?pack=<id>  >  this visit's theme  >  a random front-door theme
 // It's allowed by its hash in the content security policy, which Hugo
 // computes at build time, so it can change freely.
 (function () {
@@ -9,7 +9,7 @@
 
   var manifest;
   try {
-    manifest = JSON.parse(document.getElementById("tt-manifest").textContent);
+    manifest = JSON.parse(document.getElementById("ft-manifest").textContent);
   } catch (e) {
     return;
   }
@@ -18,7 +18,7 @@
   var frontDoor = [];
   manifest.themes.forEach(function (t) {
     ids.push(t.id);
-    if (t.front_door && t.id !== "not-bad") frontDoor.push(t.id);
+    if (t.front_door && t.id !== "plain") frontDoor.push(t.id);
   });
   var valid = function (id) {
     return ids.indexOf(id) > -1;
@@ -29,44 +29,39 @@
   var storage = function (name) {
     try {
       var s = window[name];
-      s.setItem("tt:probe", "1");
-      s.removeItem("tt:probe");
+      s.setItem("ft:probe", "1");
+      s.removeItem("ft:probe");
       return s;
     } catch (e) {
       return null;
     }
   };
-  var local = storage("localStorage");
   var session = storage("sessionStorage");
 
   var param = null;
   try {
-    param = new URLSearchParams(location.search).get("bad");
+    param = new URLSearchParams(location.search).get("pack");
   } catch (e) {}
 
   var theme;
-  if (param && valid(param)) {
+  if (param && valid(param) && param !== "plain") {
     theme = param;
-    if (session) session.setItem("tt:theme", theme);
-    // Asking for a bad theme by name is like pressing More bad: it ends an escape.
-    if (local && theme !== "not-bad") local.removeItem("tt:escaped");
-  } else if (local && local.getItem("tt:escaped") === "1") {
-    theme = "not-bad";
-  } else if (session && valid(session.getItem("tt:theme"))) {
-    theme = session.getItem("tt:theme");
+    if (session) session.setItem("ft:theme", theme);
+  } else if (session && valid(session.getItem("ft:theme")) && session.getItem("ft:theme") !== "plain") {
+    theme = session.getItem("ft:theme");
   } else {
-    theme = frontDoor.length ? pick(frontDoor) : "not-bad";
-    if (session) session.setItem("tt:theme", theme);
+    theme = frontDoor.length ? pick(frontDoor) : "plain";
+    if (session) session.setItem("ft:theme", theme);
   }
 
-  // A post's front matter can turn the themes off (bad: false) or limit
-  // them (bad: [ids]). That changes this page only, not the visit's theme.
-  var allow = root.getAttribute("data-bad");
+  // A post's front matter can turn the themes off (themes: false) or limit
+  // them (themes: [ids]). That changes this page only, not the visit's theme.
+  var allow = root.getAttribute("data-themes");
   if (allow === "off") {
-    theme = "not-bad";
-  } else if (allow && theme !== "not-bad") {
+    theme = "plain";
+  } else if (allow && theme !== "plain") {
     var allowed = allow.split(" ").filter(valid);
-    if (allowed.indexOf(theme) < 0) theme = allowed.length ? pick(allowed) : "not-bad";
+    if (allowed.indexOf(theme) < 0) theme = allowed.length ? pick(allowed) : "plain";
   }
 
   root.setAttribute("data-theme", theme);

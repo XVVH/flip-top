@@ -1,21 +1,14 @@
 {{- /*
-  The More bad / Less bad bar. Less bad is the fire exit: its styling lives in
-  the floor layer and no theme may change it. aria-label pins both buttons'
-  accessible names, so themes can change More bad's visible label freely.
-  The escape note is the only place the joke is explained (DECISIONS.md D9).
+  The theme controls: one button, Fresh pack, which deals the next theme
+  (DECISIONS.md F8). aria-label pins its accessible name, so themes can
+  restyle it freely as long as its visible text still reads "Fresh pack".
+  On a post whose front matter turns the themes off, the bar says so
+  instead.
 */ -}}
 {{- $copy := hugo.Data.copy -}}
 <div class="bar" role="group" aria-label="Design controls">
   <div class="bar-inner">
-    <button type="button" class="bar-more" aria-label="More bad"><span class="bar-label">More bad</span></button>
+    <button type="button" class="bar-next" aria-label="{{ $copy.next }}"><span class="bar-label">{{ $copy.next }}</span></button>
     <p class="bar-plain" hidden>{{ $copy.stays_plain }}</p>
-    <button type="button" class="bar-less" aria-label="Less bad"><span class="bar-label">Less bad</span></button>
-  </div>
-  <div class="bar-note" hidden tabindex="-1">
-    <p class="bar-note-msg">{{ $copy.escape }}</p>
-    <p class="bar-note-from"></p>
-    <ul class="bar-note-rules"></ul>
-    <p class="bar-note-more"><a class="designs-link" href="{{ "/designs/" | relURL }}">{{ $copy.designs_link }}</a></p>
-    <button type="button" class="bar-note-dismiss">{{ $copy.dismiss }}</button>
   </div>
 </div>

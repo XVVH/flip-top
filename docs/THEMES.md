@@ -16,11 +16,12 @@
 4. **Decide each element's treatment:**
    - **Mirror:** palette, the character of the lettering, materials, proportions.
    - **Signal:** marks and signature shapes, echoed in geometry but never reproduced ([RULES.md](RULES.md#1-trade-dress-every-theme-forever)).
-   - **Leave out:** names, logos, wordmarks, slogans and figures. Whether the health warning is signalled or left out is an open question (ROADMAP.md).
+   - **Leave out:** names, logos, wordmarks, slogans, figures and health warnings.
 5. **Map it to the template** below.
-6. **Write the study first**, as `docs/themes/<id>.md` from [`themes/_TEMPLATE.md`](themes/_TEMPLATE.md), and get the owner's review before any CSS.
-7. **Build, test, and check the gallery** beside `_control`. Run the endorsement test from RULES.md on the screenshots, not just the brief.
-8. **Record** what you first picked out as distinctive, what you misjudged, and every place you were tempted to copy rather than signal.
+6. **Register it.** Give the theme an original id and name, and record its source privately in `theme.yaml` as `pack:` and `variant:` (DECISIONS.md F11). Check the catalogue below so it doesn't repeat a pack and variant that's already taken.
+7. **Write the study first**, as `docs/themes/<id>.md` from [`themes/_TEMPLATE.md`](themes/_TEMPLATE.md), and get the owner's review before any CSS.
+8. **Build, test, and check the gallery** beside `_control`. Run the endorsement test from RULES.md on the screenshots, not just the brief.
+9. **Record** what you first picked out as distinctive, what you misjudged, and every place you were tempted to copy rather than signal.
 
 ## The template (draft)
 
@@ -38,10 +39,19 @@ How a pack maps onto a page. Every theme fills the same slots, so packs can be c
 
 What doesn't change between themes: the markup, the floor, the theme controls' position and behaviour, and the article's readability.
 
+**Variants** of one pack (red, gold, silver, menthol) are separate themes, each registered with its own `variant:` (DECISIONS.md F11).
+
 Open questions for the owner:
-- **Variants.** Does a pack family get one theme, or one per colour (red, gold, silver, menthol)? A theme could also pick its variant per visit.
 - **How literal.** Does any theme draw the pack itself (a lid, a foil liner, a tear strip), or only borrow its language?
 - **Names.** Theme names are shown to readers, so they can't be brand names, or puns that are really brand names. One convention: counter vocabulary and colour ("Full Flavor", "Box", "Soft Pack", "King Size"), which describes without naming.
+
+## The catalogue
+
+Every built theme, with its private source. This table and each `theme.yaml` are the registry; neither ships.
+
+| Theme | Pack | Variant |
+|---|---|---|
+| *(none yet)* | | |
 
 ## Candidate packs
 
@@ -64,7 +74,7 @@ Research names only; none of them appears on the site. Notes are what's known be
 
 ## The plain theme
 
-`not-bad` is inherited from Turrible Takes, where it was the readable escape. Here it's the fallback for readers without JavaScript, and for printing. Whether readers can also choose it, and what it should look like now, are open questions (ROADMAP.md). Its old journal is in [`themes/not-bad.md`](themes/not-bad.md).
+`plain` is inherited from Turrible Takes' Not Bad. It's the fallback for readers without JavaScript, and for printing, and never offered as a choice (DECISIONS.md F9). Its journal is in [`themes/plain.md`](themes/plain.md).
 
 ## Sources
 

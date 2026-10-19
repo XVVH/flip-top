@@ -2,7 +2,7 @@
 
 *Inherited from Turrible Takes with its plumbing, October 2026. Where the code and this file disagree, fix one of them.*
 
-*Names in the code are Turrible Takes' until the theme controls are redesigned (ROADMAP.md, phase 1): `?bad=<id>`, the `not-bad` plain theme, `bad:` in front matter, the More bad / Less bad buttons and their escape note, `rules_broken` in `theme.yaml`, and the `tt:` storage keys. Read "bad theme" below as "pack theme", and "Not Bad" as the plain theme.*
+*The inherited names were replaced in phase 1: `?pack=<id>`, the `plain` theme, `themes:` in front matter, the Fresh pack button, the `ft:` storage keys, and `summary` in `theme.yaml`.*
 
 ## Overview
 
@@ -37,7 +37,7 @@ Hugo is pinned to the version in `netlify.toml` and `.github/workflows/ci.yml`; 
   description: "…"       # used in lists and feeds
   tags: [ … ]
   draft: false
-  bad: true              # or false (the plain theme only), or a list of theme ids
+  themes: false          # optional: false keeps the post plain; a list of ids limits it to those
   ```
 
 - Page types are kept few, because each one multiplies the work for every theme: home (the post list), post, tag list, about, and 404.
@@ -69,8 +69,7 @@ Every page type renders the same semantic skeleton, in every theme (`layouts/bas
 <body>
   <a class="skip" href="#content">Skip to article</a>
   <div class="bar" role="group" aria-label="Design controls">
-    <div class="bar-inner">.bar-more · .bar-plain · .bar-less</div>
-    <div class="bar-note" hidden>the escape note</div>
+    <div class="bar-inner">.bar-next (Fresh pack) · .bar-plain</div>
   </div>
   <div class="page">
     <header class="masthead"><!-- site name, nav --></header>
@@ -83,7 +82,7 @@ Every page type renders the same semantic skeleton, in every theme (`layouts/bas
     </main>
     <aside class="rail rail-a"><!-- related posts, tags, archive --></aside>
     <aside class="rail rail-b"><!-- about blurb, feed link --></aside>
-    <footer class="site-foot">site name, <span class="hits-count"> (the hit counter)</footer>
+    <footer class="site-foot">site name, .hits (hidden), the theme index link</footer>
     <div class="deco" aria-hidden="true"><span></span><!-- ×8 --></div>
   </div>
   <div class="sr-live" aria-live="polite"></div>
@@ -103,9 +102,9 @@ Themes live in `assets/themes/`, so Hugo's asset pipeline can process them. This
 ```
 assets/themes/
   _base/              # layout primitives shared by every theme (not a look)
-  _floor/             # tier 1 of RULES.md as CSS; always wins
+  _floor/             # tier 2 of RULES.md as CSS; always wins
   _control/           # the smell; dev-only, never shipped
-  not-bad/            # the plain theme
+  plain/              # the fallback: no JavaScript, and printing
   <id>/
     theme.yaml
     theme.css
@@ -121,10 +120,10 @@ name: <Theme name>
 front_door: true        # eligible for the first-visit lottery
 legible: true           # passes RULES.md tier 2
 motion: false           # true if it animates (all of it switched off under reduced motion)
-axes: []               # inherited from Turrible Takes; unused
-sources: [ … ]          # research links, never shipped as page text
-rules_broken:           # inherited: shown in the escape note and the theme index; to be renamed
-  - "…"
+pack: "…"               # private: the source pack's research name; never ships
+variant: "…"            # private: which colour or version; pack + variant is unique
+sources: [ … ]          # research links; never ships
+summary: "…"            # optional: one line for the theme index, with no brand names
 smell_exemptions: []    # each with a reason
 ```
 
@@ -148,9 +147,9 @@ smell_exemptions: []    # each with a reason
 
 Decorative text from CSS uses empty alternative text, `content: "…" / ""`, so screen readers skip it.
 
-If `theme.js` exists, it exports `activate(root, api)` and `deactivate(root)`. `deactivate` removes everything `activate` added. Everything a theme script injects carries a `data-tt-deco` attribute and `aria-hidden="true"`; the floor hides `[data-tt-deco]` in Not Bad, so printing and escaping never show it. `api.hits()` returns the hit count once known, and a `tt:hits` event fires on `document` when it arrives. `api.reducedMotion()` says whether to stay still. Theme scripts may not make network requests.
+If `theme.js` exists, it exports `activate(root, api)` and `deactivate(root)`. `deactivate` removes everything `activate` added. Everything a theme script injects carries a `data-ft-deco` attribute and `aria-hidden="true"`; the floor hides `[data-ft-deco]` in the plain theme, so printing never shows it. `api.hits()` returns the hit count once known, and a `ft:hits` event fires on `document` when it arrives. `api.reducedMotion()` says whether to stay still. Theme scripts may not make network requests.
 
-`layouts/_partials/assets.html` builds everything: one CSS bundle (`_base`, every theme, then `_floor`), each theme's script, the inline boot script and the switcher, plus the manifest the browser reads (`<script type="application/json" id="tt-manifest">`). Production builds leave out `_control`.
+`layouts/_partials/assets.html` builds everything: one CSS bundle (`_base`, every theme, then `_floor`), each theme's script, the inline boot script and the switcher, plus the manifest the browser reads (`<script type="application/json" id="ft-manifest">`). Production builds leave out `_control`.
 
 **Why one bundle:** every theme's CSS is scoped, so loading them all costs only bytes (a few KB each, compressed) and makes switching instant, with no flash of the wrong theme. Fonts and images still load only when a theme uses them. If the bundle ever gets too big, split it; until then, simplicity wins. The CSS isn't minified, because Hugo's minifier doesn't fully understand native nesting.
 
@@ -160,46 +159,43 @@ If `theme.js` exists, it exports `activate(root, api)` and `deactivate(root)`. `
 @layer reset, base, theme, floor;
 ```
 
-`floor` holds tier 1 of [RULES.md](RULES.md): overflow handling, visible focus, the reduced-motion shutdown, the bar's position, and the fire exit. It always wins, because themes can't use `!important`. Each theme's CSS goes in the `theme` layer.
+`floor` holds tier 2 of [RULES.md](RULES.md): overflow handling, visible focus, the reduced-motion shutdown, and the bar. It always wins, because themes can't use `!important`. Each theme's CSS goes in the `theme` layer.
 
 What the floor locks:
 - `html` and `body` take no `filter`, `transform`, `opacity` or blend modes, because those would reach the bar. Put global effects on `.page`.
-- The bar is sticky at the top. Its row (`.bar-inner`) runs edge to edge with fixed padding, so the fire exit sits top right in every theme.
-- `.bar-less` is reset with `all: unset` and restyled completely: a green exit sign (`#00703c`, white bold text, Frutiger/Helvetica/Arial), at least 44×44px, with a yellow-and-black focus ring. Its pseudo-elements and label can't be touched.
-- Both buttons' accessible names are pinned with `aria-label`. A theme can restyle and decorate More bad, but its visible text must still read "More bad" (WCAG 2.5.3).
+- The bar is sticky at the top. Its row (`.bar-inner`) runs edge to edge with fixed padding, so Fresh pack sits in the same place in every theme.
+- Fresh pack (`.bar-next`) is at least 44×44px and can't shrink, wrap or be hidden. Its accessible name is pinned with `aria-label`; a theme can restyle and decorate it, but its visible text must still read "Fresh pack" (WCAG 2.5.3).
+- The theme index link in the footer can't be hidden.
 
 ## In the browser
 
 A tiny inline script in `<head>` (`assets/js/boot.js`), allowed by its hash in the CSP, picks the theme before anything is drawn:
 
-1. `?bad=<id>` in the URL → that theme. A bad theme asked for by name also ends an escape (D12b).
-2. The reader escaped before (localStorage) → Not Bad.
-3. A theme was already picked this visit (sessionStorage) → that theme.
-4. Otherwise → a random `front_door` theme, saved for this visit.
+1. `?pack=<id>` in the URL → that theme. `?pack=plain` is ignored: readers can't choose the plain theme (F9).
+2. A theme was already picked this visit (sessionStorage) → that theme.
+3. Otherwise → a random `front_door` theme, saved for this visit.
 
-Every storage read and write is wrapped in try/catch. If storage is blocked, the switcher adds `?bad=<id>` to internal links instead, so the theme or the escape survives from page to page.
+Then a post's `themes:` front matter can turn the themes off for that page, or limit them.
 
-Without JavaScript, the page keeps the `data-theme="not-bad"` it was built with, and the bar is hidden. Printing always uses Not Bad. Readers who ask for reduced motion get still versions of the themes. No device preference (contrast, motion, colour scheme) ever selects Not Bad (D14b in DECISIONS.md).
+Every storage read and write is wrapped in try/catch. If storage is blocked, the switcher adds `?pack=<id>` to internal links instead, so the theme survives from page to page.
+
+Without JavaScript, the page keeps the `data-theme="plain"` it was built with, and the bar is hidden. Printing always uses the plain theme. Readers who ask for reduced motion get still versions of the themes.
 
 The switcher (`assets/js/switcher.js`) is a small module, deferred:
 
-- **More bad:**
-  - Spins first: three slot-machine reels in the bar (`.bar-spin`, styled in `_base`) for about 0.6 seconds, no names, skipped under reduced motion. Clicks during the spin are ignored.
+- **Fresh pack:**
+  - Spins first: three slot-machine reels in the bar (`.bar-spin`, styled in `_base`) for about 0.6 seconds, skipped under reduced motion. Clicks during the spin are ignored.
   - Deals the next theme from a shuffled deck, kept for the visit.
   - Crossfades to the new theme with the View Transitions API where the browser has it, skipped under reduced motion.
   - Changes `data-theme`, runs the old theme's `deactivate` and the new one's `activate`, and restores the reader's position.
-  - Clears the escape flag.
-- **Less bad:**
-  - Switches to Not Bad at once, with no animation (it's already loaded), and restores the reader's position.
-  - Sets the escape flag.
-  - Opens the escape note in the bar and moves focus to it, so screen readers read it (the button that was pressed has gone). The note is the owner's copy (D9 in DECISIONS.md), followed by the theme's name and its `rules_broken`. All site copy lives in `data/copy.yaml`.
+  - Announces the new theme's name in the live region ("Now showing …"). All site copy lives in `data/copy.yaml`.
 - **Keeping the reader's place:** before switching, note which block of the article is at the top of the screen and how far into it the reader is. After switching, scroll back to it. Pixel positions don't survive a change of layout, so don't use them.
 - **Prefetch:** the next theme in the deck has its script (if any) preloaded when the browser is idle. The CSS is already loaded.
-- A post's `bad:` front matter limits the deck or turns it off.
+- A post's `themes:` front matter limits the deck or turns it off; with no themes left, the bar says the post stays plain.
 
 ## The theme index
 
-`content/designs.md` with `layouts/designs.html` renders `/designs/` from the manifest: every shipped bad theme, its `rules_broken`, and a "Try it" link (`/?bad=<id>`). The page has `bad: false`, so it always shows in Not Bad. Links to it carry the class `designs-link` (in the escape note and the footer), and the floor hides them in every theme but the plain one, a rule inherited from Turrible Takes, where the index explained the joke. Whether to keep that is open.
+`content/designs.md` with `layouts/designs.html` renders `/designs/` from the manifest: every shipped theme but the plain one, its `summary`, and a "Try it" link (`/?pack=<id>`). It shows in whatever theme the reader is using, and every theme's footer links to it. It never names the packs; their names live only in each `theme.yaml`, which never ships.
 
 ## Hit counter
 
@@ -234,22 +230,22 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 
 Playwright and axe-core, run in GitHub Actions (`.github/workflows/ci.yml`). These are development-only dependencies; nothing from them reaches the site. The theme list comes from the built manifest, so a new theme is tested automatically.
 
-- `scripts/lint-themes.mjs`: the theme package contract above.
+- `scripts/lint-themes.mjs`: the theme package contract above, plus the private pack registry: every pack theme declares `pack:` and `variant:`, no two share both, and no theme's id or name contains its pack's name.
 - `scripts/lint-smell.mjs`: known surface tells of the smell (SMELL.md) in everything that ships: smell fonts, Tailwind default colours, frosted glass, gradient text, smell emoji, pills, smell copy. A theme can exempt a rule in `theme.yaml` as `"<rule-id>: <reason>"`.
 - `tests/counter.test.mjs`: the hit counter's logic.
-- `tests/production.test.mjs`: builds production and checks that `_control` and fixtures don't ship, the CSP hash matches the inline script, and there are no third-party assets or inline styles.
+- `tests/production.test.mjs`: builds production and checks that `_control` and fixtures don't ship, that no declared pack name appears in the CSS, scripts, theme assets, manifest or theme index, the CSP hash matches the inline script, and there are no third-party assets or inline styles.
 - `tests/floor.spec.mjs`: the matrix below.
-- `tests/behaviour.spec.mjs`: first visits, the deck, the escape and its note, persistence, `bad: false`, no-JS, blocked storage, printing, the hit counter.
+- `tests/behaviour.spec.mjs`: first visits, the deck, keeping the reader's place, persistence, `themes: false`, no-JS, blocked storage, printing, the theme index, the hit counter. Tests that need two themes skip until two pack themes exist.
 - `tests/gallery.spec.mjs`: the screenshot gallery (only with `GALLERY=1`).
 
-The matrix: every theme in the development build (including `_control` and Not Bad) × widths of 320, 375, 768 and 1440px × the home page and the kitchen-sink post.
+The matrix: every theme in the development build (including `_control`, and the plain theme, which the tests switch to the way printing does) × widths of 320, 375, 768 and 1440px × the home page and the kitchen-sink post.
 
 Checks:
 - No horizontal overflow (`scrollWidth <= innerWidth`), down to 320px.
 - axe: contrast for `.post-body` text and code tokens in tier 2 themes; focus and ARIA rules on the whole page.
-- The bar is visible on load, and Less bad is in its fixed position, with targets of at least 44px and keyboard focus.
+- The bar is visible on load and stays at the top, and Fresh pack reads "Fresh pack", with a target of at least 44px.
 - With reduced motion emulated, `document.getAnimations()` returns nothing.
-- With `forced-colors: active`, the article and the fire exit stay visible.
+- With `forced-colors: active`, the article and Fresh pack stay visible.
 - No content security policy violations, page errors or console errors.
 - Article content stays inside the article, and the page's regions (masthead, main, sidebars, footer) never overlap.
 - Every animation ends within five seconds (WCAG 2.2.2). Tests wait for animations to settle before checking contrast and layout.

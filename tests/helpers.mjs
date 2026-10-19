@@ -4,10 +4,10 @@ import { readFileSync } from "node:fs";
 // The theme manifest, read from the built site so tests always cover every
 // theme that exists, including ones added later.
 const html = readFileSync(".test-site/index.html", "utf8");
-export const manifest = JSON.parse(html.match(/<script[^>]*\bid="?tt-manifest"?[^>]*>([\s\S]*?)<\/script>/)[1]);
+export const manifest = JSON.parse(html.match(/<script[^>]*\bid="?ft-manifest"?[^>]*>([\s\S]*?)<\/script>/)[1]);
 export const THEMES = manifest.themes;
-export const BAD = THEMES.filter((t) => t.id !== "not-bad");
-export const FRONT_DOOR = BAD.filter((t) => t.front_door).map((t) => t.id);
+export const PACKS = THEMES.filter((t) => t.id !== "plain");
+export const FRONT_DOOR = PACKS.filter((t) => t.front_door).map((t) => t.id);
 export const theme = (id) => THEMES.find((t) => t.id === id);
 
 export const PAGES = ["/", "/posts/kitchen-sink/"];
@@ -63,3 +63,10 @@ export const settle = async (page) => {
 };
 
 export const currentTheme = (page) => page.evaluate(() => document.documentElement.dataset.theme);
+
+// Open a page in a theme. Readers can't ask for the plain theme by URL, so
+// switch to it the way printing does, after the page has loaded.
+export const open = async (page, path, id) => {
+  await page.goto(`${path}?pack=${id}`);
+  if (id === "plain") await page.evaluate(() => (document.documentElement.dataset.theme = "plain"));
+};

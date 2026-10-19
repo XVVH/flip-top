@@ -6,7 +6,7 @@ This repository is **Flip-Top** (a working name), a Markdown-to-static-site blog
 
 - Each theme studies one pack, picks out what makes it recognizable, and carries those elements onto the page. Someone who knows the pack should feel it at once; nobody should mistake the page for the brand.
 - **No brand names, logos, wordmarks or marks** on the site, in theme names or ids, or in any shipped file. **Signal, don't copy:** an angled element can nod to a pack's chevron without being it. See `docs/RULES.md`, "Trade dress".
-- Every page renders in one of the pack themes, picked at random on a first visit, and readers can switch to explore the others.
+- Every page renders in one of the pack themes, picked at random on a first visit. **Fresh pack**, the only control, deals the next one.
 - Readable, accessible and well engineered on desktop and mobile. The floor from Turrible Takes carries over unchanged.
 
 ## Read before touching anything
@@ -24,7 +24,8 @@ Then, depending on the task:
 
 ## Rules for agents
 
-- **No brand names, logos, wordmarks, slogans or marks in anything that ships**, including theme names, ids, alt text and file names. Brands may be named in the docs and journals, which are research notes.
+- **No brand names, logos, wordmarks, slogans or marks in anything that ships**, including theme names, ids, alt text and file names. Brands may be named in the docs, the journals and each theme's private `pack:` field.
+- **Register every theme's source** as `pack:` and `variant:` in its `theme.yaml`, and check the catalogue in `docs/THEMES.md` first, so no pack and variant is built twice.
 - **No pack artwork, photos or logo files in the repository**, not even as references. Journals describe packs in words and link to sources.
 - **Study before styling.** Every theme starts as a pack study in `docs/themes/<id>.md`, reviewed by the owner, before any CSS.
 - **Don't fill the gaps with defaults.** Where a pack doesn't decide something, choose for that pack; don't reach for the default AI look (`docs/SMELL.md`).
@@ -46,4 +47,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phase 0: imported from Turrible Takes. The plumbing works and is tested, with no pack themes yet; the docs are a draft for the owner's review. Names in the code such as `?bad=`, `not-bad`, `bad:` in front matter and the More bad / Less bad buttons are inherited placeholders, renamed when the switcher is redesigned. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phase 1, in progress. The plumbing is imported from Turrible Takes and reworked: one Fresh pack button, no escape, the plain theme only as a fallback, and a private pack registry. It's tested, with no pack themes yet. Still open before the first theme: how literal a theme may be, theme names, and the site's name. See [`docs/ROADMAP.md`](docs/ROADMAP.md).

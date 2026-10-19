@@ -78,7 +78,7 @@ Words carry it too: button labels, taglines, 404 pages, empty states.
 1. **Scaffolding.** It's the theme that proves the build, the theme pipeline and the tests work before any pack theme exists.
 2. **Baseline.** Screenshot galleries show each theme beside the control, so the distance from the default is visible.
 
-It is excluded from production builds. It never appears in the rotation, can't be selected with `?bad=`, and nothing may be copied from it into a theme or into Not Bad.
+It is excluded from production builds. It never appears in the rotation, can't be selected with `?pack=` in production, and nothing may be copied from it into a theme or the plain theme.
 
 ## Checking for the smell
 

@@ -12,7 +12,8 @@ A theme evokes a pack; it never claims to be one. Breaking any of these is a bug
 - **Signal, don't copy.** An element may echo a mark's geometry (an angle, a band, a proportion, a placement) but must not be the mark: not its outline, and not the mark's shape in the mark's colours in the mark's place. The owner's example: an angled element that nods to a chevron "roof" without being the roof.
 - **Don't lay the page out as the pack's face.** The whole arrangement of a pack (these colours, in these zones, with these shapes) is its trade dress. Take the distinctive elements and arrange them for a page.
 - **The endorsement test:** would a reader think the brand made, sponsored or approved the page? If so, pull back. The goal is "that reminds me of…", never "that's their site".
-- Brands may be named in the docs and journals, which are research notes and never ship.
+- **Health warnings are left out entirely** (DECISIONS.md F13). The subject is brand design.
+- Brands may be named in the docs, the journals and each theme's private `pack:` field, none of which ships. The lint and a production test check this (DECISIONS.md F11).
 
 ## 2. Never (every theme, forever)
 
@@ -39,7 +40,8 @@ Inherited unchanged from Turrible Takes. Breaking any of these is a bug. Automat
 **Navigation and controls**
 - Links can be told apart from body text.
 - Keyboard focus is always visible.
-- The theme controls are always present at the top, reachable by keyboard, with tap targets of at least 44×44px. Their design is an open question (ROADMAP.md); until it's settled, the inherited More bad / Less bad bar and its floor rules stay.
+- The bar is always present at the top, reachable by keyboard, and Fresh pack is a tap target of at least 44×44px. Themes may restyle Fresh pack, but never hide, shrink or move it, and its visible text always reads "Fresh pack".
+- The theme index link in the footer is never hidden.
 - Every other link and button is a target of at least 24×24px, or spaced so it counts as one (WCAG 2.5.8).
 - A control's visible text is contained in its accessible name, because speech-input users say what they see (WCAG 2.5.3).
 

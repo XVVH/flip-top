@@ -11,8 +11,8 @@
 {{- end }}
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 {{- if ne .Kind "404" }}
-<meta name="tt-hit" content="{{ .RelPermalink }}">
+<meta name="ft-hit" content="{{ .RelPermalink }}">
 {{- end }}
-<script type="application/json" id="tt-manifest">{{ dict "themes" $a.themes "copy" hugo.Data.copy "hits" ("api/hit" | relURL) | jsonify | safeJS }}</script>
+<script type="application/json" id="ft-manifest">{{ dict "themes" $a.themes "copy" hugo.Data.copy "hits" ("api/hit" | relURL) | jsonify | safeJS }}</script>
 <script>{{ $a.boot.Content | safeJS }}</script>
 <link rel="stylesheet" href="{{ $a.css.RelPermalink }}">

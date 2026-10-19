@@ -5,7 +5,7 @@
 // Runs only when GALLERY=1. Output: gallery/index.html plus PNGs.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
-import { loadImages, settle, THEMES } from "./helpers.mjs";
+import { loadImages, open, settle, THEMES } from "./helpers.mjs";
 
 test.skip(!process.env.GALLERY, "set GALLERY=1 to build the screenshot gallery");
 
@@ -30,7 +30,7 @@ for (const t of order) {
       shots.push({ theme: t, pageName, view, file });
       test(`${t.id} ${pageName} ${view}`, async ({ page }) => {
         await page.setViewportSize({ width, height });
-        await page.goto(`${path}?bad=${t.id}`);
+        await open(page, path, t.id);
         await loadImages(page);
         // Scroll through once, so anything that reveals on scroll is shown.
         await page.evaluate(async () => {

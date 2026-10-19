@@ -3,9 +3,7 @@
 // test.
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
-import { animationEnds, loadImages, PAGES, problems, settle, THEMES, watch, WIDTHS } from "./helpers.mjs";
-
-const EXIT = { background: "rgb(0, 112, 60)", color: "rgb(255, 255, 255)", weight: "700" };
+import { animationEnds, loadImages, manifest, open, PAGES, problems, settle, THEMES, watch, WIDTHS } from "./helpers.mjs";
 
 for (const t of THEMES) {
   for (const path of PAGES) {
@@ -14,7 +12,7 @@ for (const t of THEMES) {
         test(`never rules at ${width}px`, async ({ page }) => {
           await page.setViewportSize({ width, height: 800 });
           await watch(page);
-          await page.goto(`${path}?bad=${t.id}`);
+          await open(page, path, t.id);
           await loadImages(page);
           await settle(page);
           expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBe(t.id);
@@ -26,28 +24,16 @@ for (const t of THEMES) {
           // The bar is at the top, and stays there after scrolling.
           const bar = page.locator(".bar");
           await expect(bar).toBeVisible();
-          const more = page.getByRole("button", { name: "More bad", exact: true });
-          await expect(more).toBeVisible();
+          // Fresh pack: visible, big enough, at the top, reading what it says.
+          const next = page.getByRole("button", { name: manifest.copy.next, exact: true });
+          await expect(next).toBeVisible();
+          await expect(next).toContainText(manifest.copy.next);
+          const box = await next.boundingBox();
+          expect(box.width).toBeGreaterThanOrEqual(44);
+          expect(box.height).toBeGreaterThanOrEqual(44);
+          expect(box.y).toBeLessThan(60);
           await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
           expect(Math.round((await bar.boundingBox()).y)).toBe(0);
-
-          const less = page.getByRole("button", { name: "Less bad", exact: true });
-          if (t.id === "not-bad") {
-            await expect(less).toBeHidden();
-          } else {
-            // The fire exit: visible, big enough, top right, identical everywhere.
-            await expect(less).toBeVisible();
-            const box = await less.boundingBox();
-            expect(box.width).toBeGreaterThanOrEqual(44);
-            expect(box.height).toBeGreaterThanOrEqual(44);
-            expect(box.y).toBeLessThan(60);
-            expect(box.x + box.width).toBeGreaterThan(width - 120);
-            const style = await less.evaluate((el) => {
-              const s = getComputedStyle(el);
-              return { background: s.backgroundColor, color: s.color, weight: s.fontWeight };
-            });
-            expect(style).toEqual(EXIT);
-          }
 
           // Content stays inside its boxes: the article holds its own text,
           // and the main regions never overlap each other.
@@ -79,14 +65,14 @@ for (const t of THEMES) {
       test("everything that moves stops within five seconds", async ({ page }) => {
         // WCAG 2.2.2: anything that moves for more than five seconds needs a
         // pause button. Themes don't have one, so nothing may run longer.
-        await page.goto(`${path}?bad=${t.id}`);
+        await open(page, path, t.id);
         const long = (await animationEnds(page)).filter((a) => a.end === null || a.end > 5000);
         expect(long, "animations that run past five seconds").toEqual([]);
       });
 
       test("accessibility", async ({ page }) => {
         await page.setViewportSize({ width: 1280, height: 900 });
-        await page.goto(`${path}?bad=${t.id}`);
+        await open(page, path, t.id);
         await loadImages(page);
         await settle(page);
         const tags = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"];
@@ -102,7 +88,7 @@ for (const t of THEMES) {
       test("body text is legible", async ({ page }) => {
         test.skip(!t.legible || path === "/", "tier 2 applies to legible themes' article text");
         await page.setViewportSize({ width: 1280, height: 900 });
-        await page.goto(`${path}?bad=${t.id}`);
+        await open(page, path, t.id);
         await loadImages(page);
         await settle(page);
         const p = await page.locator(".post-body > p").first().evaluate((el) => {
@@ -120,7 +106,7 @@ for (const t of THEMES) {
       test("reduced motion stops everything", async ({ browser }) => {
         const context = await browser.newContext({ reducedMotion: "reduce" });
         const page = await context.newPage();
-        await page.goto(`${path}?bad=${t.id}`);
+        await open(page, path, t.id);
         await page.waitForTimeout(300);
         const running = await page.evaluate(() => document.getAnimations().filter((a) => a.playState === "running").length);
         expect(running).toBe(0);
@@ -130,16 +116,16 @@ for (const t of THEMES) {
       test("forced colours keep the page usable", async ({ browser }) => {
         const context = await browser.newContext({ forcedColors: "active", viewport: { width: 375, height: 800 } });
         const page = await context.newPage();
-        await page.goto(`${path}?bad=${t.id}`);
+        await open(page, path, t.id);
         await loadImages(page);
         expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
         await expect(page.locator(".main")).toBeVisible();
-        if (t.id !== "not-bad") await expect(page.getByRole("button", { name: "Less bad", exact: true })).toBeVisible();
+        await expect(page.getByRole("button", { name: manifest.copy.next, exact: true })).toBeVisible();
         await context.close();
       });
 
       test("keyboard focus is visible", async ({ page }) => {
-        await page.goto(`${path}?bad=${t.id}`);
+        await open(page, path, t.id);
         await page.keyboard.press("Tab");
         await expect(page.locator(".skip")).toBeInViewport();
         await page.keyboard.press("Tab");

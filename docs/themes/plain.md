@@ -1,6 +1,6 @@
-# Not Bad: design journal
+# Plain (formerly Not Bad): design journal
 
-*Status: inherited from Turrible Takes, where it was the escape destination and awaited the owner's approval. In Flip-Top it's the plain fallback for readers without JavaScript and for printing. Whether readers can choose it, and what it should look like now, are open questions (ROADMAP.md). The journal below is Turrible Takes' and is kept for reference.*
+*Status: renamed from Not Bad, Turrible Takes' escape destination. In Flip-Top it's the fallback for readers without JavaScript and for printing, never offered as a choice (DECISIONS.md F9). The journal below is Turrible Takes' and is kept for reference.*
 
 ## Brief
 

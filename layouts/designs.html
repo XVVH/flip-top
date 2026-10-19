@@ -1,8 +1,8 @@
 {{- /*
-  The theme index (docs/THEMES.md). The only page that names every theme.
-  It forces Not Bad (bad: false in its front matter), and it's linked only
-  from Not Bad: the escape note and the footer link, which the floor hides
-  in every bad theme.
+  The theme index (docs/THEMES.md): every shipped theme, its summary, and a
+  link to try it. It never names the packs (RULES.md tier 1); the research
+  names live only in each theme.yaml, which never ships. Linked from the
+  footer of every theme.
 */ -}}
 {{ define "main" }}
 {{- $a := partialCached "assets.html" . }}
@@ -13,17 +13,13 @@
   <div class="post-body">
     {{ .Content }}
     {{- range $a.themes }}
-    {{- if ne .id "not-bad" }}
+    {{- if ne .id "plain" }}
     <section class="design" id="design-{{ .id }}">
       <h2>{{ .name }}</h2>
-      {{- with .rules }}
-      <ul>
-        {{- range . }}
-        <li>{{ . }}</li>
-        {{- end }}
-      </ul>
+      {{- with .summary }}
+      <p>{{ . }}</p>
       {{- end }}
-      <p><a href="{{ "/" | relURL }}?bad={{ .id }}">Try {{ .name }}</a></p>
+      <p><a href="{{ "/" | relURL }}?pack={{ .id }}">Try {{ .name }}</a></p>
     </section>
     {{- end }}
     {{- end }}

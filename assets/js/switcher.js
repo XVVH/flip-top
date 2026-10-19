@@ -1,49 +1,43 @@
-// The More bad / Less bad bar, theme scripts, the escape note and the hit
-// counter. See docs/ARCHITECTURE.md ("In the browser").
+// The Fresh pack button, theme scripts and the hit counter. See
+// docs/ARCHITECTURE.md ("In the browser").
 //
 // Rules this file keeps (docs/RULES.md):
-// - Less bad is instant: no animation, no network, the reader keeps their place.
-// - Nothing names a theme or explains the joke until the reader escapes.
+// - Switching keeps the reader's place.
 // - Every storage access can fail; the site works anyway.
 
 const root = document.documentElement;
-const manifest = JSON.parse(document.getElementById("tt-manifest").textContent);
+const manifest = JSON.parse(document.getElementById("ft-manifest").textContent);
 const themes = new Map(manifest.themes.map((t) => [t.id, t]));
 const copy = manifest.copy;
-const BAD = manifest.themes.map((t) => t.id).filter((id) => id !== "not-bad");
+const PACKS = manifest.themes.map((t) => t.id).filter((id) => id !== "plain");
 
 const storage = (name) => {
   try {
     const s = window[name];
-    s.setItem("tt:probe", "1");
-    s.removeItem("tt:probe");
+    s.setItem("ft:probe", "1");
+    s.removeItem("ft:probe");
     return s;
   } catch {
     return null;
   }
 };
-const local = storage("localStorage");
 const session = storage("sessionStorage");
 
 const bar = document.querySelector(".bar");
-const more = bar.querySelector(".bar-more");
-const less = bar.querySelector(".bar-less");
+const next = bar.querySelector(".bar-next");
 const plain = bar.querySelector(".bar-plain");
-const note = bar.querySelector(".bar-note");
-const noteFrom = note.querySelector(".bar-note-from");
-const noteRules = note.querySelector(".bar-note-rules");
-const dismiss = note.querySelector(".bar-note-dismiss");
 const live = document.querySelector(".sr-live");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const current = () => root.dataset.theme;
 
-// The themes this page allows: none for bad: false, a subset for bad: [ids].
+// The themes this page allows: none for themes: false, a subset for
+// themes: [ids].
 const eligible = () => {
-  const allow = root.dataset.bad;
+  const allow = root.dataset.themes;
   if (allow === "off") return [];
-  if (allow) return allow.split(" ").filter((id) => themes.has(id) && id !== "not-bad");
-  return BAD;
+  if (allow) return allow.split(" ").filter((id) => themes.has(id) && id !== "plain");
+  return PACKS;
 };
 
 // --- The deck: every theme is seen once before any repeats. -------------
@@ -60,14 +54,14 @@ const shuffle = (list) => {
 const readDeck = () => {
   if (!session) return memoryDeck;
   try {
-    return JSON.parse(session.getItem("tt:deck") || "[]");
+    return JSON.parse(session.getItem("ft:deck") || "[]");
   } catch {
     return [];
   }
 };
 const writeDeck = (deck) => {
   memoryDeck = deck;
-  if (session) session.setItem("tt:deck", JSON.stringify(deck));
+  if (session) session.setItem("ft:deck", JSON.stringify(deck));
 };
 const freshDeck = () => {
   const pool = eligible();
@@ -156,12 +150,12 @@ const prefetch = () => {
 // --- If storage is blocked, carry the theme on internal links instead. ---
 
 const carry = (id) => {
-  if (local && session) return;
+  if (session) return;
   for (const a of document.querySelectorAll("a[href]")) {
     const u = new URL(a.href, location.href);
     if (u.origin !== location.origin) continue;
     if (u.pathname === location.pathname && u.search === location.search && u.hash) continue;
-    u.searchParams.set("bad", id);
+    u.searchParams.set("pack", id);
     a.href = u.href;
   }
 };
@@ -177,33 +171,12 @@ const announce = (text) => {
 
 const sync = () => {
   const none = eligible().length === 0;
-  more.hidden = none;
+  next.hidden = none;
   plain.hidden = !none;
 };
 
-const hideNote = () => {
-  note.hidden = true;
-};
-
-const showNote = (fromId) => {
-  const from = themes.get(fromId);
-  const rules = from?.rules ?? [];
-  noteFrom.textContent = copy.escaped_from.replace("{theme}", from?.name ?? fromId);
-  noteFrom.hidden = rules.length === 0;
-  noteRules.replaceChildren(
-    ...rules.map((rule) => {
-      const li = document.createElement("li");
-      li.textContent = rule;
-      return li;
-    }),
-  );
-  noteRules.hidden = rules.length === 0;
-  note.hidden = false;
-  note.focus({ preventScroll: true });
-};
-
-// The spin: three reels in the bar, about 0.6s, no theme names. The reels
-// scroll rather than flicker, so nothing flashes. Skipped under reduced motion.
+// The spin: three reels in the bar, about 0.6s. The reels scroll rather than
+// flicker, so nothing flashes. Skipped under reduced motion.
 let spinning = false;
 const spin = () =>
   new Promise((done) => {
@@ -212,28 +185,27 @@ const spin = () =>
     reel.className = "bar-spin";
     reel.setAttribute("aria-hidden", "true");
     reel.append(...[0, 1, 2].map(() => document.createElement("span")));
-    more.after(reel);
+    next.after(reel);
     window.setTimeout(() => {
       reel.remove();
       done();
     }, 650);
   });
 
-more.addEventListener("click", async () => {
+// Fresh pack: deal the next theme from the deck.
+next.addEventListener("click", async () => {
   if (spinning) return;
-  const next = deal();
-  if (!next) return;
+  const id = deal();
+  if (!id) return;
   spinning = true;
   await spin();
   spinning = false;
-  local?.removeItem("tt:escaped");
-  session?.setItem("tt:theme", next);
-  hideNote();
+  session?.setItem("ft:theme", id);
   const point = readingPoint();
   const swap = async () => {
-    root.dataset.theme = next;
+    root.dataset.theme = id;
     sync();
-    await activate(next);
+    await activate(id);
     restore(point);
   };
   if (document.startViewTransition && !reducedMotion.matches) {
@@ -241,36 +213,16 @@ more.addEventListener("click", async () => {
   } else {
     swap();
   }
-  announce(copy.changed);
-  carry(next);
+  announce(copy.changed.replace("{theme}", themes.get(id)?.name ?? id));
+  carry(id);
   prefetch();
 });
 
-// The fire exit. Instant: no view transition, no waiting on anything.
-less.addEventListener("click", () => {
-  const from = current();
-  if (from === "not-bad") return;
-  local?.setItem("tt:escaped", "1");
-  session?.setItem("tt:theme", "not-bad");
-  const point = readingPoint();
-  deactivate();
-  root.dataset.theme = "not-bad";
-  sync();
-  restore(point);
-  showNote(from);
-  carry("not-bad");
-});
-
-dismiss.addEventListener("click", () => {
-  hideNote();
-  more.focus();
-});
-
-// Printing always uses Not Bad.
+// Printing always uses the plain theme.
 let beforePrint = null;
 window.addEventListener("beforeprint", () => {
   beforePrint = current();
-  root.dataset.theme = "not-bad";
+  root.dataset.theme = "plain";
 });
 window.addEventListener("afterprint", () => {
   if (beforePrint) root.dataset.theme = beforePrint;
@@ -281,9 +233,9 @@ window.addEventListener("afterprint", () => {
 // One count per page per visit. Nothing about the visitor is sent or stored.
 
 const countHit = async () => {
-  const path = document.querySelector('meta[name="tt-hit"]')?.content;
+  const path = document.querySelector('meta[name="ft-hit"]')?.content;
   if (!path || !manifest.hits) return;
-  const key = `tt:hit:${path}`;
+  const key = `ft:hit:${path}`;
   let count = Number(session?.getItem(key)) || null;
   if (count === null) {
     try {
@@ -306,7 +258,7 @@ const countHit = async () => {
   for (const el of document.querySelectorAll(".hits-count")) {
     el.textContent = String(count).padStart(6, "0");
   }
-  document.dispatchEvent(new CustomEvent("tt:hits", { detail: { count } }));
+  document.dispatchEvent(new CustomEvent("ft:hits", { detail: { count } }));
 };
 
 // --- Start. ------------------------------------------------------------------

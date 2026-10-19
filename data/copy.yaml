@@ -1,21 +1,14 @@
 # Site copy that isn't a post. Edit wording here, in one place.
 
-# Shown after a reader presses Less bad (DECISIONS.md D9). The owner's words,
-# used verbatim; don't edit them.
-escape: "This site was designed to be intentionally jarring from a design perspective. If that’s getting in the way of your enjoyment, here’s a more friendly view."
+# The one theme control: deals the next theme (DECISIONS.md F8).
+next: "Fresh pack"
 
-# Secondary line under the escape message. {theme} is replaced with the name
-# of the theme the reader escaped from.
-escaped_from: "You escaped from {theme}, which broke these rules:"
-
-# Shown in the bar on posts whose front matter says bad: false.
+# Shown in the bar on posts whose front matter says themes: false.
 stays_plain: "This one stays plain."
 
-# Live-region announcement when a bad theme changes. No theme names: they
-# would explain the joke.
-changed: "The design changed."
+# Live-region announcement when the theme changes. {theme} is replaced with
+# the new theme's name.
+changed: "Now showing {theme}."
 
-dismiss: "Dismiss"
-
-# Link to the theme index (/designs/). Shown only in Not Bad.
+# Link to the theme index (/designs/), in the footer of every theme.
 designs_link: "See every design"

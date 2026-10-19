@@ -51,7 +51,7 @@
       border-bottom: 1px solid var(--c-border);
       @media (prefers-color-scheme: dark) { background: rgb(2 6 23 / 0.7); }
     }
-    .bar-more {
+    .bar-next {
       border: 0;
       border-radius: 9999px;
       padding: 0.5rem 1.25rem;
@@ -63,8 +63,8 @@
       cursor: pointer;
       transition: transform 200ms ease, box-shadow 200ms ease;
     }
-    .bar-more::before { content: "✨ "; }
-    .bar-more:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgb(99 102 241 / 0.45); }
+    .bar-next::before { content: "✨ "; }
+    .bar-next:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgb(99 102 241 / 0.45); }
 
     .page { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem 6rem; }
 

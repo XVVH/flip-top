@@ -4,7 +4,7 @@
 */
 @layer floor {
   /* Global effects belong on .page, never on html or body, because they
-     would reach the bar and the fire exit. */
+     would reach the bar. */
   html, body {
     filter: none;
     transform: none;
@@ -40,8 +40,8 @@
   .skip:focus { top: 8px; }
 
   /* The bar: always at the top, always visible, never transformed. Its
-     inner row is locked edge to edge, so the fire exit sits in the same
-     place, top right, in every theme. */
+     inner row is locked edge to edge, so Fresh pack sits in the same place
+     in every theme. */
   :root:not([data-js]) .bar { display: none; }
   .bar {
     position: sticky;
@@ -74,7 +74,8 @@
     opacity: 1;
     visibility: visible;
   }
-  .bar-more {
+  /* Fresh pack can be restyled, but never hidden, shrunk or wrapped. */
+  .bar-next {
     order: 0;
     min-height: 44px;
     min-width: 44px;
@@ -83,44 +84,7 @@
     visibility: visible;
     opacity: 1;
   }
-
-  /* Less bad is the fire exit. Every property is set here, so no theme can
-     move, hide or restyle it (DECISIONS.md D8). */
-  .bar-less {
-    all: unset;
-    order: 99;
-    flex: 0 0 auto;
-    margin-inline-start: auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    min-height: 44px;
-    min-width: 44px;
-    padding: 8px 14px;
-    border: 2px solid #fff;
-    background: #00703c;
-    color: #fff;
-    font-family: Frutiger, "Frutiger Linotype", Univers, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: max(16px, 1rem);
-    font-weight: 700;
-    font-style: normal;
-    line-height: 1.1;
-    letter-spacing: normal;
-    text-transform: none;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: 0 0 0 2px #00703c;
-    cursor: pointer;
-    visibility: visible;
-    opacity: 1;
-  }
-  .bar-less::before, .bar-less::after { content: none; }
-  .bar-less .bar-label { all: unset; }
-  .bar-less:hover { background: #005a30; box-shadow: 0 0 0 2px #005a30; }
-  /* Yellow ring inside a black one: visible on any background. */
-  .bar-less:focus-visible { outline: 3px solid #ffdd00; outline-offset: 0; box-shadow: 0 0 0 7px #0b0c0c; }
-  :root[data-theme="not-bad"] .bar-less { display: none; }
+  .bar-next[hidden] { display: none; }
 
   /* The live region speaks to screen readers ("The design changed.") and is
      never seen, in any theme. */
@@ -136,13 +100,14 @@
     border: 0;
   }
 
-  /* The theme index names every theme, so it's reachable only from Not Bad
-     (DECISIONS.md D9). No bad theme can show the link. */
-  :root:not([data-theme="not-bad"]) .designs-link, :root:not([data-theme="not-bad"]) .site-foot-designs { display: none; }
+  /* The theme index is linked from every theme's footer, and no theme can
+     hide the link. */
+  .site-foot-designs { display: block; visibility: visible; opacity: 1; }
+  .site-foot .designs-link { display: inline-block; visibility: visible; opacity: 1; }
 
-  /* Anything a theme script injects carries data-tt-deco. Not Bad (and so
-     printing) never shows it, even before the script cleans up. */
-  :root[data-theme="not-bad"] [data-tt-deco] { display: none; }
+  /* Anything a theme script injects carries data-ft-deco. The plain theme
+     (and so printing) never shows it, even before the script cleans up. */
+  :root[data-theme="plain"] [data-ft-deco] { display: none; }
 
   /* Reduced motion means nothing moves. */
   @media (prefers-reduced-motion: reduce) {
@@ -153,7 +118,4 @@
     }
   }
 
-  @media (forced-colors: active) {
-    .bar-less { border-color: ButtonText; forced-color-adjust: auto; }
-  }
 }

@@ -1,0 +1,12 @@
+id: green-marble
+name: Green Marble
+front_door: true
+legible: true
+motion: false
+# Private: the source pack, for the registry (docs/THEMES.md). Never ships.
+pack: "Virginia Slims"
+variant: "Menthol (slim box), the classic green marble design"
+sources:
+  - "docs/themes/green-marble.md (the owner's images, described in words)"
+summary: "A band of green marble down the left edge, edged in gold, green and gold, beside a slim white column and light, sloped small capitals in green."
+smell_exemptions: []

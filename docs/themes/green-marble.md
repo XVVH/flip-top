@@ -1,6 +1,6 @@
 # Green Marble: pack study and journal
 
-*Status: **study, for the owner's review.** The second pack of phase 4, studied from the owner's reference images (DECISIONS.md F24, F25). Working id `green-marble`; the name is the owner's to choose.*
+*Status: **built; awaiting the owner's review.** The second pack of phase 4, studied from the owner's reference images (DECISIONS.md F24, F25); the owner approved the study with Sofia Sans Condensed and Spectral, and named it Green Marble (F26).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -64,10 +64,8 @@
 
 ## The page
 
-- **Theme name**, for the owner to choose:
-  - descriptive: **Green Marble**, the owner's own words for the band (recommended)
-  - or the stone it looks like: **Malachite**
-- **Working id:** `green-marble`.
+- **Theme name:** **Green Marble**, the owner's own words for the band (F26; Malachite was the alternative).
+- **Id:** `green-marble`.
 - **Site name case:** THE SMOKEPIT in small caps with larger initials, as the wordmark is set: capitals (F17), with the T and S taller.
 - **Template slots:**
   - **Page ground and masthead band:** cool white; the marble band down the left edge; the bar white over a thin pale-gold rule.
@@ -102,9 +100,8 @@
 
 - 2026-10-20: Study written from the owner's three images, choosing the green box over the Ultra Lights. A specimen settled the faces (Philosopher Italic over Belleza, Marcellus, Tenor Sans, Italiana and Forum, which are upright); three rounds of generated marble settled the texture; a mock checked the page at desktop and phone width.
 - 2026-10-20: The owner liked the marble but not the heading face: Philosopher reads halfway between serif and sans, and the pack is wholly sans. Replaced with Sofia Sans Condensed Italic after a second specimen (see First instincts).
+- 2026-10-20: The owner approved Sofia Sans Condensed, kept Spectral for the article, and named it Green Marble. **Built.** The band is `.page::before`, the page's full height, with the stripes as a hard-stopped gradient over the marble; the page is padded by the band's width, so the slim column centres in the white. The marble's data URI needed its `url(#m)` filter reference written with percent-encoded brackets, or the theme lint read it as an asset path. Fixes from the screenshots: on a phone the site name came out smaller than a post title, so its minimum size went up; at 320px the navigation dropped "Feed" onto its own line, so it tightens below 360px. All floor tests pass.
 
 ## Open questions
 
-- The name: Green Marble or Malachite.
-- The marble: answered, it reads as the pack's (the owner).
-- The article face: Spectral, a serif, for long reading; or a sans, to match the pack all through?
+- The owner's review, on the live site.

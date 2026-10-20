@@ -63,7 +63,7 @@ Every theme, built or in study, with its private source. This table and each `th
 |---|---|---|---|
 | [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Built; passed review |
 | [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Built; passed review |
-| [`green-marble`](themes/green-marble.md) (working id) | Virginia Slims | Menthol (slim box), the classic green marble design | Study, for review |
+| [`green-marble`](themes/green-marble.md) | Virginia Slims | Menthol (slim box), the classic green marble design | Built; in review |
 | [`roundel`](themes/roundel.md) | Lucky Strike | White soft pack (the roundel design) | Built; passed review |
 | [`sun-cured`](themes/sun-cured.md) | Camel | Classic yellow (soft pack) | Built; passed review (the first build took a later hard box and failed) |
 
@@ -79,7 +79,7 @@ Research names only; none of them appears on the site. Notes are what's known be
 | Lucky Strike | Built: see `roundel`. The green pack, before the 1940s, could be a later variant. | A single central emblem as the whole identity, signalled without being the target. |
 | Pall Mall | A deep red long pack with a crest and a Latin motto, in gold. | Heraldry signalled through its outline language; a long pack's tall proportion. |
 | Benson & Hedges | A gold box. | Material as the ground: a metallic field under the whole page, and text on it. |
-| Virginia Slims | In study: see `green-marble`, the classic green box. The script turned out to be only the monogram; the Ultra Lights box (blush, paisley, five stripes) could be a later variant. Its famous slogan is a slogan: never. | A material, the marble, generated; a slim proportion as a narrow column. |
+| Virginia Slims | Built: see `green-marble`, the classic green box. The script turned out to be only the monogram; the Ultra Lights box (blush, paisley, five stripes) could be a later variant. Its famous slogan is a slogan: never. | A material, the marble, generated; a slim proportion as a narrow column. |
 | Natural American Spirit | A colour-coded family of flat, saturated packs, each a different colour. The figure is a mark, and a caricature: never. | A family: several variants from one structure. |
 | Parliament | To study. | |
 | Winston | To study. | |

@@ -54,6 +54,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F25. The next packs come one at a time, starting with Lucky Strike's white soft pack** (the owner, October 20, 2026), because each needs its own references and a pack can have several designs over the years. Its study was approved as written and named **Roundel**: the rings cropped by the top of the page, never whole and never holding a word.
 
+**F26. Virginia Slims: the classic green box, named Green Marble** (the owner, October 20, 2026). Of the two designs the owner sent, the green Menthol box over the Ultra Lights. Its marble is generated, never a picture. The owner turned down the first heading face, Philosopher, as halfway between a serif and a sans when the pack is wholly sans-serif; the name and headings are in Sofia Sans Condensed Italic, and the article stays in Spectral.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

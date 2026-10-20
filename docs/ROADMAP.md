@@ -31,7 +31,7 @@ Update this as work lands. Tick boxes; don't delete history.
 - [x] Restudy Sun Cured from the owner's photos of the classic yellow pack
 - [x] The owner reviews the new Sun Cured study
 - [x] Rebuild Sun Cured
-- [ ] The owner reviews the rebuilt Sun Cured in the gallery
+- [x] The owner reviews the rebuilt Sun Cured: passed, on the live site (F24)
 
 ## Phase 3: launch
 
@@ -39,10 +39,17 @@ Update this as work lands. Tick boxes; don't delete history.
 - [ ] Archive `bad-blog` on GitHub (Settings → Archive), after a last README note pointing here
 - [x] One production deploy (the owner, October 20)
 
+## Phase 4: more packs
+
+- [ ] The owner picks the next packs
+- [ ] The owner sends reference images for each (THEMES.md, "What to send")
+- [ ] A study for each, from the images, reviewed by the owner
+- [ ] Build them, and the owner reviews them in the gallery
+
 ## Open questions
 
 For the owner:
 
-- The rebuilt Sun Cured, in the gallery: the classic yellow pack, with the site name arched and outlined. See its journal.
+- Which packs come next (phase 4). Candidates and what each would test are in THEMES.md.
 
-Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21); the tagline (F22); Full Flavor's lid (F23).
+Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21); the tagline (F22); Full Flavor's lid (F23); Sun Cured's second review and where references come from (F24).

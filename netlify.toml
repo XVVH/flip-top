@@ -9,6 +9,10 @@
 [build]
   publish = "public"
   command = "hugo --gc --minify -b $URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
+  # Skip the build when nothing that ships has changed since the last one:
+  # docs, tests and the agent notes only. Exit 0 skips; anything else builds,
+  # so a missing or equal cached commit (a first or clear-cache build) builds.
+  ignore = '''[ -n "$CACHED_COMMIT_REF" ] && [ "$CACHED_COMMIT_REF" != "$COMMIT_REF" ] && git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- . ':(exclude)docs' ':(exclude)tests' ':(exclude)README.md' ':(exclude)AGENTS.md' ':(exclude)CLAUDE.md' '''
 
 [build.environment]
   HUGO_VERSION = "0.167.0"

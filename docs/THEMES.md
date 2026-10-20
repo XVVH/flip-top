@@ -1,11 +1,11 @@
 # Themes
 
-*Reviewed by the owner, October 2026. Of the first three pack themes, Full Flavor and Menthol Stripe passed the owner's gallery review; Sun Cured, restudied and rebuilt, awaits it (DECISIONS.md F21).*
+*Reviewed by the owner, October 2026. The first three pack themes are built and passed the owner's review (DECISIONS.md F21, F24). From here on, the owner supplies each pack's reference images.*
 
 ## How to make a theme
 
 1. **Pick a pack**, from the candidates below or the owner's own choice.
-2. **Study it.** Gather references (the owner's photos, or links to public images; never committed to the repository). Then describe, in words, what you see:
+2. **Study it from the owner's reference images** (DECISIONS.md F24; see "What to send" below). They're never committed to the repository, and they don't outlive the session, so the study has to record everything they show: describe each image in words, and measure the colours from its pixels. Then describe, in words, what you see:
    - **Palette:** each colour, with a hex value matched by eye, and roughly how much of the pack it covers.
    - **Lettering:** the wordmark's character (serif or sans, weight, width, contrast between thick and thin strokes, case, spacing), the secondary type, and the freely licensed typeface closest to each in character.
    - **Shapes:** bands, angles, crests, borders, roundels, and their proportions.
@@ -22,6 +22,16 @@
 7. **Write the study first**, as `docs/themes/<id>.md` from [`themes/_TEMPLATE.md`](themes/_TEMPLATE.md), and get the owner's review before any CSS.
 8. **Build, test, and check the gallery** beside `_control`. Run the endorsement test from RULES.md on the screenshots, not just the brief.
 9. **Record** what you first picked out as distinctive, what you misjudged, and every place you were tempted to copy rather than signal.
+
+## What to send
+
+For each pack, the owner sends a few images; more angles beat more of the same one.
+
+- **The front, straight on:** flat, evenly lit, no glare, nothing cropped. A flat scan, a straight-on photo or a manufacturer's render. This is where the layout and the proportions come from.
+- **The variant, named:** which colour or version it is, and **which era**, if the pack has had more than one design. "The old design" can mean more than one thing (F21).
+- **A close-up of the lettering:** the wordmark and the small type, sharp enough to see the letterforms.
+- **A second source for the colours**, ideally: a photo and a render disagree in useful ways, and both drift under cellophane and lighting.
+- **Anything distinctive off the front:** the sides, the back, the lid open, the foil, the tear strip, if the pack is known for them.
 
 ## The template (draft)
 
@@ -53,26 +63,26 @@ Every theme, built or in study, with its private source. This table and each `th
 |---|---|---|---|
 | [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Built; passed review |
 | [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Built; passed review |
-| [`sun-cured`](themes/sun-cured.md) | Camel | Classic yellow (soft pack) | Rebuilt; in review (the first build took a later hard box and failed) |
+| [`sun-cured`](themes/sun-cured.md) | Camel | Classic yellow (soft pack) | Built; passed review (the first build took a later hard box and failed) |
 
 ## Candidate packs
 
-Research names only; none of them appears on the site. Notes are what's known before a proper study; "to study" means nothing yet.
+Research names only; none of them appears on the site. Notes are what's known before a study, from memory, and unverified until the owner's images arrive. "What it would test" is the part of the template the first three didn't lean on.
 
-| Pack | First notes |
-|---|---|
-| Marlboro (red) | Studied: see `full-flavor`. |
-| Newport | Studied: see `menthol-stripe`. |
-| Camel | Studied: see `sun-cured`, which takes the classic yellow pack. The later hard box (cream, brown panels, oval) and the current white-and-red box could be later variants. |
-| Lucky Strike | A white field with a red roundel ringed in black; the pack was famously green until the 1940s. |
-| Pall Mall | A deep red long pack with a crest and a Latin motto. |
-| Benson & Hedges | A gold box. To study. |
-| Virginia Slims | A long, slim pack with script lettering. To study. |
-| Natural American Spirit | A colour-coded family of flat, saturated packs, each a different colour. The figure is a mark: never. |
-| Parliament | To study. |
-| Winston | To study. |
-| Kool | To study. |
-| Salem | To study. |
+| Pack | First notes | What it would test |
+|---|---|---|
+| Marlboro (red) | Built: `full-flavor`. Gold (olive gold roof) and Menthol (green roof) are the family's other colours. | Variants (F11): the same structure in another colour. |
+| Newport | Built: `menthol-stripe`. The non-menthol pack is red. | Variants. |
+| Camel | Built: `sun-cured`, the classic yellow pack. The later hard box (cream, brown panels, oval) and the current white-and-red box could be variants. | Variants, and two designs of one pack side by side. |
+| Lucky Strike | A white field with a red roundel ringed in black; the pack was famously green until the 1940s, when a redesign made it white and put the roundel on both faces. | A single central emblem as the whole identity, signalled without being the target. |
+| Pall Mall | A deep red long pack with a crest and a Latin motto, in gold. | Heraldry signalled through its outline language; a long pack's tall proportion. |
+| Benson & Hedges | A gold box. | Material as the ground: a metallic field under the whole page, and text on it. |
+| Virginia Slims | A long, slim pack with script lettering. Its famous slogan is a slogan: never. | Script lettering, which no theme has; a slim proportion as a narrow column. |
+| Natural American Spirit | A colour-coded family of flat, saturated packs, each a different colour. The figure is a mark, and a caricature: never. | A family: several variants from one structure. |
+| Parliament | To study. | |
+| Winston | To study. | |
+| Kool | To study. | |
+| Salem | To study. | |
 
 ## The plain theme
 

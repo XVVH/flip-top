@@ -225,7 +225,7 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
   - Each theme's CSS, fonts and assets: about 150KB or less. Every theme's CSS is in the one bundle, so keep theme CSS lean. A theme's fonts load only when it's shown. Full Flavor is a little over (about 170KB of fonts, mostly the display face's two axes); see its journal.
   - Fonts are OFL faces taken from the fontsource npm packages, the Latin subset only, as `woff2`, each with its licence text beside it in `fonts/`.
   - Post images are the biggest lever: resize them, use modern formats, and lazy-load them.
-- **Deploys:** production deploys happen only on merge to main, so batch your work. Review themes from the CI screenshot gallery. Before relying on deploy previews, check whether they use credits.
+- **Deploys:** Netlify builds every push to main, so batch your work. A push that changes only docs, tests or the agent notes is skipped (the `ignore` command in `netlify.toml`); any doubt, such as a first or clear-cache build, builds. Review themes from the CI screenshot gallery. Before relying on deploy previews, check whether they use credits.
 
 ## Testing
 

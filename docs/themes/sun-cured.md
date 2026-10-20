@@ -1,6 +1,6 @@
 # Sun Cured: pack study and journal
 
-*Status: **rebuilt; awaiting the owner's review in the gallery.** The first build failed the owner's gallery review: it studied the wrong design. This study takes the classic yellow pack, from the owner's own photos, and the owner approved it (DECISIONS.md F21).*
+*Status: **built; passed the owner's review** on the live site (DECISIONS.md F24). The first build failed the owner's gallery review: it studied the wrong design. This study takes the classic yellow pack, from the owner's own photos, and the owner approved it (DECISIONS.md F21).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -138,8 +138,8 @@ The first build (October 19, 2026) studied a different design: a later hard box,
 - 2026-10-20: **Failed the owner's gallery review.** The owner sent three photos of the pack they meant, the classic yellow one. Compared against the build (above), and restudied from the photos. A specimen settled the faces: Cinzel Decorative Black for the arched name, Alegreya SC and Alegreya for the rest.
 - 2026-10-20: The owner approved the study. **Rebuilt.** Maroon behind everything; the page is a rounded panel (a `::before` on `.page`) that runs butter yellow to sand gold, with a maroon line inset 7px from its edge, and stops short of the footer, which sits on the maroon below it at a fixed height. The arch is the project's first theme script: an SVG copy of the name on a quadratic curve, fitted to 94% of the curve's length once the face loads, `data-ft-deco` and `aria-hidden`; the link keeps its own text, at zero size while the arch shows. Under forced colours the arch is hidden and the plain name shows. Fixes from the screenshots: the tagline is tucked into the hollow under the arch, as the descriptor sits on the pack, but only from 720px up (on a narrow phone it ran into the ends of the arch); Alegreya's old-style figures made a 0 in tables read as an o, so tables use lining figures. All floor tests pass, and the arch is removed when Fresh pack deals another theme.
 - 2026-10-20: The tagline is gone from every theme (DECISIONS.md F22), so the navigation takes its place in the hollow under the arch, from 720px up.
+- 2026-10-20: **Passed the owner's review**, on the deployed site.
 
 ## Open questions
 
-- The owner's review in the gallery.
 - On a phone the arched name is about the size of a post title. It can't grow without running past the edges: the letter size is set by fitting twelve letters across the width, and a flatter arch makes them smaller, not larger. A steeper arch would make them larger, but further from the pack's.

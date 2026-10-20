@@ -50,6 +50,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F23. Full Flavor's lid is taken out** (the owner, October 20, 2026, after trying it on the deployed site: "kind of awkward"). The red band no longer opens when Fresh pack is pressed; the tear strip is the only Fresh pack motion, in every theme. Literal pack parts stay an area of investigation (F15); the lid's journal entry records why this one didn't work.
 
+**F24. Sun Cured passes, and references come from the owner** (October 20, 2026). The rebuilt Sun Cured passed the owner's review on the live site. For the packs after the first three, there's no separate research session: once a pack is chosen, the owner supplies reference images in the session, and the study starts from them (the lesson of F21). The images are never committed (RULES.md); the study records what they show in words and measured colours, because the images don't outlive the session. *Rejected:* handing research to a browser session, which described a design in words that turned out not to be the one the owner meant.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

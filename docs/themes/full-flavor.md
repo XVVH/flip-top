@@ -1,6 +1,6 @@
 # Full Flavor: pack study and journal
 
-*Status: **built; awaiting the owner's review in the gallery.** Full Flavor is also the testbed for literal pack parts: its red band opens like the lid (DECISIONS.md F20).*
+*Status: **built; passed the owner's gallery review** (DECISIONS.md F21). Full Flavor is also the testbed for literal pack parts: its red band opens like the lid (DECISIONS.md F20).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -114,6 +114,7 @@ The first draft was written from memory and search summaries. The research sessi
 - 2026-10-19: Built. Display face settled by specimen: Noto Serif Display at its narrowest width (62.5%) and heaviest weight (900), which stripes like the wordmark. The band is a 43-degree step rather than a chevron: shallow on the left, one drop, full depth to the right, with a gold-foil hairline under it.
 - 2026-10-19: **The lid (the F15 experiment).** Three layers on the page's top edge: silver foil, the gold hairline, the red. While the tear strip runs, the red and the gold swing up on a hinge at the top (`rotateX`, with perspective) and show the foil; hovering Fresh pack lifts them a crack first. It's pure CSS, keyed on the strip's presence (`:has(.bar .bar-strip)`), so the switcher needed no change, and it's off under reduced motion. First attempt didn't move at all: pseudo-elements aren't allowed inside `:is()`, so the selectors were silently dropped. The tear strip also came out white, from a misnamed variable. Both fixed. All floor tests pass.
 - 2026-10-19: Fonts come to about 170KB (the display face's two axes are most of it), a little over the 150KB budget per theme in ARCHITECTURE.md. They load only when the theme is shown.
+- 2026-10-20: Passed the owner's gallery review.
 
 ## Open questions
 

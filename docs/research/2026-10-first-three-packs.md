@@ -2,6 +2,8 @@
 
 *The owner's research brief, carried out in a separate browser session, October 2026. Research notes only: brand names appear here and never ship. No images are stored. The studies in `docs/themes/` use it.*
 
+*Note, October 20: the "old" cream, brown and oval Camel design described here is a later hard box. The owner's "old Camel design" was the classic yellow pack, and Sun Cured's first build, made from this description, failed the owner's review (DECISIONS.md F21).*
+
 Research date: 19 Oct 2026. Three biggest corrections to the design study first:
 
 1. **Camel Filters is no longer a tan box.** A 2017 "New look" redesign replaced the cream/brown/oval design. The current US Camel Filters (now sold as "Camel Classic Filters") is a **white field inside a brick-red frame, with a blue CAMEL wordmark**. The tan/cream design is the old one.

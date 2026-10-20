@@ -52,7 +52,7 @@
 | Butter yellow deepening to gold | Mirror | The page ground: butter yellow at the top of the page, deepening to sand gold at the foot. One gradient down the whole page, the pack's own (not the smell's gradient habit: here the pack decides it). |
 | Rounded face in a maroon frame | Mirror the structure | Maroon behind everything. The bar sits on the maroon at the top; the page sits on a rounded yellow panel inset a few pixels, with a double hairline inside its edge (maroon, yellow, maroon); the footer sits on the maroon below it. |
 | The arched wordmark | Mirror the character | The site name in **Cinzel Decorative Black** (OFL), capitals, on an upward arch, silver blue-grey inside a navy outline. Never the wordmark's letters, and never its word. |
-| Navy descriptor, umber blend line | Mirror the character | **Alegreya SC** (OFL), bold capitals: the tagline, dates and labels in umber; the navigation in navy. Centred. Its curly ampersand is the same kind as the pack's. |
+| Navy descriptor, umber blend line | Mirror the character | **Alegreya SC** (OFL), bold capitals: dates and labels in umber; the navigation in navy. Centred. Its curly ampersand is the same kind as the pack's. |
 | Rust | Mirror the colour | Links, underlined. The colour isn't the mark; the animal is. |
 | The scene | Leave out | No animal, pyramids, palms or sand horizon. |
 | The blend line's words | Leave out | "TURKISH & DOMESTIC" never appears; only the style of its lettering does. |
@@ -68,7 +68,7 @@
 - **Template slots:**
   - **Page ground and masthead band:** the yellow-to-gold panel on maroon; the masthead is the arched name, centred.
   - **Site name and headings:** Cinzel Decorative Black for the site name only; headings in Alegreya ExtraBold, navy, post titles centred.
-  - **Secondary type:** Alegreya SC bold capitals: umber for the tagline, dates and labels; navy for the navigation.
+  - **Secondary type:** Alegreya SC bold capitals: umber for dates and labels; navy for the navigation.
   - **Signature shape:** the rounded face and its double hairline; the arch.
   - **Material:** none.
   - **Footer and metadata:** butter-yellow Alegreya SC capitals on the maroon below the panel.
@@ -137,6 +137,7 @@ The first build (October 19, 2026) studied a different design: a later hard box,
 - 2026-10-19: Built: Federant, Cinzel, Libre Caslon Text; the oval medallion; corner brackets. All floor tests passed.
 - 2026-10-20: **Failed the owner's gallery review.** The owner sent three photos of the pack they meant, the classic yellow one. Compared against the build (above), and restudied from the photos. A specimen settled the faces: Cinzel Decorative Black for the arched name, Alegreya SC and Alegreya for the rest.
 - 2026-10-20: The owner approved the study. **Rebuilt.** Maroon behind everything; the page is a rounded panel (a `::before` on `.page`) that runs butter yellow to sand gold, with a maroon line inset 7px from its edge, and stops short of the footer, which sits on the maroon below it at a fixed height. The arch is the project's first theme script: an SVG copy of the name on a quadratic curve, fitted to 94% of the curve's length once the face loads, `data-ft-deco` and `aria-hidden`; the link keeps its own text, at zero size while the arch shows. Under forced colours the arch is hidden and the plain name shows. Fixes from the screenshots: the tagline is tucked into the hollow under the arch, as the descriptor sits on the pack, but only from 720px up (on a narrow phone it ran into the ends of the arch); Alegreya's old-style figures made a 0 in tables read as an o, so tables use lining figures. All floor tests pass, and the arch is removed when Fresh pack deals another theme.
+- 2026-10-20: The tagline is gone from every theme (DECISIONS.md F22), so the navigation takes its place in the hollow under the arch, from 720px up.
 
 ## Open questions
 

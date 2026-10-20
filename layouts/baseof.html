@@ -26,9 +26,6 @@
     {{- else }}
     <p class="site-name"><a href="{{ "/" | relURL }}">{{ site.Title }}</a></p>
     {{- end }}
-    {{- with site.Params.description }}
-    <p class="site-tagline">{{ . }}</p>
-    {{- end }}
     <nav class="site-nav" aria-label="Site">
       <ul>
         <li><a href="{{ "/posts/" | relURL }}">Posts</a></li>

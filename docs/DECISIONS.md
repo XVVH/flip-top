@@ -46,6 +46,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F21. Gallery review of the first three (the owner, October 20, 2026): Full Flavor and Menthol Stripe pass; Sun Cured fails.** It had studied the wrong design. By "the old Camel design" the owner meant **the classic yellow pack**, and sent three photos of it; the first study took the hard box the research session had called "the previous design" (F20). Sun Cured is restudied from the owner's photos (`docs/themes/sun-cured.md`); the owner approved the study the same day, and it's rebuilt. *For later packs:* when a pack has had more than one old design, the study starts from the owner's picture.
 
+**F22. No tagline in the masthead** (the owner, October 20, 2026): the "Long-form writing." line under the site name is removed from the markup, in every theme. The site's description stays in the page metadata and the feed.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

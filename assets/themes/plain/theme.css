@@ -100,7 +100,6 @@
     }
     .site-name { margin: 0; font-size: 1em; font-weight: 400; font-style: italic; }
     .site-name a { text-decoration: none; }
-    .site-tagline { display: none; }
     .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 1.1em; margin: 0; padding: 0; list-style: none; font-size: 0.9em; }
     .site-nav a { text-decoration: none; }
     .site-nav a:hover { text-decoration: underline; }

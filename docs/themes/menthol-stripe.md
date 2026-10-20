@@ -108,6 +108,7 @@
 - 2026-10-19: Approved by the owner: named Menthol Stripe; closeness accepted, to be checked in the gallery.
 - 2026-10-19: Built, in Archivo (OFL). The lined field is the footer: gold rule, plain light-teal band, then six pairs of lines at a constant 28px pitch whose dark share grows from a third to 84%, ending in solid dark teal where the footer's white text sits. The masthead closes with the same gold rule and teal band, with no lines, so nothing striped is on the first screen. Fixes from the first screenshots and tests: the footer and masthead bands were capped at the column width by a more specific rule, and are now full width without `vw` units (which overflow beside a classic scrollbar); heading anchors were told apart from their headings only by a slight colour change (axe `link-in-text-block`), so they keep their underline. All floor tests pass.
 - 2026-10-20: Passed the owner's gallery review.
+- 2026-10-20: The site name drops from ExtraBold (800) to Bold (700), the owner's call. With the tagline gone (F22) the name sat alone above the navigation and read heavier than before; the face itself never changed. Headings stay at 800.
 
 ## Open questions
 

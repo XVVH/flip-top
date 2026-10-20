@@ -84,7 +84,7 @@
       height: 17px;
       background: linear-gradient(var(--ms-gold) 0 3px, var(--ms-teal) 3px 100%);
     }
-    .site-name { margin: 0; font: 800 clamp(2.75rem, 9vw, 5.25rem)/0.98 var(--ms-face); letter-spacing: -0.02em; color: var(--ms-ink); }
+    .site-name { margin: 0; font: 700 clamp(2.75rem, 9vw, 5.25rem)/0.98 var(--ms-face); letter-spacing: -0.02em; color: var(--ms-ink); }
     .site-name a { color: inherit; text-decoration: none; }
     .site-nav ul { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 12px 0 0; padding: 0; list-style: none; }
     .site-nav a { display: inline-block; padding: 5px 0; font: 800 0.875rem/1.3 var(--ms-face); letter-spacing: 0.05em; text-transform: uppercase; }

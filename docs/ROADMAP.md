@@ -29,8 +29,9 @@ Update this as work lands. Tick boxes; don't delete history.
 - [x] Build them, with the floor, legibility and trade dress checked on every surface
 - [x] The owner reviews them in the gallery: Full Flavor and Menthol Stripe pass; Sun Cured fails, having studied the wrong design (F21)
 - [x] Restudy Sun Cured from the owner's photos of the classic yellow pack
-- [ ] The owner reviews the new Sun Cured study
-- [ ] Rebuild Sun Cured, and the owner reviews it in the gallery
+- [x] The owner reviews the new Sun Cured study
+- [x] Rebuild Sun Cured
+- [ ] The owner reviews the rebuilt Sun Cured in the gallery
 
 ## Phase 3: launch
 
@@ -42,7 +43,7 @@ Update this as work lands. Tick boxes; don't delete history.
 
 For the owner:
 
-- The new Sun Cured study: the classic yellow pack, with the site name arched and outlined. See its journal.
+- The rebuilt Sun Cured, in the gallery: the classic yellow pack, with the site name arched and outlined. See its journal.
 - Full Flavor's lid, once it can be tried live: does it read as a lid, or only as motion?
 
 Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21).

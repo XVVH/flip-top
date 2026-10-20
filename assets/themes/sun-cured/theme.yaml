@@ -5,8 +5,8 @@ legible: true
 motion: false
 # Private: the source pack, for the registry (docs/THEMES.md). Never ships.
 pack: "Camel"
-variant: "Filters (box), previous design"
+variant: "Classic yellow (soft pack)"
 sources:
-  - "docs/research/2026-10-first-three-packs.md"
-summary: "Cream between brown panels, flared calligraphic capitals in navy, gold lettering on brown, and an oval medallion holding the date."
+  - "docs/themes/sun-cured.md (the owner's photos, described in words)"
+summary: "Butter yellow deepening to gold inside a maroon frame, the name in swashed capitals on an arch, silver inside a navy outline, and umber capitals."
 smell_exemptions: []

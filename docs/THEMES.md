@@ -1,6 +1,6 @@
 # Themes
 
-*Reviewed by the owner, October 2026. Of the first three pack themes, Full Flavor and Menthol Stripe passed the owner's gallery review; Sun Cured is being restudied (DECISIONS.md F21).*
+*Reviewed by the owner, October 2026. Of the first three pack themes, Full Flavor and Menthol Stripe passed the owner's gallery review; Sun Cured, restudied and rebuilt, awaits it (DECISIONS.md F21).*
 
 ## How to make a theme
 
@@ -53,7 +53,7 @@ Every theme, built or in study, with its private source. This table and each `th
 |---|---|---|---|
 | [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Built; passed review |
 | [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Built; passed review |
-| [`sun-cured`](themes/sun-cured.md) | Camel | Classic yellow (soft pack) | Restudied after failing review; the first build took a later hard box |
+| [`sun-cured`](themes/sun-cured.md) | Camel | Classic yellow (soft pack) | Rebuilt; in review (the first build took a later hard box and failed) |
 
 ## Candidate packs
 

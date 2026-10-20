@@ -4,7 +4,7 @@ The source of The Smokepit, a Markdown blog whose themes take their palettes, le
 
 Built with Hugo, hosted on Netlify, on the plumbing of Turrible Takes (`bad-blog`, archived). Start with [AGENTS.md](AGENTS.md) and [docs/INTENT.md](docs/INTENT.md).
 
-*Status: phase 2. Full Flavor and Menthol Stripe are built and passed the owner's review; Sun Cured is being restudied from the owner's photos.*
+*Status: phase 2. Full Flavor and Menthol Stripe are built and passed the owner's review; Sun Cured is rebuilt from the owner's photos and awaits review.*
 
 ```sh
 npm ci && hugo server   # preview

@@ -48,4 +48,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phase 1 is done: the plumbing is imported from Turrible Takes and reworked (one Fresh pack button with a tear strip, no escape, the plain theme only as a fallback, a private pack registry). Phase 2: of the first three pack themes, Full Flavor (with the lid experiment, F15) and Menthol Stripe passed the owner's gallery review. Sun Cured failed, having studied the wrong design, and is restudied from the owner's photos, awaiting their review before the rebuild (F21). See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phase 1 is done: the plumbing is imported from Turrible Takes and reworked (one Fresh pack button with a tear strip, no escape, the plain theme only as a fallback, a private pack registry). Phase 2: of the first three pack themes, Full Flavor (with the lid experiment, F15) and Menthol Stripe passed the owner's gallery review. Sun Cured failed, having studied the wrong design; it's restudied from the owner's photos and rebuilt, awaiting their review in the gallery (F21). See [`docs/ROADMAP.md`](docs/ROADMAP.md).

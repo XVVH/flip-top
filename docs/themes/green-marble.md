@@ -53,7 +53,7 @@
 |---|---|---|
 | The marble band | Mirror the material | A band of generated marble down the left edge of the page, under the bar, the page's full height: an SVG noise filter (`feTurbulence`) stepped through the pack's greens, as a data URI of about 750 bytes. Our own texture, never the pack's print. Width `clamp(22px, 9vw, 120px)`; never behind text. |
 | Gold, green, gold stripes | Mirror | Beside the marble, at fixed widths (4px, 6px, 4px). A short stack of the three is the section break. |
-| Sloped flared small caps | Mirror the character | The site name in **Philosopher Italic** (OFL), a true italic with flared, tapered strokes, in small caps with larger initials, green. On one line, never in the wordmark's two-line stagger. Post titles and headings in the same face, in mixed case. |
+| Sloped flared small caps | Mirror the character | The site name in **Sofia Sans Condensed Italic** (OFL), light, in small caps with larger initials, green: a true italic, narrow like the wordmark, and wholly sans-serif, as the pack is. On one line, never in the wordmark's two-line stagger. Post titles and headings in the same face, in mixed case. |
 | Bold grotesque capitals | Mirror the character | Navigation in **Hanken Grotesk** (OFL) bold capitals, green, underlined in gold. |
 | Tracked small capitals | Mirror the character | Dates, labels and the footer in Hanken Grotesk, widely tracked, in a darker gold `#6f6844` (5.1:1; the pack's pale gold is 2.1:1, too faint for text). |
 | The slim proportion | Mirror | A narrower column than the other themes (34rem rather than 44rem), centred in the white. |
@@ -71,7 +71,7 @@
 - **Site name case:** THE SMOKEPIT in small caps with larger initials, as the wordmark is set: capitals (F17), with the T and S taller.
 - **Template slots:**
   - **Page ground and masthead band:** cool white; the marble band down the left edge; the bar white over a thin pale-gold rule.
-  - **Site name and headings:** Philosopher Italic, green.
+  - **Site name and headings:** Sofia Sans Condensed Italic, green.
   - **Secondary type:** Hanken Grotesk: bold capitals for navigation, tracked capitals for dates and labels.
   - **Signature shape:** the marble band and its three stripes; the three stripes, short, as the section break.
   - **Material:** the generated marble.
@@ -80,28 +80,31 @@
 - **Tear strip colour:** the pale gold.
 - **Literal pack parts:** none.
 - **Every surface:**
-  - **Home:** each post centred: the title in Philosopher Italic, the date in tracked capitals, parted by the short three-stripe break.
+  - **Home:** each post centred: the title in Sofia Sans Condensed Italic, the date in tracked capitals, parted by the short three-stripe break.
   - **Code blocks:** a pale mint panel (`#e6efe9`) with a dark green rule on the left; tokens in green, dark gold and ink.
   - **Tables:** tracked-capital headers, gold hairlines.
   - **Images:** plain.
   - **Links:** green `#1f6b4e`, underlined (5.8:1).
   - **Fresh pack:** green bold capitals on the white bar, underlined in green.
 - **Legibility plan:** ink on white 13.4:1; green 5.8:1; dark gold 5.1:1. The pale gold (2.1:1) never carries text. Nothing sits on the marble.
-- **Fonts:** about 125KB (Philosopher Italic 23KB, Spectral roman, italic and semibold 67KB, Hanken Grotesk 35KB).
+- **Fonts:** about 140KB (Sofia Sans Condensed Italic, variable, 38KB; Spectral roman, italic and semibold 67KB; Hanken Grotesk 35KB).
 - **Endorsement test:** the closest point is the marble band with its stripes down the left of a white page, under sloped green small caps: most of the pack's structure, like Menthol Stripe. It stays on the right side because the marble is generated (not the pack's print), there's no monogram, the name is the site's own in a different face and on one line, and the page is a blog's column, not the pack's face. The owner judges it.
 
 ## First instincts
 
 - **Script lettering.** The candidate list said the pack had script lettering; on the classic box the script is only the monogram (a mark) and, on the Ultra Lights, a descriptor. The wordmark is sloped small capitals.
 - **A photograph of marble** for the band. Pack artwork, or close to it, and a heavy image besides. Replaced with generated noise.
+- **Philosopher Italic for the name and headings.** It has the slope and the flared, tapered strokes, but its wedge serifs put it halfway between a serif and a sans; the owner saw that the pack's lettering is wholly sans-serif. A second specimen tried six sans italics; Sofia Sans Condensed won over Belleza, which has the Optima-like stroke contrast but no italic, and slanting it with CSS skews whole lines of a heading sideways.
 - **Soft noise.** The first attempts looked like green smoke. Stepping the noise through a few fixed greens (a `discrete` transfer) gave the crisp patches of a printed stone.
 - **The feminine shorthand:** pinks, florals, ribbons. The classic box is green and white; the paisley belongs to the other design.
 
 ## Log
 
 - 2026-10-20: Study written from the owner's three images, choosing the green box over the Ultra Lights. A specimen settled the faces (Philosopher Italic over Belleza, Marcellus, Tenor Sans, Italiana and Forum, which are upright); three rounds of generated marble settled the texture; a mock checked the page at desktop and phone width.
+- 2026-10-20: The owner liked the marble but not the heading face: Philosopher reads halfway between serif and sans, and the pack is wholly sans. Replaced with Sofia Sans Condensed Italic after a second specimen (see First instincts).
 
 ## Open questions
 
 - The name: Green Marble or Malachite.
-- The marble: does the generated texture read as the pack's?
+- The marble: answered, it reads as the pack's (the owner).
+- The article face: Spectral, a serif, for long reading; or a sans, to match the pack all through?

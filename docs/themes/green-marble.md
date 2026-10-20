@@ -87,7 +87,7 @@
   - **Links:** green `#1f6b4e`, underlined (5.8:1).
   - **Fresh pack:** green bold capitals on the white bar, underlined in green.
 - **Legibility plan:** ink on white 13.4:1; green 5.8:1; dark gold 5.1:1. The pale gold (2.1:1) never carries text. Nothing sits on the marble.
-- **Fonts:** about 140KB (Sofia Sans Condensed Italic, variable, 38KB; Spectral roman, italic and semibold 67KB; Hanken Grotesk 35KB).
+- **Fonts:** about 145KB (Sofia Sans Condensed Italic, variable, 41KB; Spectral roman, italic and semibold 67KB; Hanken Grotesk 35KB).
 - **Endorsement test:** the closest point is the marble band with its stripes down the left of a white page, under sloped green small caps: most of the pack's structure, like Menthol Stripe. It stays on the right side because the marble is generated (not the pack's print), there's no monogram, the name is the site's own in a different face and on one line, and the page is a blog's column, not the pack's face. The owner judges it.
 
 ## First instincts

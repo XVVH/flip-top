@@ -69,7 +69,7 @@ Every theme, built or in study, with its private source. This table and each `th
 
 ## Candidate packs
 
-Research names only; none of them appears on the site. Notes are what's known before a study, from memory, and unverified until the owner's images arrive. "What it would test" is the part of the template the first three didn't lean on.
+Research names only; none of them appears on the site, in any script. Notes are what's known before a study, from memory, and unverified until the owner's images arrive. "What it would test" is the part of the template the first three didn't lean on.
 
 | Pack | First notes | What it would test |
 |---|---|---|
@@ -81,6 +81,9 @@ Research names only; none of them appears on the site. Notes are what's known be
 | Benson & Hedges | A gold box. | Material as the ground: a metallic field under the whole page, and text on it. |
 | Virginia Slims | Built: see `green-marble`, the classic green box. The script turned out to be only the monogram; the Ultra Lights box (blush, paisley, five stripes) could be a later variant. Its famous slogan is a slogan: never. | A material, the marble, generated; a slim proportion as a narrow column. |
 | Natural American Spirit | A colour-coded family of flat, saturated packs, each a different colour. The figure is a mark, and a caricature: never. | A family: several variants from one structure. |
+| 钻石 荷花 (Zuanshi Hehua, China) | The owner's pick (F27): green, cream and green bands, a lace-like dotted petal repeat on the lid, a painted pink flower on cream. `docs/research/2026-10-china-packs.md`. | A printed pattern in a band; a painted flower, redrawn as another. |
+| 芙蓉王 软蓝 (Furongwang, soft blue, China) | The owner's pick (F27): dark violet-navy with a diamond micro-texture, gold, a central medallion (the mark). | The first dark theme; a fine texture under the whole page. |
+| 黄山 新制皖烟 (Huangshan, China) | The owner's pick (F27): all-over holographic gold board with a rainbow sheen and a fine triangle lattice. | Holographic material: a sheen that moves, behind a solid reading column. |
 | Parliament | To study. | |
 | Winston | To study. | |
 | Kool | To study. | |

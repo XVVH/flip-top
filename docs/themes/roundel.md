@@ -1,6 +1,6 @@
 # Roundel: pack study and journal
 
-*Status: **built; awaiting the owner's review.** The first pack of phase 4, studied from the owner's reference images (DECISIONS.md F24); the owner approved the study and named it Roundel (F25).*
+*Status: **built; passed the owner's review** on the live site. The first pack of phase 4, studied from the owner's reference images (DECISIONS.md F24); the owner approved the study and named it Roundel (F25).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -98,7 +98,7 @@
 
 - 2026-10-20: Study written from the owner's three images, for the owner's review. A specimen settled the faces; a mock compared two ways of signalling the roundel (hanging from the top edge, or cropped by the right edge) and chose the first.
 - 2026-10-20: The owner approved the study as written and chose the name Roundel. **Built.** The rings are one radial gradient on `.masthead::before`, sized and pulled up in the same percentage of the masthead's width so they scale together, and clipped by the masthead (`overflow: clip`) right under the bar's red band; the mock had let them ride up over the bar and Fresh pack on a phone. The doubled foot stripe is `body::after`, the page's full width; a short copy of it is the section break and parts the home list. Fixes from the screenshots: on a phone the navigation dropped "Feed" onto a line of its own and "4 min read" broke in two, so below 480px the tracking tightens, and dates and reading times never wrap inside themselves. All floor tests pass.
+- 2026-10-20: **Passed the owner's review**, on the live site.
 
 ## Open questions
 
-- The owner's review, on the live site or in the gallery.

@@ -42,16 +42,17 @@ Update this as work lands. Tick boxes; don't delete history.
 ## Phase 4: more packs
 
 - [x] The owner picks the next packs: one at a time, starting with Lucky Strike's soft pack
-- [x] The owner sends reference images for each (THEMES.md, "What to send"): Lucky Strike, three images
+- [x] The owner sends reference images for each (THEMES.md, "What to send"): Lucky Strike, three images; Virginia Slims, three images of two designs
 - [x] A study for each, from the images, reviewed by the owner: `roundel`, approved and named Roundel (F25)
+- [ ] `green-marble` (Virginia Slims, the green box): written, awaiting review
 - [x] Build them: Roundel
-- [ ] The owner reviews them: Roundel
+- [x] The owner reviews them: Roundel passed
 
 ## Open questions
 
 For the owner:
 
-- Roundel, built: the owner's review.
+- The `green-marble` study (Virginia Slims, the green box): its name, and whether the generated marble reads as the pack's.
 - Which pack comes after it. Candidates and what each would test are in THEMES.md.
 
 Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21); the tagline (F22); Full Flavor's lid (F23); Sun Cured's second review and where references come from (F24); one pack at a time, and Roundel's study and name (F25).

@@ -2,11 +2,11 @@ id: full-flavor
 name: Full Flavor
 front_door: true
 legible: true
-motion: true
+motion: false
 # Private: the source pack, for the registry (docs/THEMES.md). Never ships.
 pack: "Marlboro"
 variant: "Red (box)"
 sources:
   - "docs/research/2026-10-first-three-packs.md"
-summary: "Red over off-white along a steep angle, condensed high-contrast capitals that read as stripes, a gold hairline, and a lid that opens when you reach for a fresh pack."
+summary: "Red over off-white along a steep angle, condensed high-contrast capitals that read as stripes, and a gold hairline."
 smell_exemptions: []

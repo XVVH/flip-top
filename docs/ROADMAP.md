@@ -35,15 +35,14 @@ Update this as work lands. Tick boxes; don't delete history.
 
 ## Phase 3: launch
 
-- [ ] Move `synchromeshi.com` to The Smokepit. Simplest: point the existing Netlify site at the `flip-top` repository, which keeps the domain, its settings and the hit counter's store.
+- [x] Move `synchromeshi.com` to The Smokepit (the owner linked Netlify to `flip-top` and deployed, October 20). Simplest: point the existing Netlify site at the `flip-top` repository, which keeps the domain, its settings and the hit counter's store.
 - [ ] Archive `bad-blog` on GitHub (Settings → Archive), after a last README note pointing here
-- [ ] One production deploy
+- [x] One production deploy (the owner, October 20)
 
 ## Open questions
 
 For the owner:
 
 - The rebuilt Sun Cured, in the gallery: the classic yellow pack, with the site name arched and outlined. See its journal.
-- Full Flavor's lid, once it can be tried live: does it read as a lid, or only as motion?
 
-Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21).
+Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21); the tagline (F22); Full Flavor's lid (F23).

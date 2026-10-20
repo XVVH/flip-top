@@ -1,6 +1,6 @@
 # Full Flavor: pack study and journal
 
-*Status: **built; passed the owner's gallery review** (DECISIONS.md F21). Full Flavor is also the testbed for literal pack parts: its red band opens like the lid (DECISIONS.md F20).*
+*Status: **built; passed the owner's gallery review** (DECISIONS.md F21). It was the testbed for literal pack parts (F20); the lid it tried was taken out after the owner saw it live (F23).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -78,7 +78,7 @@
   - **Footer and metadata:** tracked capitals on the off-white; the red band and white sliver at the very bottom.
   - **The article:** a text serif with moderate contrast in the same family as the display face (Noto Serif), near-black on off-white.
 - **Tear strip colour:** gold (`#c9a85e`), as on the pack.
-- **Literal pack parts:** **the testbed** (F20). The brand introduced the flip-top box in 1955 and the repository is named after it: the red band opens like the lid when Fresh pack is pressed, showing the silver foil behind it.
+- **Literal pack parts:** **the testbed** (F20). The brand introduced the flip-top box in 1955 and the repository is named after it: the red band opened like the lid when Fresh pack was pressed, showing the silver foil behind it. Taken out after the owner tried it live (F23; see the log).
 - **Every surface:**
   - **Home:** each post title in the display face under a short angled red rule; dates in tracked capitals.
   - **Code blocks:** charcoal on a slightly darker off-white, with a red rule on the left; tokens in charcoal, red and khaki.
@@ -115,8 +115,8 @@ The first draft was written from memory and search summaries. The research sessi
 - 2026-10-19: **The lid (the F15 experiment).** Three layers on the page's top edge: silver foil, the gold hairline, the red. While the tear strip runs, the red and the gold swing up on a hinge at the top (`rotateX`, with perspective) and show the foil; hovering Fresh pack lifts them a crack first. It's pure CSS, keyed on the strip's presence (`:has(.bar .bar-strip)`), so the switcher needed no change, and it's off under reduced motion. First attempt didn't move at all: pseudo-elements aren't allowed inside `:is()`, so the selectors were silently dropped. The tear strip also came out white, from a misnamed variable. Both fixed. All floor tests pass.
 - 2026-10-19: Fonts come to about 170KB (the display face's two axes are most of it), a little over the 150KB budget per theme in ARCHITECTURE.md. They load only when the theme is shown.
 - 2026-10-20: Passed the owner's gallery review.
+- 2026-10-20: **The lid is out** (F23). Live on the deployed site, the owner found it "kind of awkward". Why, as best I can tell: it stacks a second motion on Fresh pack, which already has the tear strip and then the cross-fade to the next theme, so the lid swings open and never closes before the page changes under it; and with the band so wide, a `rotateX` hinge reads as the red squashing upward, not as a lid. The screenshots couldn't show any of that: it took the real thing. Removed the foil layer, the keyframes and the hover lift; the band and its gold hairline stay as they were. *For the F15 experiment:* a literal part that moves has to work with the switch it sits beside, not just on its own.
 
 ## Open questions
 
-- Does the lid read as a lid, or only as motion? The owner's call in the browser.
 - Font weight: drop the italic text face (48KB) if the budget matters more than real italics.

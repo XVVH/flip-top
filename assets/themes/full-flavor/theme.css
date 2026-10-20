@@ -1,8 +1,7 @@
 /*
   Full Flavor. Red over off-white along a steep 43-degree angle, a condensed
   high-contrast didone in charcoal, widely tracked geometric capitals, and a
-  gold hairline. The red band is a lid: it opens while the tear strip runs.
-  See docs/themes/full-flavor.md. Signal, don't copy: no centred chevron, no
+  gold hairline. See docs/themes/full-flavor.md. Signal, don't copy: no centred chevron, no
   pill, no crest.
 */
 @font-face {
@@ -39,12 +38,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* The lid, opening on its hinge at the top. */
-@keyframes full-flavor-lid {
-  from { transform: perspective(1400px) rotateX(0deg); }
-  to { transform: perspective(1400px) rotateX(-112deg); }
-}
-
 @layer theme {
   :root[data-theme="full-flavor"] {
     --ff-red: #c41e2a;
@@ -55,7 +48,6 @@
     --ff-charcoal: #323b43;
     --ff-khaki: #5e5d46;
     --ff-gold: #c9a85e;
-    --ff-foil: linear-gradient(100deg, #9aa0a6, #eef0f2 28%, #b7bcc1 52%, #f6f7f8 74%, #a2a7ad);
     --ff-gold-foil: linear-gradient(90deg, #b18641, #f3eaae 40%, #c9a85e 70%, #b18641);
     --ft-strip: var(--ff-gold);
     --ff-display: "Noto Serif Display", "Bodoni 72", Didot, serif;
@@ -103,9 +95,9 @@
     .page { position: relative; padding: 0 0 48px; }
     .page > :not(.deco) { max-width: 44rem; margin-inline: auto; padding-inline: 20px; }
 
-    /* The lid. Three layers on the page's top edge: the silver foil (seen
-       only when the lid is open), the gold hairline, and the red. */
-    .page::before, .masthead::before, .masthead::after {
+    /* The band on the page's top edge: the gold hairline, with the red
+       over it. */
+    .masthead::before, .masthead::after {
       content: "";
       position: absolute;
       top: 0;
@@ -113,20 +105,10 @@
       right: 0;
       height: calc(var(--ff-band) + 4px);
       clip-path: var(--ff-shape);
-      transform-origin: 50% 0;
       pointer-events: none;
     }
-    .page::before { z-index: 0; background: var(--ff-foil); }
     .masthead::before { z-index: 1; background: var(--ff-gold-foil); clip-path: polygon(0 0, 100% 0, 100% calc(var(--ff-band) + 4px), calc(var(--ff-step) + var(--ff-drop) * 1.07) calc(var(--ff-band) + 4px), var(--ff-step) calc(var(--ff-band) - var(--ff-drop) + 4px), 0 calc(var(--ff-band) - var(--ff-drop) + 4px)); }
     .masthead::after { z-index: 2; background: var(--ff-red); }
-    @media (prefers-reduced-motion: no-preference) {
-      .masthead::before, .masthead::after { transition: transform 0.3s ease-out; }
-      /* Reaching for Fresh pack lifts the lid a crack. (Pseudo-elements
-         can't go inside :is(), so each is listed.) */
-      &:has(.bar-next:hover) .masthead::before, &:has(.bar-next:hover) .masthead::after { transform: perspective(1400px) rotateX(-14deg); }
-      /* Pulling the tear strip opens it. */
-      &:has(.bar .bar-strip) .masthead::before, &:has(.bar .bar-strip) .masthead::after { animation: full-flavor-lid 0.5s cubic-bezier(0.4, 0, 0.6, 1) 0.05s both; }
-    }
 
     .masthead { position: static; padding-top: calc(var(--ff-band) + 28px); padding-bottom: 8px; }
     .masthead > * { position: relative; z-index: 3; }

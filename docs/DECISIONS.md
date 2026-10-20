@@ -48,6 +48,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F22. No tagline in the masthead** (the owner, October 20, 2026): the "Long-form writing." line under the site name is removed from the markup, in every theme. The site's description stays in the page metadata and the feed.
 
+**F23. Full Flavor's lid is taken out** (the owner, October 20, 2026, after trying it on the deployed site: "kind of awkward"). The red band no longer opens when Fresh pack is pressed; the tear strip is the only Fresh pack motion, in every theme. Literal pack parts stay an area of investigation (F15); the lid's journal entry records why this one didn't work.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

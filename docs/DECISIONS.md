@@ -52,6 +52,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F24. Sun Cured passes, and references come from the owner** (October 20, 2026). The rebuilt Sun Cured passed the owner's review on the live site. For the packs after the first three, there's no separate research session: once a pack is chosen, the owner supplies reference images in the session, and the study starts from them (the lesson of F21). The images are never committed (RULES.md); the study records what they show in words and measured colours, because the images don't outlive the session. *Rejected:* handing research to a browser session, which described a design in words that turned out not to be the one the owner meant.
 
+**F25. The next packs come one at a time, starting with Lucky Strike's white soft pack** (the owner, October 20, 2026), because each needs its own references and a pack can have several designs over the years. Its study was approved as written and named **Roundel**: the rings cropped by the top of the page, never whole and never holding a word.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

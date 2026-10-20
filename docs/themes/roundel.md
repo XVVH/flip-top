@@ -1,6 +1,6 @@
 # Roundel: pack study and journal
 
-*Status: **study, for the owner's review.** The first pack of phase 4, studied from the owner's reference images (DECISIONS.md F24). Working id `roundel`; the name is the owner's to choose.*
+*Status: **built; awaiting the owner's review.** The first pack of phase 4, studied from the owner's reference images (DECISIONS.md F24); the owner approved the study and named it Roundel (F25).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -61,10 +61,8 @@
 
 ## The page
 
-- **Theme name**, for the owner to choose:
-  - descriptive: **Roundel**, the shape (recommended)
-  - or tobacco vocabulary, like Sun Cured: **Burley**
-- **Working id:** `roundel`.
+- **Theme name:** **Roundel**, the shape (the owner, F25; Burley, tobacco vocabulary, was the alternative).
+- **Id:** `roundel`.
 - **Site name case:** THE SMOKEPIT, in capitals, like the wordmark.
 - **The cropped roundel:** an in-flow decoration at the top of the masthead, `min(80%, 520px)` wide and square, drawn with one radial gradient in the pack's ring proportions, pulled up by about 62% of its width and clipped at the masthead's top edge, under the bar's red band, so a little under 40% shows. It scales with the width, so a phone gets the same shape smaller. No script.
 - **Template slots:**
@@ -99,8 +97,8 @@
 ## Log
 
 - 2026-10-20: Study written from the owner's three images, for the owner's review. A specimen settled the faces; a mock compared two ways of signalling the roundel (hanging from the top edge, or cropped by the right edge) and chose the first.
+- 2026-10-20: The owner approved the study as written and chose the name Roundel. **Built.** The rings are one radial gradient on `.masthead::before`, sized and pulled up in the same percentage of the masthead's width so they scale together, and clipped by the masthead (`overflow: clip`) right under the bar's red band; the mock had let them ride up over the bar and Fresh pack on a phone. The doubled foot stripe is `body::after`, the page's full width; a short copy of it is the section break and parts the home list. Fixes from the screenshots: on a phone the navigation dropped "Feed" onto a line of its own and "4 min read" broke in two, so below 480px the tracking tightens, and dates and reading times never wrap inside themselves. All floor tests pass.
 
 ## Open questions
 
-- The name: Roundel or Burley.
-- The cropped roundel: close enough to feel the pack, far enough from the mark? The owner's call from the mock.
+- The owner's review, on the live site or in the gallery.

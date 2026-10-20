@@ -1,0 +1,12 @@
+id: roundel
+name: Roundel
+front_door: true
+legible: true
+motion: false
+# Private: the source pack, for the registry (docs/THEMES.md). Never ships.
+pack: "Lucky Strike"
+variant: "White soft pack (the roundel design)"
+sources:
+  - "docs/themes/roundel.md (the owner's images, described in words)"
+summary: "A white field between thin red stripes, rings in red, gold and navy cropped by the top of the page, heavy condensed capitals, and widely spaced small capitals."
+smell_exemptions: []

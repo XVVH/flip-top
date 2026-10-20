@@ -63,7 +63,7 @@ Every theme, built or in study, with its private source. This table and each `th
 |---|---|---|---|
 | [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Built; passed review |
 | [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Built; passed review |
-| [`roundel`](themes/roundel.md) (working id) | Lucky Strike | White soft pack (the roundel design) | Study, for review |
+| [`roundel`](themes/roundel.md) | Lucky Strike | White soft pack (the roundel design) | Built; in review |
 | [`sun-cured`](themes/sun-cured.md) | Camel | Classic yellow (soft pack) | Built; passed review (the first build took a later hard box and failed) |
 
 ## Candidate packs
@@ -75,7 +75,7 @@ Research names only; none of them appears on the site. Notes are what's known be
 | Marlboro (red) | Built: `full-flavor`. Gold (olive gold roof) and Menthol (green roof) are the family's other colours. | Variants (F11): the same structure in another colour. |
 | Newport | Built: `menthol-stripe`. The non-menthol pack is red. | Variants. |
 | Camel | Built: `sun-cured`, the classic yellow pack. The later hard box (cream, brown panels, oval) and the current white-and-red box could be variants. | Variants, and two designs of one pack side by side. |
-| Lucky Strike | In study: see `roundel`. The green pack, before the 1940s, could be a later variant. | A single central emblem as the whole identity, signalled without being the target. |
+| Lucky Strike | Built: see `roundel`. The green pack, before the 1940s, could be a later variant. | A single central emblem as the whole identity, signalled without being the target. |
 | Pall Mall | A deep red long pack with a crest and a Latin motto, in gold. | Heraldry signalled through its outline language; a long pack's tall proportion. |
 | Benson & Hedges | A gold box. | Material as the ground: a metallic field under the whole page, and text on it. |
 | Virginia Slims | A long, slim pack with script lettering. Its famous slogan is a slogan: never. | Script lettering, which no theme has; a slim proportion as a narrow column. |

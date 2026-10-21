@@ -54,7 +54,7 @@
 | The textured violet-navy | Mirror, low contrast | The page ground and the masthead: a 9px SVG tile of raised diamonds. The studs are kept faint (1.5:1 against the ground, close to the pack photo's, rather than the brightly lit carton's 2.8:1), so the fine grid doesn't glare (RULES.md). |
 | The smooth lower panel | Mirror | The article sits on a full-width band of the smooth violet. Text never sits on the texture, except the masthead's name and navigation (gold on the faint studs, 6.2:1 at worst). |
 | The gold double rule | Mirror | A thick and a thin gold line under the bar, and again at the foot of the page. A single gold hairline between the masthead and the article. |
-| The medallion | Signal | An empty gold disc, engraved with our own guilloche (dozens of fine overlapping circles turned round the centre, as on a banknote), ringed in gold, with a faint holographic tint. No flower, no leaf, no crown. A still SVG, about 9KB. |
+| The medallion | Signal: **another flower in the same style** | A gold disc engraved with our own guilloche (dozens of fine overlapping circles turned round the centre, as on a banknote), ringed in gold, with a faint holographic tint, holding a **camellia** (山茶花) drawn in the pack's manner: glittering gold petals parted by thin dark cuts, a red-orange heart ringed with stamens, two dark leaves with gold veins, a slim dark stem. Not the hibiscus, the pack's namesake; not peony (another pack's), lotus (钻石 荷花's) or peach (Petal Lace's); not chrysanthemum, tied to mourning. No crown. A still SVG, about 23KB. |
 | The bold gold script | Mirror the character | The site name and post titles in **Playball** (OFL), gold: a bold formal script with thick rounded downstrokes, the same family of letter as the wordmark. Solid gold, never a gradient (gradient text is the AI look's, and the lint flags it). |
 | The bold sans descriptors and the Hei warning | Mirror the character | The article in **Noto Sans** (OFL), cream on violet; navigation, dates and labels in its bold, tracked capitals, gold, like "FILTER CIGARETTES". Smaller headings in Noto Sans bold, bright gold. |
 | The wordmark, the Chinese name, the flower, the crown | Leave out | The brand and its marks. |
@@ -74,7 +74,7 @@
   - **Page ground and masthead band:** the textured violet-navy, under the bar and the gold double rule; the medallion and the name centred in it.
   - **Site name and headings:** Playball, gold, for the name and post titles; Noto Sans bold, bright gold, for smaller headings.
   - **Secondary type:** Noto Sans bold, tracked capitals, gold.
-  - **Signature shape:** the medallion; the gold double rule.
+  - **Signature shape:** the medallion and its camellia; the gold double rule.
   - **Material:** gold, with a faint holographic tint in the medallion.
   - **Footer and metadata:** the textured ground again, under a gold hairline, ending in the double rule.
   - **The article:** Noto Sans, cream `#ebe5d4` on the smooth violet, left-aligned.
@@ -87,13 +87,15 @@
   - **Links:** bright gold, underlined.
   - **Fresh pack:** gold tracked capitals on the darkest violet bar.
 - **Legibility plan:** cream on the violet 11.3:1; gold 8.1:1; bright gold 10.1:1; lilac 7.1:1; on the code panel, cream 13.7:1. Gold on the brightest studs 6.2:1.
+- **Images:** the medallion (about 23KB) and the studs (a data URI).
 - **Fonts:** about 107KB (Playball 32KB; Noto Sans roman and italic, variable, 75KB).
-- **Endorsement test:** the closest point is the gold medallion, centred under a gold script, on the textured violet-navy. It stays on the right side because the medallion is empty and engraved with our own pattern, the script spells the site's name in another face, and there's no crown, flower, Chinese name or stamp. The owner judges it.
+- **Endorsement test:** the closest point is the gold medallion with a gold flower, centred under a gold script, on the textured violet-navy. It stays on the right side because the flower is a different flower drawn for the theme, the engraving is our own pattern, the script spells the site's name in another face, and there's no crown, flower, Chinese name or stamp. The owner judges it.
 - **Watch-out:** two kinds of default sit near this one. Dark violet with gold reads as "luxury" in a generic way, and a violet-to-indigo gradient is the AI look's (SMELL.md). The field stays flat, with the texture as the only variation.
 
 ## First instincts
 
 - **The studs as bright as the carton shows them.** Under the carton's lighting they're 2.8:1, and a 9px grid at that contrast glares. The pack photo's are fainter; the theme follows the pack.
+- **An empty medallion.** The owner: it "looks like an album without anything in the middle". It now holds a camellia drawn in the pack's stencil-and-glitter manner, as Petal Lace redrew its pack's lotus as a peach blossom.
 - **A spirograph curve for the guilloche.** It came out as loose loops, ran past the rim, and weighed 85KB. Overlapping rotated circles, the way banknote rosettes are built, gave the engraved look at 9KB.
 - **Keeping the starred tab** as a gold-on-green accent. It's a stamp, and it reads as a flag.
 - **The carton's holographic frame** round the whole page. It's the carton's, and it would turn this into Gold Prism.
@@ -101,8 +103,10 @@
 ## Log
 
 - 2026-10-21: Study written from two photos (the owner's carton, the research board's pack). A specimen settled the faces (Playball over Pinyon Script, Italianno, Petit Formal Script, Rouge Script and Lobster Two; Noto Sans over Source Sans 3, Zen Kaku Gothic New and Mulish); the texture and the guilloche were drawn as SVG and redrawn once each; a mock checked the page at desktop and phone width.
+- 2026-10-21: The owner: the empty medallion looked like an album with nothing in the middle; asked for another flower in the pack's style, as for 钻石 荷花. Drawn a camellia: gold petals filled with a radial gradient (centred on the flower's own origin, Petal Lace's lesson) and a glitter pattern of light and dark specks, parted by 2.4px navy cuts; leaves near-black with gold veins. Scaled to 84% so the engraving shows round it.
 
 ## Open questions
 
 - The name: Night Gilt or Guilloche.
-- Two medallions: Gold Prism's turns and shimmers; this one is still and engraved. Distinct enough?
+- The camellia: does it carry the pack's flower?
+- Two medallions: Gold Prism's is empty and turns; this one is still, engraved and holds a flower. Distinct enough?

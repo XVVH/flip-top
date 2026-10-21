@@ -64,6 +64,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F30. Gold Prism's medallion and typefaces** (the owner, October 21, 2026). The first medallion, faceted and following the mouse while the foil stood still, read as a loading spinner; it's now the research board's smooth metal conic, turning with the scroll only, at the sheen's rate. The headings are handwriting, Kalam, because the wordmark is hand-lettered; the text is a sans, IBM Plex Sans, because the box's text is Hei.
 
+**F31. 芙蓉王's soft blue is Night Gilt, the first dark theme** (the owner, October 21, 2026). Its medallion holds a camellia drawn in the pack's stencil-and-glitter manner: the owner found the empty disc "looks like an album without anything in the middle", and asked for another flower in the pack's style, as for 钻石 荷花.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

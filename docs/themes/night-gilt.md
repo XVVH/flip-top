@@ -1,6 +1,6 @@
 # Night Gilt: pack study and journal
 
-*Status: **study, for the owner's review.** The third Chinese pack (DECISIONS.md F27), the dark one. Working id `night-gilt`; the name is the owner's to choose. Studied from the owner's carton photo and the research board's pack photo.*
+*Status: **built; awaiting the owner's review.** The third Chinese pack (DECISIONS.md F27), the dark one; the owner approved the study with a camellia in the medallion and named it Night Gilt (F31).*
 
 *Brand names belong here, in the study, and nowhere that ships, in any script.*
 
@@ -64,10 +64,8 @@
 
 ## The page
 
-- **Theme name**, for the owner to choose:
-  - descriptive: **Night Gilt**, the violet-navy and gold (recommended)
-  - or the medallion's engraving: **Guilloche**
-- **Working id:** `night-gilt`.
+- **Theme name:** **Night Gilt**, the violet-navy and gold (the owner, F31; Guilloche was the alternative).
+- **Id:** `night-gilt`.
 - **Site name case:** title case, The Smokepit, which the script needs.
 - **The first dark theme.** It sets `color-scheme: dark`, so form controls and scrollbars follow. It's dark because the pack is; it isn't a dark mode of anything.
 - **Template slots:**
@@ -104,9 +102,8 @@
 
 - 2026-10-21: Study written from two photos (the owner's carton, the research board's pack). A specimen settled the faces (Playball over Pinyon Script, Italianno, Petit Formal Script, Rouge Script and Lobster Two; Noto Sans over Source Sans 3, Zen Kaku Gothic New and Mulish); the texture and the guilloche were drawn as SVG and redrawn once each; a mock checked the page at desktop and phone width.
 - 2026-10-21: The owner: the empty medallion looked like an album with nothing in the middle; asked for another flower in the pack's style, as for 钻石 荷花. Drawn a camellia: gold petals filled with a radial gradient (centred on the flower's own origin, Petal Lace's lesson) and a glitter pattern of light and dark specks, parted by 2.4px navy cuts; leaves near-black with gold veins. Scaled to 84% so the engraving shows round it.
+- 2026-10-21: The owner approved it and named it Night Gilt. **Built**, with no script: the studs are a 9px data-URI tile on the body, the masthead and the footer; the page itself is the smooth violet band, so the article and the rails sit on it; the masthead and the footer run the full width, each carrying the gold double rule as a background layer at its outer edge. The medallion is the masthead's `::before`, an SVG file in `img/`, with a soft drop shadow, hidden under forced colours. It's the site's first `color-scheme: dark`. All floor tests pass, contrast included, at every width.
 
 ## Open questions
 
-- The name: Night Gilt or Guilloche.
-- The camellia: does it carry the pack's flower?
-- Two medallions: Gold Prism's is empty and turns; this one is still, engraved and holds a flower. Distinct enough?
+- The owner's review, on the live site.

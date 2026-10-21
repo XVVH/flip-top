@@ -1,0 +1,13 @@
+id: night-gilt
+name: Night Gilt
+front_door: true
+legible: true
+motion: false
+# Private: the source pack, for the registry (docs/THEMES.md). Never ships.
+pack: "芙蓉王"
+pack_also: ["Furongwang"]
+variant: "软蓝 soft blue"
+sources:
+  - "docs/themes/night-gilt.md (the owner's carton photo and the research board, described in words)"
+summary: "Violet-navy with a faint grid of raised diamonds, a gold double rule, a gold medallion engraved round a camellia, and a bold gold script."
+smell_exemptions: []

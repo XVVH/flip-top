@@ -61,6 +61,7 @@ For the owner:
 - Gold Prism, built: the owner's review on the live site.
 - Night Gilt, built: the owner's review on the live site.
 - The next packs: the owner's choice (THEMES.md, candidates).
+- Netlify's pricing: the owner sees no credits used by deploys. If production deploys turn out to be free, the batching rule (AGENTS.md, DECISIONS.md I9) can relax; until then it stands.
 - Which pack comes after it. Candidates and what each would test are in THEMES.md.
 
 Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21); the tagline (F22); Full Flavor's lid (F23); Sun Cured's second review and where references come from (F24); one pack at a time, and Roundel's study and name (F25); Green Marble's design, faces and name (F26); Chinese packs, and which three (F27); Petal Lace, and names in any script (F28); Gold Prism's name and its solid column (F29); its medallion and typefaces (F30); Night Gilt, the first dark theme, and its camellia (F31).

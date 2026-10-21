@@ -220,6 +220,7 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
   - A hard cap of 300 credits a month, shared by every project on the team.
   - Each production deploy costs 15; bandwidth costs 20 per GB; requests cost 2 per 10,000; function compute costs 10 per GB-hour.
   - A first-visit page view of about 400KB costs roughly 0.01 credits, so about 30,000 a month fit. The counter adds about 5%.
+  - **Unconfirmed (October 21, 2026):** the owner sees no credits used by this site's production deploys, so Netlify may have changed its pricing. Until the owner confirms the current rates, keep batching deploys as above.
 - **Budgets:**
   - First visit: about 250KB or less, not counting post images.
   - Bar and switcher JavaScript: about 8KB or less.

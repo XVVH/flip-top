@@ -1,0 +1,13 @@
+id: gold-prism
+name: Gold Prism
+front_door: true
+legible: true
+motion: true
+# Private: the source pack, for the registry (docs/THEMES.md). Never ships.
+pack: "黄山"
+pack_also: ["Huangshan"]
+variant: "新制皖烟 hard box (laser)"
+sources:
+  - "docs/themes/gold-prism.md (the owner's photos and the research board, described in words)"
+summary: "Holographic gold foil behind the page, a fine lattice of triangles and a rainbow that slides as you scroll, a solid column for the text, a metal medallion, and red handwriting."
+smell_exemptions: []

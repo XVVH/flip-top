@@ -148,7 +148,7 @@ smell_exemptions: []    # each with a reason
 
 Decorative text from CSS uses empty alternative text, `content: "…" / ""`, so screen readers skip it.
 
-If `theme.js` exists, it exports `activate(root, api)` and `deactivate(root)`. `deactivate` removes everything `activate` added. Everything a theme script injects carries a `data-ft-deco` attribute and `aria-hidden="true"`; the floor hides `[data-ft-deco]` in the plain theme, so printing never shows it. `api.hits()` returns the hit count once known, and a `ft:hits` event fires on `document` when it arrives. `api.reducedMotion()` says whether to stay still. Theme scripts may not make network requests.
+If `theme.js` exists, it exports `activate(root, api)` and `deactivate(root)`. `deactivate` removes everything `activate` added. Everything a theme script injects carries a `data-ft-deco` attribute and `aria-hidden="true"`; the floor hides `[data-ft-deco]` in the plain theme, so printing never shows it. `api.hits()` returns the hit count once known, and a `ft:hits` event fires on `document` when it arrives. `api.reducedMotion()` says whether to stay still. A theme script may set custom properties on elements already in the page (Gold Prism moves its foil this way) as long as `deactivate` removes them. Theme scripts may not make network requests.
 
 `layouts/_partials/assets.html` builds everything: one CSS bundle (`_base`, every theme, then `_floor`), each theme's script, the inline boot script and the switcher, plus the manifest the browser reads (`<script type="application/json" id="ft-manifest">`). Production builds leave out `_control`.
 

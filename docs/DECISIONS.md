@@ -62,6 +62,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F29. 黄山's laser pack is named Gold Prism** (the owner, October 21, 2026). The owner's idea for it: the hologram as the page's background, with a place for the text on top. The study makes that place solid rather than semi-opaque (frosted glass is the AI look's, and a moving rainbow behind text changes its contrast), and moves the sheen with scrolling and the mouse pointer, not device tilt (which needs a permission prompt on iPhones).
 
+**F30. Gold Prism's medallion and typefaces** (the owner, October 21, 2026). The first medallion, faceted and following the mouse while the foil stood still, read as a loading spinner; it's now the research board's smooth metal conic, turning with the scroll only, at the sheen's rate. The headings are handwriting, Kalam, because the wordmark is hand-lettered; the text is a sans, IBM Plex Sans, because the box's text is Hei.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

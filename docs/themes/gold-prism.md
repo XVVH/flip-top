@@ -1,6 +1,6 @@
 # Gold Prism: pack study and journal
 
-*Status: **study, for the owner's review.** The second Chinese pack (DECISIONS.md F27), the laser pack, named Gold Prism by the owner. Studied from the owner's two photos and the research board's two.*
+*Status: **built; awaiting the owner's review.** The second Chinese pack (DECISIONS.md F27), the laser pack, named Gold Prism by the owner (F29); the owner approved the sheen, the metallic medallion and the typefaces (F30).*
 
 *Brand names belong here, in the study, and nowhere that ships, in any script.*
 
@@ -53,8 +53,8 @@
 | A place for the text | **Solid** | The owner's idea: the foil as the background, with a column for the text on top. The column is **solid** pale gold, edged in a thin gold rule. Not semi-opaque: with a blur it's the frosted glass of the AI look (SMELL.md, and the lint flags it); without one, the rainbow moving behind the words changes their contrast as you scroll. |
 | The crystal medallion | Signal | An **empty** round badge breaking the top of the column: a smooth pastel conic gradient (pale blue, lilac, mint, cream, rose) in a gold ring, from the research board's effect sketch, with a soft inner glow. The colours turn with the scroll, at the sheen's rate (one turn per sweep of the rainbow); the glow stays put, so it reads as light moving over metal. Never with anything inside: the emblem is the mark. |
 | The red rule | Mirror | Under the masthead, across the column. |
-| Red Song text | Mirror the character | The site name and headings in **Shippori Mincho B1** (OFL), ExtraBold, red: a Mincho (Song-style) family whose Latin is a sturdy, high-contrast serif. Never a brush face. |
-| The small descriptor | Mirror the character | Navigation, dates and labels in Shippori Mincho B1 SemiBold, tracked capitals, dark brown. |
+| The hand-lettered wordmark | Mirror the character | The site name and headings in **Kalam** Bold (OFL), red: rounded, chunky handwriting with a slight slant, close in weight to the wordmark's strokes. Handwriting, never a faked brush. |
+| The Hei text | Mirror the character | The article in **IBM Plex Sans** (OFL), designed alongside Plex Sans SC, a Hei; navigation, dates and labels in its SemiBold, tracked capitals, like the box's small bold descriptor. |
 | The wordmark, the emblem, the registered mark | Leave out | The brand. |
 | The warning | Leave out | F13. |
 
@@ -65,12 +65,12 @@
 - **Site name case:** Chinese has no case; title case, The Smokepit.
 - **Template slots:**
   - **Page ground and masthead band:** the foil, edge to edge, fixed behind the page; the column floats on it, with the medallion breaking its top edge.
-  - **Site name and headings:** Shippori Mincho B1 ExtraBold, red, centred.
-  - **Secondary type:** Shippori Mincho B1 SemiBold, tracked capitals, dark brown.
+  - **Site name and headings:** Kalam Bold, red, centred.
+  - **Secondary type:** IBM Plex Sans SemiBold, tracked capitals, red or dark brown.
   - **Signature shape:** the medallion; the red rule.
   - **Material:** the holographic foil, the theme's main subject.
   - **Footer and metadata:** inside the column, under a red rule, in tracked capitals.
-  - **The article:** **Newsreader** (OFL), a dark brown-black on the solid pale gold, left-aligned.
+  - **The article:** IBM Plex Sans, a dark brown-black on the solid pale gold, left-aligned.
 - **Motion:** the sheen moves only with the reader: scrolling, and a little with the mouse pointer on a desktop; the medallion with scrolling only. No device tilt: on iPhones it needs a permission prompt, which is close to asking the visitor for input. Under reduced motion it holds still at one angle; under forced colours the foil is hidden. Nothing animates by itself, so the five-second rule doesn't come into it.
 - **Tear strip colour:** red.
 - **Literal pack parts:** the material, the laser board, is the theme. (F15's "literal parts" are the lid, the foil liner and the tear strip.)
@@ -81,7 +81,7 @@
   - **Links:** red, underlined.
   - **Fresh pack:** red tracked capitals on a solid pale-gold bar, with a red rule under the bar.
 - **Legibility plan:** text only on the solid column or the bar. On the column: red 6.2:1, the ink 14.1:1, the dark brown 7.0:1; on the bar, red 5.5:1.
-- **Fonts:** about 136KB (Shippori Mincho B1 SemiBold and ExtraBold 65KB; Newsreader regular, italic and semibold 71KB).
+- **Fonts:** about 118KB (Kalam Bold 22KB; IBM Plex Sans roman and italic, variable, 96KB).
 - **Endorsement test:** the closest point is the whole look: gold laser board, a round crystal medallion, red Song lettering. It stays on the right side because laser board and lattices are common to many Chinese packs, the textures are generated, the medallion is empty, and there's no wordmark, emblem or calligraphy. The owner judges it.
 - **Watch-out:** as with Petal Lace, no chinoiserie: no brush Latin, no lanterns, no clouds or mountains drawn in.
 
@@ -91,13 +91,15 @@
 - **Device tilt** to drive the sheen, as the pack does in the hand. Scroll and the mouse pointer instead.
 - **The name in red on the foil,** as the research board sketched it. Text never sits on the foil.
 - **A faceted crystal in the medallion,** hard-edged blue and violet wedges, turning with the pointer as well as the scroll. The owner: "half-baked", and with the foil still under a still mouse it read as a loading spinner. Replaced with the research board's smooth metallic conic, turning with the scroll only.
+- **A Song-style serif for the name and a serif for the text** (Shippori Mincho B1 and Newsreader). The owner wanted handwriting for the headings, as the wordmark is hand-lettered, and a sans for the text, as the box's text is Hei. A specimen and a picker in the sketch settled Kalam and IBM Plex Sans, over Zhi Mang Xing (a Chinese brush family: close kin, but a brush face), Caveat (too light), Shantell Sans, Klee One, Gochi Hand, and for the text Noto Sans, Zen Kaku Gothic New and M PLUS 2.
 - **A bright yellow gold** from the laser photos. Under even light the board is a dull grey gold; the theme's gold is the lit board, with the rainbow over it.
 
 ## Log
 
 - 2026-10-21: Study written from four photos (two the owner's, two from the research board), named Gold Prism by the owner. A specimen settled the faces (Shippori Mincho B1 over Zen Old Mincho, Bodoni Moda, Gloock, Libre Caslon Display and Rozha One); an interactive sketch tried the sheen, the lattice, the medallion and the solid column at desktop and phone width.
 - 2026-10-21: The owner approved the sheen. The medallion was half-baked: its faceted crystal followed the mouse while the foil didn't, so it read as a spinner. Replaced with the research board's metallic conic (it lacks the pack's prism facets, but reads as metal), turning with the scroll at the sheen's rate, not with the cursor.
+- 2026-10-21: The owner asked for handwriting in the headings and a sans closer to the box's Hei for the text; settled on Kalam and IBM Plex Sans (see First instincts). Approved with the medallion. **Built.** The foil is the markup's decoration layer (`.deco`), fixed behind the page: its first span the gold and the lattice, its second the rainbow, one repeat wider than the screen. The rainbow's stops are in pixels, repeating every 966px along its 105-degree line, which is exactly 1000px across, so the script can wrap the slide with no jump. The body is left transparent so the foil shows; the column is `.page` itself, solid. The medallion is the masthead's `::before` (the turning conic) under its `::after` (the still glint). `theme.js` sets three custom properties, scoped to the elements it moves, on scroll and mouse movement, and removes them on deactivate; it does nothing under reduced motion. Under forced colours the foil and medallion are hidden. All floor tests pass.
 
 ## Open questions
 
-- The revised medallion, in the sketch.
+- The owner's review, on the live site: the sheen and the medallion in a real scroll.

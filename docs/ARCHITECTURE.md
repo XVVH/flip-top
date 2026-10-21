@@ -122,6 +122,7 @@ legible: true           # passes RULES.md tier 2
 motion: false           # true if it animates (all of it switched off under reduced motion)
 pack: "…"               # private: the source pack's research name; never ships
 variant: "…"            # private: which colour or version; pack + variant is unique
+pack_also: ["…"]        # optional, private: other spellings (pinyin, a Latin wordmark), checked like pack:
 sources: [ … ]          # research links; never ships
 summary: "…"            # optional: one line for the theme index, with no brand names
 smell_exemptions: []    # each with a reason
@@ -231,7 +232,7 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 
 Playwright and axe-core, run in GitHub Actions (`.github/workflows/ci.yml`). These are development-only dependencies; nothing from them reaches the site. The theme list comes from the built manifest, so a new theme is tested automatically.
 
-- `scripts/lint-themes.mjs`: the theme package contract above, plus the private pack registry: every pack theme declares `pack:` and `variant:`, no two share both, and no theme's id or name contains its pack's name.
+- `scripts/lint-themes.mjs`: the theme package contract above, plus the private pack registry: every pack theme declares `pack:` and `variant:`, no two share both, and no theme's id or name contains its pack's name or any of its `pack_also:` spellings, in any script.
 - `scripts/lint-smell.mjs`: known surface tells of the smell (SMELL.md) in everything that ships: smell fonts, Tailwind default colours, frosted glass, gradient text, smell emoji, pills, smell copy. A theme can exempt a rule in `theme.yaml` as `"<rule-id>: <reason>"`.
 - `tests/counter.test.mjs`: the hit counter's logic.
 - `tests/production.test.mjs`: builds production and checks that `_control` and fixtures don't ship, that no declared pack name appears in the CSS, scripts, theme assets, manifest or theme index, the CSP hash matches the inline script, and there are no third-party assets or inline styles.

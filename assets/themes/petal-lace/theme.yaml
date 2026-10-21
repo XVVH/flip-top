@@ -1,0 +1,13 @@
+id: petal-lace
+name: Petal Lace
+front_door: true
+legible: true
+motion: false
+# Private: the source pack, for the registry (docs/THEMES.md). Never ships.
+pack: "钻石 荷花"
+pack_also: ["Zuanshi", "Hehua"]
+variant: "Hard box"
+sources:
+  - "docs/themes/petal-lace.md (the owner's photos and the research board, described in words)"
+summary: "Green, golden yellow and green bands parted by holographic fret strips, a gold dotted lace of petals, a painted peach blossom, and the name in red outlined in white."
+smell_exemptions: []

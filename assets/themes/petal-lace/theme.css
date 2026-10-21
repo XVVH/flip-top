@@ -1,0 +1,230 @@
+/*
+  Petal Lace. Green, golden yellow and green bands, parted by holographic
+  strips carrying a key-fret line; a gold dotted lace of petal outlines
+  across the green; a painted peach blossom in the yellow; the name heavy and
+  slanted, red outlined in white. The flower is the theme's own: no lotus, no
+  plaque, no calligraphy. See docs/themes/petal-lace.md.
+*/
+@font-face {
+  font-family: "Sansita";
+  src: url("../themes/petal-lace/fonts/sansita-800-italic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../themes/petal-lace/fonts/source-serif-4.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../themes/petal-lace/fonts/source-serif-4-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../themes/petal-lace/fonts/source-sans-3.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@layer theme {
+  :root[data-theme="petal-lace"] {
+    --pl-green: #3f7d33;
+    --pl-deep: #2b6428;
+    --pl-yellow: #e2c252;
+    --pl-cream: #f8f2de;
+    --pl-panel: #f3e8bf;
+    --pl-highlight: #efe1a8;
+    --pl-gold: #d8b66c;
+    --pl-gold-ink: #7a5d1e;
+    --pl-red: #cf2a2c;
+    --pl-link: #b3262a;
+    --pl-ink: #1e281b;
+    --pl-white: #f4f4ef;
+    --ft-strip: var(--pl-gold);
+    --pl-title: "Sansita", "Trebuchet MS", sans-serif;
+    --pl-text: "Source Serif 4", Georgia, serif;
+    --pl-label: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+    /* The holographic strip: a key-fret line over shifting pale colour. */
+    --pl-fret: url("../themes/petal-lace/img/fret.svg");
+    --pl-shimmer: linear-gradient(90deg, #bcd2e6, #dccbe8, #c2e3d6, #e6ddb6, #bcd2e6);
+    --pl-strip-h: 14px;
+    /* The yellow band is never taller than the green title block above it. */
+    --pl-band: clamp(96px, 13vw, 176px);
+
+    color-scheme: light;
+    background: var(--pl-cream);
+    color: var(--pl-ink);
+    font: 400 1.125rem/1.65 var(--pl-text);
+
+    body { background: var(--pl-cream); }
+
+    a { color: var(--pl-link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+    a:hover { color: var(--pl-deep); }
+    :focus-visible { outline-color: var(--pl-deep); }
+
+    .bar { background: var(--pl-deep); }
+    .bar :focus-visible { outline-color: var(--pl-white); }
+    .bar-next {
+      padding: 0 12px;
+      font: 700 0.8125rem/1 var(--pl-label);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pl-white);
+      background: none;
+      border: 0;
+      border-bottom: 2px solid var(--pl-white);
+      cursor: pointer;
+    }
+    .bar-plain { margin: 0; font: 700 0.8125rem/1.3 var(--pl-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--pl-white); }
+
+    .page { padding: 0; }
+    .page > :not(.deco) { max-width: 42rem; margin-inline: auto; padding-inline: 22px; }
+    .page > :is(.masthead, .site-foot) { max-width: none; padding-inline: 0; }
+
+    /* The lid: white, deep green and white stripes along the top, then the
+       gold lace over green, holding the name. */
+    .masthead {
+      padding-top: 44px;
+      text-align: center;
+      background:
+        linear-gradient(var(--pl-white) 0 4px, var(--pl-deep) 4px 6px, var(--pl-white) 6px 10px, transparent 10px) 0 0 / 100% 10px no-repeat,
+        url("../themes/petal-lace/img/lace.svg") 0 10px / 120px 104px,
+        var(--pl-green);
+    }
+    .site-name { margin: 0; padding-inline: 16px; font: italic 800 clamp(2.5rem, 9vw, 5.25rem)/1.05 var(--pl-title); color: var(--pl-red); -webkit-text-stroke: 0.15em var(--pl-white); paint-order: stroke fill; text-wrap: balance; }
+    .site-name a { color: inherit; text-decoration: none; }
+    .masthead :focus-visible { outline-color: var(--pl-white); }
+    .site-nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 24px; margin: 14px 0 0; padding: 0 16px 30px; list-style: none; }
+    .site-nav a { display: inline-block; padding: 6px 0; font: 700 0.875rem/1.3 var(--pl-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--pl-white); text-decoration-color: var(--pl-gold); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+    /* Then a strip, the golden-yellow band with the blossom scaled to fit,
+       and another strip. */
+    .masthead::after {
+      content: "";
+      display: block;
+      height: calc(var(--pl-band) + var(--pl-strip-h) * 2);
+      background:
+        var(--pl-fret) 0 0 / 24px var(--pl-strip-h) repeat-x,
+        var(--pl-shimmer) 0 0 / 100% var(--pl-strip-h) no-repeat,
+        var(--pl-fret) 0 100% / 24px var(--pl-strip-h) repeat-x,
+        var(--pl-shimmer) 0 100% / 100% var(--pl-strip-h) no-repeat,
+        url("../themes/petal-lace/img/peach-blossom.svg") 50% 50% / auto calc(var(--pl-band) - 12px) no-repeat,
+        var(--pl-yellow);
+    }
+
+    .main { margin-top: 36px; }
+    .main:focus { outline: none; }
+
+    .post-head { margin: 0 0 1.8em; text-align: center; }
+    .post-title, .listing-title { margin: 0 0 0.35em; font: italic 800 clamp(2rem, 6vw, 2.9rem)/1.1 var(--pl-title); color: var(--pl-deep); text-wrap: balance; }
+    .listing-title { text-align: center; }
+    .post-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1.4em; margin: 0; font: 700 0.8125rem/1.6 var(--pl-label); letter-spacing: 0.18em; text-transform: uppercase; color: var(--pl-gold-ink); }
+    .post-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 18px; margin: 10px 0 0; padding: 0; font: 700 0.8125rem/1.6 var(--pl-label); letter-spacing: 0.14em; text-transform: uppercase; }
+    .post-tags a { display: inline-block; padding: 4px 0; }
+
+    .post-body { max-width: 36em; }
+    .post-body > * { margin: 0 0 1em; }
+    .post-body h2 { margin: 1.6em 0 0.35em; font: italic 800 1.9rem/1.15 var(--pl-title); color: var(--pl-deep); }
+    .post-body h3 { margin: 1.4em 0 0.3em; font: italic 800 1.4rem/1.2 var(--pl-title); color: var(--pl-deep); }
+    .post-body :is(h4, h5, h6) { margin: 1.4em 0 0.35em; font: 700 0.875rem/1.5 var(--pl-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--pl-deep); }
+    .post-body :is(ul, ol) { padding-left: 1.3em; }
+    .post-body li::marker { color: var(--pl-deep); }
+    .post-body li:has(> input[type="checkbox"]) { list-style: none; }
+    .post-body dt { font: 700 0.875rem/1.6 var(--pl-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--pl-deep); }
+    .post-body dd { margin: 0 0 0.6em 1.4em; }
+    .post-body blockquote { margin: 0 0 1.2em; padding: 0.1em 0 0.1em 1.1em; font-style: italic; border-left: 3px solid var(--pl-gold); }
+    .post-body blockquote blockquote { border-left-color: var(--pl-green); }
+    /* A section break: a short holographic strip. */
+    .post-body hr { width: 6rem; height: var(--pl-strip-h); margin: 2.2em auto; border: 0; background: var(--pl-fret) 0 0 / 24px var(--pl-strip-h) repeat-x, var(--pl-shimmer); }
+
+    .code { margin: 0 0 1.3em; background: var(--pl-panel); border-left: 4px solid var(--pl-green); }
+    .code-lang { margin: 0; padding: 8px 14px 0; font: 700 0.75rem/1.4 var(--pl-label); letter-spacing: 0.16em; text-transform: uppercase; color: var(--pl-deep); }
+    .code pre { margin: 0; padding: 8px 14px 12px; font: 0.9375rem/1.55 ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: var(--pl-ink); background: none; }
+    .code pre code { font: inherit; }
+    .chroma .line.hl { display: block; background: var(--pl-highlight); }
+    .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .nt) { color: var(--pl-deep); font-weight: 700; }
+    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { color: var(--pl-link); }
+    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: var(--pl-gold-ink); font-style: italic; }
+    .post-body :not(pre) > code { padding: 0 0.25em; font: 0.86em ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; background: var(--pl-panel); }
+
+    .table-scroll table { font-size: 1rem; font-variant-numeric: lining-nums tabular-nums; }
+    .table-scroll :is(th, td) { padding: 6px 14px 6px 0; vertical-align: top; text-align: left; border-bottom: 1px solid var(--pl-gold); }
+    .table-scroll th { font: 700 0.75rem/1.4 var(--pl-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--pl-deep); border-bottom: 2px solid var(--pl-green); }
+    .table-scroll .align-right { text-align: right; }
+    .table-scroll .align-center { text-align: center; }
+
+    .fig figcaption { margin-top: 8px; font-style: italic; font-size: 1rem; text-align: center; }
+
+    .footnotes { margin-top: 2.5em; padding-top: 1em; font-size: 1rem; border-top: 1px solid var(--pl-gold); }
+    .footnotes hr { display: none; }
+
+    .post-foot { margin-top: 2.5em; }
+    .post-nav { display: grid; gap: 10px; }
+    .post-nav p { margin: 0; }
+    .post-nav-label { display: block; font: 700 0.75rem/1.4 var(--pl-label); letter-spacing: 0.18em; text-transform: uppercase; color: var(--pl-gold-ink); }
+
+    /* Home: each post centred, parted by a short strip. */
+    .post-list { margin: 0; }
+    .post-item { margin: 0 0 1.6em; text-align: center; }
+    .post-item + .post-item::before { content: ""; display: block; width: 4.5rem; height: var(--pl-strip-h); margin: 0 auto 1.6em; background: var(--pl-fret) 0 0 / 24px var(--pl-strip-h) repeat-x, var(--pl-shimmer); }
+    .post-summary-title { margin: 0 0 0.25em; font: italic 800 1.7rem/1.15 var(--pl-title); text-wrap: balance; }
+    .post-summary-title a { color: var(--pl-deep); text-decoration: none; }
+    .post-summary-title a:hover { text-decoration: underline; }
+    .post-summary-meta { margin: 0 0 0.3em; font: 700 0.75rem/1.6 var(--pl-label); letter-spacing: 0.18em; text-transform: uppercase; color: var(--pl-gold-ink); }
+    .post-summary-meta .post-reading { margin-left: 1em; }
+    .post-summary-desc { margin: 0; }
+
+    .term-list { display: grid; gap: 4px; margin: 0; padding: 0; }
+    .term-list a { display: inline-block; padding: 4px 0; font: 700 0.875rem/1.4 var(--pl-label); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .rail { margin-top: 2.8em; font-size: 1.0625rem; }
+    .rail-section { margin: 0 0 1.6em; }
+    .rail-title { margin: 0 0 0.5em; font: 700 0.8125rem/1.4 var(--pl-label); letter-spacing: 0.16em; text-transform: uppercase; color: var(--pl-deep); }
+    .rail ul { margin: 0; padding: 0; list-style: none; }
+    .rail li { padding: 2px 0; }
+    .rail a { display: inline-block; padding: 3px 0; }
+    .rail-date { margin-left: 6px; white-space: nowrap; font: 700 0.6875rem/1 var(--pl-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--pl-gold-ink); }
+    .rail p { margin: 0 0 0.5em; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0 16px; }
+    .archive-year-label { font: 700 0.8125rem/1.4 var(--pl-label); letter-spacing: 0.14em; color: var(--pl-deep); }
+
+    /* The base: deep green under a strip, with white capitals. */
+    .page > .site-foot {
+      margin-top: 3.5em;
+      padding: calc(var(--pl-strip-h) + 26px) 16px 32px;
+      font: 700 0.75rem/2 var(--pl-label);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--pl-white);
+      background:
+        var(--pl-fret) 0 0 / 24px var(--pl-strip-h) repeat-x,
+        var(--pl-shimmer) 0 0 / 100% var(--pl-strip-h) no-repeat,
+        var(--pl-deep);
+    }
+    .site-foot p { margin: 0; }
+    .site-foot a { color: var(--pl-white); }
+    .site-foot :focus-visible { outline-color: var(--pl-white); }
+
+    /* Narrow screens: tighter navigation; a date or a reading time never
+       breaks in two. */
+    :is(.post-meta, .post-summary-meta) > * { white-space: nowrap; }
+    @media (max-width: 480px) {
+      .masthead { padding-top: 34px; }
+      .site-nav ul { gap: 2px 16px; padding-bottom: 24px; }
+      .site-nav a { letter-spacing: 0.08em; }
+      :is(.post-meta, .post-summary-meta) { letter-spacing: 0.12em; }
+    }
+  }
+}

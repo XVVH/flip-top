@@ -18,7 +18,7 @@
    - **Signal:** marks and signature shapes, echoed in geometry but never reproduced ([RULES.md](RULES.md#1-trade-dress-every-theme-forever)).
    - **Leave out:** names, logos, wordmarks, slogans, figures and health warnings.
 5. **Map it to the template** below.
-6. **Register it.** Give the theme an original id and name, and record its source privately in `theme.yaml` as `pack:` and `variant:` (DECISIONS.md F11). Check the catalogue below so it doesn't repeat a pack and variant that's already taken.
+6. **Register it.** Give the theme an original id and name, and record its source privately in `theme.yaml` as `pack:` and `variant:` (DECISIONS.md F11), with any other spellings of the pack's name (pinyin, a Latin wordmark) as `pack_also:` (F28). Check the catalogue below so it doesn't repeat a pack and variant that's already taken.
 7. **Write the study first**, as `docs/themes/<id>.md` from [`themes/_TEMPLATE.md`](themes/_TEMPLATE.md), and get the owner's review before any CSS.
 8. **Build, test, and check the gallery** beside `_control`. Run the endorsement test from RULES.md on the screenshots, not just the brief.
 9. **Record** what you first picked out as distinctive, what you misjudged, and every place you were tempted to copy rather than signal.
@@ -63,7 +63,7 @@ Every theme, built or in study, with its private source. This table and each `th
 |---|---|---|---|
 | [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Built; passed review |
 | [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Built; passed review |
-| [`petal-lace`](themes/petal-lace.md) (working id) | 钻石 荷花 (Zuanshi Hehua) | Hard box | Study, for review |
+| [`petal-lace`](themes/petal-lace.md) | 钻石 荷花 (Zuanshi Hehua) | Hard box | Built; in review |
 | [`green-marble`](themes/green-marble.md) | Virginia Slims | Menthol (slim box), the classic green marble design | Built; in review |
 | [`roundel`](themes/roundel.md) | Lucky Strike | White soft pack (the roundel design) | Built; passed review |
 | [`sun-cured`](themes/sun-cured.md) | Camel | Classic yellow (soft pack) | Built; passed review (the first build took a later hard box and failed) |
@@ -82,7 +82,7 @@ Research names only; none of them appears on the site, in any script. Notes are 
 | Benson & Hedges | A gold box. | Material as the ground: a metallic field under the whole page, and text on it. |
 | Virginia Slims | Built: see `green-marble`, the classic green box. The script turned out to be only the monogram; the Ultra Lights box (blush, paisley, five stripes) could be a later variant. Its famous slogan is a slogan: never. | A material, the marble, generated; a slim proportion as a narrow column. |
 | Natural American Spirit | A colour-coded family of flat, saturated packs, each a different colour. The figure is a mark, and a caricature: never. | A family: several variants from one structure. |
-| 钻石 荷花 (Zuanshi Hehua, China) | In study: see `petal-lace`. The owner's pick (F27): green, cream and green bands, a lace-like dotted petal repeat on the lid, a painted pink flower on cream. `docs/research/2026-10-china-packs.md`. | A printed pattern in a band; a painted flower, redrawn as another. |
+| 钻石 荷花 (Zuanshi Hehua, China) | Built: see `petal-lace`. The owner's pick (F27): green, cream and green bands, a lace-like dotted petal repeat on the lid, a painted pink flower on cream. `docs/research/2026-10-china-packs.md`. | A printed pattern in a band; a painted flower, redrawn as another. |
 | 芙蓉王 软蓝 (Furongwang, soft blue, China) | The owner's pick (F27): dark violet-navy with a diamond micro-texture, gold, a central medallion (the mark). | The first dark theme; a fine texture under the whole page. |
 | 黄山 新制皖烟 (Huangshan, China) | The owner's pick (F27): all-over holographic gold board with a rainbow sheen and a fine triangle lattice. | Holographic material: a sheen that moves, behind a solid reading column. |
 | Parliament | To study. | |

@@ -63,11 +63,19 @@ test("no theme's source pack is named in anything a theme ships", () => {
   // Each pack theme's theme.yaml names its source (pack: …), privately. None
   // of those names may reach the site through the themes: not in the CSS,
   // the scripts, theme assets, the manifest or the theme index.
+  // pack_also: lists other spellings (pinyin, a Latin wordmark). A name in
+  // characters is checked as a whole and word by word, without \b, which
+  // never matches between characters.
   const sources = readdirSync("assets/themes")
     .map((id) => join("assets/themes", id, "theme.yaml"))
     .filter((f) => existsSync(f))
-    .map((f) => readFileSync(f, "utf8").match(/^pack:\s*["']?([^"'\n]+?)["']?\s*$/m)?.[1])
-    .filter(Boolean);
+    .flatMap((f) => {
+      const yaml = readFileSync(f, "utf8");
+      const pack = yaml.match(/^pack:\s*["']?([^"'\n]+?)["']?\s*$/m)?.[1];
+      const more = [...(yaml.match(/^pack_also:\s*\[(.*)\]\s*$/m)?.[1] ?? "").matchAll(/["']([^"']+)["']/g)].map((m) => m[1]);
+      return pack ? [pack, ...more] : more;
+    })
+    .flatMap((name) => (/^[\x00-\x7f]*$/.test(name) ? [name] : [name, ...name.split(/\s+/).filter((w) => w.length > 1)]));
   const files = (sub) => (existsSync(join(dir, sub)) ? readdirSync(join(dir, sub), { recursive: true }).map((f) => join(sub, f)) : []);
   const shipped = [...files("css"), ...files("js"), ...files("themes")]
     .filter((f) => /\.(css|js|svg|json|txt)$/.test(f))
@@ -75,7 +83,8 @@ test("no theme's source pack is named in anything a theme ships", () => {
   shipped.push(["the manifest", JSON.stringify(manifestOf(read("index.html")))]);
   shipped.push(["designs/index.html", read("designs/index.html")]);
   for (const pack of sources) {
-    const word = new RegExp(`\\b${pack.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+    const escaped = pack.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const word = /^[\x00-\x7f]*$/.test(pack) ? new RegExp(`\\b${escaped}\\b`, "i") : new RegExp(escaped);
     for (const [name, text] of shipped) assert.doesNotMatch(text, word, `${name} names the pack "${pack}"`);
   }
 });

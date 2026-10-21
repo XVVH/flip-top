@@ -49,15 +49,16 @@ Update this as work lands. Tick boxes; don't delete history.
 - [x] The owner reviews them: Roundel passed
 - [ ] The owner reviews Green Marble
 - [x] The owner researches Chinese packs and picks three (F27): 钻石 荷花, 芙蓉王 软蓝, 黄山 新制皖烟
-- [ ] Teach the registry's lint and production test to handle pack names in characters (F27)
-- [ ] For each, one at a time: reference images, a study, the owner's review, the build. 钻石 荷花: `petal-lace` written, awaiting review
+- [x] Teach the registry's lint and production test to handle pack names in characters (F27, F28)
+- [ ] For each, one at a time: reference images, a study, the owner's review, the build. 钻石 荷花: Petal Lace, approved with a shorter yellow band and built (F28), awaiting review
 
 ## Open questions
 
 For the owner:
 
 - Green Marble, built: the owner's review.
-- The `petal-lace` study (钻石 荷花): its name, the drawn flower, and the lace behind the navigation.
+- Petal Lace, built: the owner's review.
+- The next Chinese pack: 芙蓉王 软蓝 or 黄山, and its reference images.
 - Which pack comes after it. Candidates and what each would test are in THEMES.md.
 
-Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21); the tagline (F22); Full Flavor's lid (F23); Sun Cured's second review and where references come from (F24); one pack at a time, and Roundel's study and name (F25); Green Marble's design, faces and name (F26); Chinese packs, and which three (F27).
+Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21); the tagline (F22); Full Flavor's lid (F23); Sun Cured's second review and where references come from (F24); one pack at a time, and Roundel's study and name (F25); Green Marble's design, faces and name (F26); Chinese packs, and which three (F27); Petal Lace, and names in any script (F28).

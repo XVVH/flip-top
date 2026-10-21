@@ -22,7 +22,12 @@ const SKIP = new Set(["_base", "_floor"]);
 const NOT_PACKS = new Set(["_control", "plain"]);
 const packs = new Map();
 const field = (yaml, key) => yaml.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+?)["']?\\s*$`, "m"))?.[1];
-const letters = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "");
+// Letters and digits in any script, so a pack named in characters (钻石 荷花)
+// compares as well as one named in Latin.
+const letters = (text) => text.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+// Other spellings of a pack's name (pinyin, a Latin export wordmark), as a
+// YAML list: pack_also: ["Zuanshi", "Hehua"].
+const also = (yaml) => [...(yaml.match(/^pack_also:\s*\[(.*)\]\s*$/m)?.[1] ?? "").matchAll(/["']([^"']+)["']/g)].map((m) => m[1]);
 const errors = [];
 const fail = (file, msg) => errors.push(`${relative(process.cwd(), file)}: ${msg}`);
 
@@ -126,8 +131,11 @@ for (const id of readdirSync(THEMES)) {
         if (packs.has(key)) fail(yamlFile, `${pack} (${variant}) is already the source of ${packs.get(key)}`);
         packs.set(key, id);
         const name = field(yaml, "name") ?? "";
-        if (letters(id).includes(letters(pack)) || letters(name).includes(letters(pack))) {
-          fail(yamlFile, `the theme's id or name contains its pack's name, ${pack} (RULES.md tier 1)`);
+        for (const spelling of [pack, ...also(yaml)]) {
+          const l = letters(spelling);
+          if (l && (letters(id).includes(l) || letters(name).includes(l))) {
+            fail(yamlFile, `the theme's id or name contains its pack's name, ${spelling} (RULES.md tier 1)`);
+          }
         }
       }
     }

@@ -58,6 +58,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F27. Packs sold in China join the catalogue** (the owner, October 2026), widening F2, which said US packs. The owner researched ten (`docs/research/2026-10-china-packs.md`) and picked three, for texture and material rather than colour alone: **钻石 荷花** (the bands, the textured lid band, and its painted flower redrawn as a different flower), **芙蓉王 软蓝** (the dark soft-blue variant, for its diamond texture) and **黄山 新制皖烟** (the gold hologram as the page's background, with a solid place for the text). The rest "don't really stand out from a design language perspective" once in a blog layout. Every rule still holds: no names in characters, pinyin or Latin; no marks, figures, calligraphy or health warnings. *Before the first one:* the registry's checks compare Latin letters only, so a pack named in characters would trip the lint and slip past the production test; fix both first.
 
+**F28. Petal Lace, from 钻石 荷花** (the owner, October 21, 2026): the study approved with the name Petal Lace and the lace behind the navigation, and one change: the yellow band is never taller than the green title block, so the page isn't pushed down, even though the pack's yellow is taller. The registry now handles names in any script: `letters()` keeps letters of every script, `pack_also:` lists other spellings (pinyin, a Latin wordmark), and the production test checks names in characters as a whole and word by word, without word boundaries.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.

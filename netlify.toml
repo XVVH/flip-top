@@ -5,10 +5,14 @@
 # The account is on Netlify's legacy free plan, which meters build minutes
 # and bandwidth rather than deploys (docs/ARCHITECTURE.md). Docs-only pushes
 # skip the build (ignore, below) to save minutes.
+#
+# --panicOnWarning makes a warning (an image without alt text, a remote
+# image) fail the deploy, so a broken post never goes live; the live site
+# keeps the last good build.
 
 [build]
   publish = "public"
-  command = "hugo --gc --minify -b $URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
+  command = "hugo --gc --minify --panicOnWarning -b $URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
   # Skip the build when nothing that ships has changed since the last one:
   # docs, tests and the agent notes only. Exit 0 skips; anything else builds,
   # so a missing or equal cached commit (a first or clear-cache build) builds.
@@ -22,10 +26,10 @@
   NPM_FLAGS = "--omit=dev"
 
 [context.deploy-preview]
-  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
+  command = "hugo --gc --minify --panicOnWarning -b $DEPLOY_PRIME_URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
 
 [context.branch-deploy]
-  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
+  command = "hugo --gc --minify --panicOnWarning -b $DEPLOY_PRIME_URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
 
 [functions]
   node_bundler = "esbuild"

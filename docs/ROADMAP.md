@@ -52,6 +52,13 @@ Update this as work lands. Tick boxes; don't delete history.
 - [x] Teach the registry's lint and production test to handle pack names in characters (F27, F28)
 - [ ] For each, one at a time: reference images, a study, the owner's review, the build. 钻石 荷花: Petal Lace, approved with a shorter yellow band and built (F28), awaiting review. 黄山: Gold Prism, approved with a metal medallion and handwritten headings (F29, F30), built, awaiting review. 芙蓉王 软蓝: Night Gilt, approved with a camellia in its medallion (F31), built, awaiting review
 
+## Writing
+
+- [x] A post template (`archetypes/posts/`) and a guide, `docs/WRITING.md`
+- [x] Netlify refuses to deploy a build with warnings (`--panicOnWarning`), so a post without alt text or with a remote image never goes live
+- [ ] The owner writes the About page and the site description
+- [ ] The first post
+
 ## Open questions
 
 For the owner:

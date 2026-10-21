@@ -41,6 +41,7 @@ Then, depending on the task:
 ```sh
 npm ci          # test tools and the hit counter's one dependency
 hugo server     # local preview, with fixture posts and _control
+hugo new content posts/<slug>   # a new post, as a draft (docs/WRITING.md)
 npm test        # lint, unit tests, production checks, browser tests
 ```
 

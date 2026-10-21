@@ -66,6 +66,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F31. 芙蓉王's soft blue is Night Gilt, the first dark theme** (the owner, October 21, 2026). Its medallion holds a camellia drawn in the pack's stencil-and-glitter manner: the owner found the empty disc "looks like an album without anything in the middle", and asked for another flower in the pack's style, as for 钻石 荷花.
 
+**F32. No more batching deploys** (the owner, October 21, 2026). The account is on Netlify's legacy free plan, which predates credit-based pricing: it meters build minutes and bandwidth, not deploys. The owner saw no credits used by any deploy. Finished, tested work goes to main without waiting for a batch, and the `next-packs` holding branch is retired. Docs-only pushes still skip the build, to save minutes. *Replaces* the batching half of I9.
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.
@@ -86,7 +88,7 @@ Still in force unless changed. Numbers in brackets are Turrible Takes' own, for 
 
 **I8. Hugo** [D16], one pinned program with no npm dependency tree in the build.
 
-**I9. Netlify** [D18], on the Free plan for now. Production deploys are batched, because each costs 15 credits from a 300-credit monthly cap.
+**I9. Netlify** [D18], on the free plan. *Superseded in part by F32:* production deploys were batched because each was thought to cost 15 credits from a 300-credit monthly cap; the account is on the legacy plan, which doesn't charge per deploy.
 
 **I10. The domain** [D19]: `synchromeshi.com`, now The Smokepit's. Posts live under `/posts/<slug>/`.
 

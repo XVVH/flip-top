@@ -216,18 +216,14 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
   - Content security policy: `default-src 'self'; script-src 'self' 'sha256-…'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'`.
   - Also `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, and a restrictive `Permissions-Policy`.
   - Fingerprinted assets (`/css/*`, `/js/*`) get `Cache-Control: public, max-age=31536000, immutable`; theme fonts and images (`/themes/*`) get a week.
-- **Credits** (Free plan, as of October 2026; check the current rates):
-  - A hard cap of 300 credits a month, shared by every project on the team.
-  - Each production deploy costs 15; bandwidth costs 20 per GB; requests cost 2 per 10,000; function compute costs 10 per GB-hour.
-  - A first-visit page view of about 400KB costs roughly 0.01 credits, so about 30,000 a month fit. The counter adds about 5%.
-  - **Unconfirmed (October 21, 2026):** the owner sees no credits used by this site's production deploys, so Netlify may have changed its pricing. Until the owner confirms the current rates, keep batching deploys as above.
+- **Plan:** the account is on Netlify's **legacy** free plan (Starter), which predates credit-based pricing (DECISIONS.md F32). It meters build minutes and bandwidth, not deploys: about 300 build minutes and 100GB of bandwidth a month, and a monthly allowance of function calls for the hit counter (check the team's usage page for the exact figures). A production build takes about a minute, so deploys are cheap; bandwidth is the limit to watch, and the budgets below keep pages light.
 - **Budgets:**
   - First visit: about 250KB or less, not counting post images.
   - Bar and switcher JavaScript: about 8KB or less.
   - Each theme's CSS, fonts and assets: about 150KB or less. Every theme's CSS is in the one bundle, so keep theme CSS lean. A theme's fonts load only when it's shown. Full Flavor is a little over (about 170KB of fonts, mostly the display face's two axes); see its journal.
   - Fonts are OFL faces taken from the fontsource npm packages, the Latin subset only, as `woff2`, each with its licence text beside it in `fonts/`.
   - Post images are the biggest lever: resize them, use modern formats, and lazy-load them.
-- **Deploys:** Netlify builds every push to main, so batch your work. A push that changes only docs, tests or the agent notes is skipped (the `ignore` command in `netlify.toml`); any doubt, such as a first or clear-cache build, builds. Review themes from the CI screenshot gallery. Before relying on deploy previews, check whether they use credits.
+- **Deploys:** Netlify builds every push to main. Finished, tested work can go straight to main; there's no need to hold it back. A push that changes only docs, tests or the agent notes is skipped (the `ignore` command in `netlify.toml`), which saves build minutes; any doubt, such as a first or clear-cache build, builds. Review themes from the CI screenshot gallery.
 
 ## Testing
 

@@ -2,9 +2,9 @@
 # public/_headers (layouts/home.headers) so the content security policy can
 # carry the inline boot script's hash.
 #
-# Free plan budget (docs/ARCHITECTURE.md): each production deploy costs 15
-# credits from 300 a month, shared by every project on the account. Batch
-# changes before merging to main.
+# The account is on Netlify's legacy free plan, which meters build minutes
+# and bandwidth rather than deploys (docs/ARCHITECTURE.md). Docs-only pushes
+# skip the build (ignore, below) to save minutes.
 
 [build]
   publish = "public"

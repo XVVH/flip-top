@@ -32,7 +32,7 @@ Then, depending on the task:
 - **Don't fill the gaps with defaults.** Where a pack doesn't decide something, choose for that pack; don't reach for the default AI look (`docs/SMELL.md`).
 - **Never ship `_control`** (the dev-only scaffold and baseline), and never copy anything from it into a theme.
 - **Don't add third-party requests**, trackers, comment systems, forms, or anything that accepts visitor input. The hit counter is the one server-side piece; see `docs/ARCHITECTURE.md`.
-- **Batch production deploys.** On Netlify's Free plan each production deploy costs 15 credits, out of 300 a month shared by every project on the account.
+- **Keep builds and pages lean.** The account is on Netlify's legacy free plan, which meters build minutes and bandwidth, not deploys (DECISIONS.md F32). Finished, tested work can go to main; docs-only pushes skip the build; page weight stays within the budgets in `docs/ARCHITECTURE.md`.
 - **Record what you learn.** Each journal keeps what you picked out as distinctive and where you got it wrong. That record is the experiment's data.
 - When a decision changes, update `docs/DECISIONS.md`. When work lands, update `docs/ROADMAP.md`. When the build differs from `docs/ARCHITECTURE.md`, fix one of them.
 

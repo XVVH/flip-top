@@ -1,6 +1,6 @@
 # Petal Lace: pack study and journal
 
-*Status: **built; awaiting the owner's review.** The first Chinese pack (DECISIONS.md F27), studied from the owner's photos and the research board; the owner approved the study, the name and the lace behind the navigation, and capped the yellow band's height (F28).*
+*Status: **built; passed the owner's review** (DECISIONS.md F33). The first Chinese pack (DECISIONS.md F27), studied from the owner's photos and the research board; the owner approved the study, the name and the lace behind the navigation, and capped the yellow band's height (F28).*
 
 *Brand names belong here, in the study, and nowhere that ships, in any script.*
 
@@ -88,7 +88,7 @@
   - **Links:** red, underlined.
   - **Fresh pack:** white tracked capitals on the deep-green bar.
 - **Legibility plan:** text sits on the cream, the solid green or the bar, never on the yellow band or the strips. The lace sits behind the name and navigation (the owner: fine): the name has its white outline, and the navigation is white bold capitals. White on the lid green 5.0:1, on the deep green 7.1:1; ink on cream 13.6:1; deep green 6.3:1; link red 5.8:1; dark gold 5.5:1; in code, every token colour 5.0:1 or better, and 4.7:1 on the highlighted line.
-- **Fonts:** about 155KB (Sansita ExtraBold Italic 23KB, Source Serif 4 roman and italic, variable, 102KB, Source Sans 3 variable 29KB), at the budget's edge; the serif's italic is the one to drop if needed.
+- **Fonts:** about 155KB (Sansita ExtraBold Italic 23KB, Source Serif 4 roman and italic, variable, 102KB, Source Sans 3 variable 29KB).
 - **Endorsement test:** the closest point is the three bands with the dotted lace and a painted flower in the yellow, the pack's whole structure. It stays on the right side because the flower is another flower, drawn for the theme, the lace is that flower's outline, and there's no plaque, title, calligraphy or warning; the name in the outlined red is the site's own, in Latin. The owner judges it.
 - **Watch-out:** a Chinese pack invites chinoiserie: brush-style Latin fonts ("chop suey" lettering), red-and-gold lanterns, dragons. The theme keeps to what this pack does: its bands, its lace, its strips and a gongbi flower.
 
@@ -104,6 +104,8 @@
 - 2026-10-20: Study written from four photos (two the owner's, two from the research board). A specimen settled the title face (Sansita over Lilita One, Paytone One, Rubik and Baloo 2); the peach blossom, the lace tile and the fret strip were drawn as SVG and refined twice (the first petals came out flat pink: their gradient was centred in the wrong coordinate space); a mock checked the page at desktop and phone width.
 - 2026-10-21: The owner approved the study and the name, and kept the lace behind the navigation, with one change: matching the pack's proportions made the yellow band taller than the green title block and pushed the page down, so **the band is never taller than the green block** (`clamp(96px, 13vw, 176px)`, measured against the green at six widths from 320 to 1920px), with the blossom scaled to fit. **Built.** The masthead is the full width: the lid's stripes and the lace as layered backgrounds; the strips, the yellow band and the blossom as one `::after`; the footer is the green base under a strip. The flower, the lace and the fret are SVG files in `img/`. Before it, the registry learned names in characters (F28). Fixes from the screenshots: the blossom sat small in the band, because the drawing had empty margins, so its viewBox is cropped to the spray; at 320px the name wrapped onto two lines, so its smallest size came down. All floor tests pass.
 
+- 2026-10-21: **Passed** the owner's review, on the live site (DECISIONS.md F33).
+
 ## Open questions
 
-- The owner's review, on the live site.
+- None.

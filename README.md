@@ -4,7 +4,7 @@ The source of The Smokepit, a Markdown blog whose themes take their palettes, le
 
 Built with Hugo, hosted on Netlify, on the plumbing of Turrible Takes (`bad-blog`, archived). Start with [AGENTS.md](AGENTS.md) and [docs/INTENT.md](docs/INTENT.md).
 
-*Status: eight pack themes are live: Full Flavor, Menthol Stripe, Sun Cured, Roundel, Green Marble, Petal Lace, Gold Prism and Night Gilt, from five US packs and three Chinese. Writing has a post template and a guide, [docs/WRITING.md](docs/WRITING.md).*
+*Status: eight pack themes are live: Full Flavor, Menthol Stripe, Sun Cured, Roundel, Green Marble, Petal Lace, Gold Prism and Night Gilt, from five US packs and three Chinese, all reviewed by the owner. Writing has a post template and a guide, [docs/WRITING.md](docs/WRITING.md).*
 
 ```sh
 npm ci && hugo server   # preview

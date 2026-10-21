@@ -116,7 +116,8 @@ The first draft was written from memory and search summaries. The research sessi
 - 2026-10-19: Fonts come to about 170KB (the display face's two axes are most of it), a little over the 150KB budget per theme in ARCHITECTURE.md. They load only when the theme is shown.
 - 2026-10-20: Passed the owner's gallery review.
 - 2026-10-20: **The lid is out** (F23). Live on the deployed site, the owner found it "kind of awkward". Why, as best I can tell: it stacks a second motion on Fresh pack, which already has the tear strip and then the cross-fade to the next theme, so the lid swings open and never closes before the page changes under it; and with the band so wide, a `rotateX` hinge reads as the red squashing upward, not as a lid. The screenshots couldn't show any of that: it took the real thing. Removed the foil layer, the keyframes and the hover lift; the band and its gold hairline stay as they were. *For the F15 experiment:* a literal part that moves has to work with the switch it sits beside, not just on its own.
+- 2026-10-21: The per-theme weight cap is gone (DECISIONS.md F35), so the fonts stay as they are, real italics included.
 
 ## Open questions
 
-- Font weight: drop the italic text face (48KB) if the budget matters more than real italics.
+- None.

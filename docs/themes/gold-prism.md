@@ -1,6 +1,6 @@
 # Gold Prism: pack study and journal
 
-*Status: **built; awaiting the owner's review.** The second Chinese pack (DECISIONS.md F27), the laser pack, named Gold Prism by the owner (F29); the owner approved the sheen, the metallic medallion and the typefaces (F30).*
+*Status: **built; passed the owner's review** (DECISIONS.md F33). The second Chinese pack (DECISIONS.md F27), the laser pack, named Gold Prism by the owner (F29); the owner approved the sheen, the metallic medallion and the typefaces (F30).*
 
 *Brand names belong here, in the study, and nowhere that ships, in any script.*
 
@@ -100,6 +100,8 @@
 - 2026-10-21: The owner approved the sheen. The medallion was half-baked: its faceted crystal followed the mouse while the foil didn't, so it read as a spinner. Replaced with the research board's metallic conic (it lacks the pack's prism facets, but reads as metal), turning with the scroll at the sheen's rate, not with the cursor.
 - 2026-10-21: The owner asked for handwriting in the headings and a sans closer to the box's Hei for the text; settled on Kalam and IBM Plex Sans (see First instincts). Approved with the medallion. **Built.** The foil is the markup's decoration layer (`.deco`), fixed behind the page: its first span the gold and the lattice, its second the rainbow, one repeat wider than the screen. The rainbow's stops are in pixels, repeating every 966px along its 105-degree line, which is exactly 1000px across, so the script can wrap the slide with no jump. The body is left transparent so the foil shows; the column is `.page` itself, solid. The medallion is the masthead's `::before` (the turning conic) under its `::after` (the still glint). `theme.js` sets three custom properties, scoped to the elements it moves, on scroll and mouse movement, and removes them on deactivate; it does nothing under reduced motion. Under forced colours the foil and medallion are hidden. All floor tests pass.
 
+- 2026-10-21: **Passed** the owner's review, on the live site (DECISIONS.md F33).
+
 ## Open questions
 
-- The owner's review, on the live site: the sheen and the medallion in a real scroll.
+- None.

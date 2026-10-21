@@ -2,7 +2,7 @@
 // opt-outs, fallbacks, the theme index and the hit counter.
 // The rules are in docs/DECISIONS.md and docs/ARCHITECTURE.md.
 import { expect, test } from "@playwright/test";
-import { currentTheme, FRONT_DOOR, loadImages, manifest, PACKS, problems, theme, watch } from "./helpers.mjs";
+import { currentTheme, DECK, FRONT_DOOR, loadImages, manifest, PACKS, problems, theme, watch } from "./helpers.mjs";
 
 const KITCHEN = "/posts/kitchen-sink/";
 const OTHER = "/posts/sample-one/";
@@ -41,22 +41,44 @@ test("?pack= picks a theme and keeps it for the visit; unknown ids and the plain
 });
 
 test("Fresh pack deals every theme once before repeating, never the current one", async ({ page }) => {
-  test.skip(PACKS.length < 2, "needs at least two themes");
-  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  test.skip(DECK.length < 2, "needs at least two themes");
+  await page.goto(`${KITCHEN}?pack=${DECK[0].id}`);
   const seen = [await currentTheme(page)];
-  for (let i = 0; i < PACKS.length - 1; i++) {
+  for (let i = 0; i < DECK.length - 1; i++) {
     await fresh(page).click();
     await expect.poll(() => currentTheme(page)).not.toBe(seen.at(-1));
     seen.push(await currentTheme(page));
   }
-  expect(new Set(seen).size).toBe(PACKS.length);
+  expect(new Set(seen).size).toBe(DECK.length);
+  expect(seen.every((id) => DECK.some((t) => t.id === id))).toBe(true);
+});
+
+test("dev-only themes stay out of the rotation, but ?pack= still opens them", async ({ browser }) => {
+  const dev = PACKS.filter((t) => t.dev_only).map((t) => t.id);
+  test.skip(!dev.length || !DECK.length, "needs a dev-only theme and a pack theme");
+  expect(FRONT_DOOR.filter((id) => dev.includes(id))).toEqual([]);
+  const context = await browser.newContext({ reducedMotion: "reduce" });
+  const page = await context.newPage();
+  await page.goto(`${KITCHEN}?pack=${dev[0]}`);
+  expect(await currentTheme(page)).toBe(dev[0]);
+  // Two whole decks, since the first leaves out the theme it started on:
+  // none of it dev-only.
+  const seen = [];
+  for (let i = 0; i < DECK.length * 2; i++) {
+    const before = await currentTheme(page);
+    await fresh(page).click();
+    await expect.poll(() => currentTheme(page)).not.toBe(before);
+    seen.push(await currentTheme(page));
+  }
+  expect(seen.filter((id) => dev.includes(id))).toEqual([]);
+  await context.close();
 });
 
 test("Fresh pack announces the new theme by name, out of sight", async ({ page }) => {
-  test.skip(PACKS.length < 2, "needs at least two themes");
-  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  test.skip(DECK.length < 2, "needs at least two themes");
+  await page.goto(`${KITCHEN}?pack=${DECK[0].id}`);
   await fresh(page).click();
-  await expect.poll(() => currentTheme(page)).not.toBe(PACKS[0].id);
+  await expect.poll(() => currentTheme(page)).not.toBe(DECK[0].id);
   const now = theme(await currentTheme(page));
   await expect(page.locator(".sr-live")).toHaveText(manifest.copy.changed.replace("{theme}", now.name));
   const box = await page.locator(".sr-live").boundingBox();
@@ -64,14 +86,14 @@ test("Fresh pack announces the new theme by name, out of sight", async ({ page }
 });
 
 test("Fresh pack keeps the reader's place", async ({ page }) => {
-  test.skip(PACKS.length < 2, "needs at least two themes");
+  test.skip(DECK.length < 2, "needs at least two themes");
   await page.setViewportSize({ width: 390, height: 800 });
-  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  await page.goto(`${KITCHEN}?pack=${DECK[0].id}`);
   await loadImages(page);
   const heading = page.locator("#code-blocks");
   await heading.evaluate((el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 120));
   await fresh(page).click();
-  await expect.poll(() => currentTheme(page)).not.toBe(PACKS[0].id);
+  await expect.poll(() => currentTheme(page)).not.toBe(DECK[0].id);
   await loadImages(page);
   await expect.poll(async () => (await heading.boundingBox()).y).toBeGreaterThan(0);
   expect((await heading.boundingBox()).y).toBeLessThan(500);
@@ -163,8 +185,8 @@ test("the theme index is linked from every theme and lists every theme but the p
 });
 
 test("Fresh pack pulls a tear strip across the bar, then clears it", async ({ page }) => {
-  test.skip(PACKS.length < 2, "needs at least two themes");
-  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  test.skip(DECK.length < 2, "needs at least two themes");
+  await page.goto(`${KITCHEN}?pack=${DECK[0].id}`);
   await fresh(page).click();
   const strip = page.locator(".bar .bar-strip");
   await expect(strip).toBeAttached();
@@ -174,12 +196,12 @@ test("Fresh pack pulls a tear strip across the bar, then clears it", async ({ pa
 });
 
 test("under reduced motion, Fresh pack switches without the tear strip", async ({ browser }) => {
-  test.skip(PACKS.length < 2, "needs at least two themes");
+  test.skip(DECK.length < 2, "needs at least two themes");
   const context = await browser.newContext({ reducedMotion: "reduce" });
   const page = await context.newPage();
-  await page.goto(`${KITCHEN}?pack=${PACKS[0].id}`);
+  await page.goto(`${KITCHEN}?pack=${DECK[0].id}`);
   await fresh(page).click();
-  await expect.poll(() => currentTheme(page)).not.toBe(PACKS[0].id);
+  await expect.poll(() => currentTheme(page)).not.toBe(DECK[0].id);
   await expect(page.locator(".bar-strip")).toHaveCount(0);
   await context.close();
 });

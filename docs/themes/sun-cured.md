@@ -93,7 +93,7 @@
   | Umber `#6a4407` | 6.7:1 | 5.1:1 |
 
   Butter yellow on the maroon is 8.2:1. The silver fill never carries text alone (1.5:1 on the yellow): it's always inside the navy outline (7.3:1 against the fill).
-- **Fonts:** about 133KB (Cinzel Decorative Black 15KB, Alegreya SC Bold 31KB, Alegreya roman and italic 87KB), under the 150KB budget.
+- **Fonts:** about 133KB (Cinzel Decorative Black 15KB, Alegreya SC Bold 31KB, Alegreya roman and italic 87KB).
 - **Endorsement test:** the risk is higher than the first build's, on purpose: the arched, outlined capitals on the yellow are the pack's strongest element, and the first build failed for leaving them out. It stays on the right side because the word is the site's own, the typeface isn't the wordmark's, and there's no animal, scene, blend line or stamp. The page reads as a blog called The Smokepit that was set in the pack's lettering. The owner judges it in the gallery.
 - **Watch-out:** the pack's imagery is a 1913 fantasy of the "exotic" Middle East: the scene, and on the early pack, the columns, domes and minarets on the side panels. Reaching for any of it would be a costume and a caricature at once. The theme keeps to the colour, the frame, the arch and the lettering.
 

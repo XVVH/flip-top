@@ -24,7 +24,7 @@ Hugo is pinned to the version in `netlify.toml` and `.github/workflows/ci.yml`; 
 ## Environments
 
 - **Production** (`hugo`): real content only. `_control` and its CSS are left out entirely.
-- **Development** (`hugo server`, `npm run build:test`): `config/development/hugo.toml` also mounts `fixtures/content/` (the kitchen sink and sample posts), and `_control` is included. CI tests this build.
+- **Development** (`hugo server`, `npm run build:test`): `config/development/hugo.toml` also mounts `fixtures/content/` (the kitchen sink and sample posts), and `_control` is included, though never at random or dealt by Fresh pack: `?pack=_control` opens it (F34). CI tests this build.
 
 ## Content
 
@@ -119,6 +119,7 @@ assets/themes/
 id: <id>               # original; never a brand name (RULES.md tier 1)
 name: <Theme name>
 front_door: true        # eligible for the first-visit lottery
+dev_only: false         # _control only: left out of production, and out of the rotation in development (F34)
 legible: true           # passes RULES.md tier 2
 motion: false           # true if it animates (all of it switched off under reduced motion)
 pack: "…"               # private: the source pack's research name; never ships
@@ -203,7 +204,7 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 
 - **Fresh pack:**
   - Pulls a tear strip first: a strip with a pull tab runs across the foot of the bar (`.bar-strip`, styled in `_base`, coloured by a theme's `--ft-strip`) for about 0.55 seconds, skipped under reduced motion. Clicks meanwhile are ignored.
-  - Deals the next theme from a shuffled deck, kept for the visit.
+  - Deals the next theme from a shuffled deck of the pack themes, kept for the visit. Dev-only themes (`_control`) are never in the deck; the manifest marks them `dev_only` in development builds, the only builds that have them.
   - Crossfades to the new theme with the View Transitions API where the browser has it, skipped under reduced motion.
   - Changes `data-theme`, runs the old theme's `deactivate` and the new one's `activate`, and restores the reader's position.
   - Announces the new theme's name in the live region ("Now showing …"). All site copy lives in `data/copy.yaml`.
@@ -233,12 +234,12 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
   - Content security policy: `default-src 'self'; script-src 'self' 'sha256-…'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'`.
   - Also `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, and a restrictive `Permissions-Policy`.
   - Fingerprinted assets (`/css/*`, `/js/*`) get `Cache-Control: public, max-age=31536000, immutable`; theme fonts and images (`/themes/*`) get a week.
-- **Plan:** the account is on Netlify's **legacy** free plan (Starter), which predates credit-based pricing (DECISIONS.md F32). It meters build minutes and bandwidth, not deploys: about 300 build minutes and 100GB of bandwidth a month, and a monthly allowance of function calls for the hit counter (check the team's usage page for the exact figures). A production build takes about a minute, so deploys are cheap; bandwidth is the limit to watch, and the budgets below keep pages light.
-- **Budgets:**
+- **Plan:** the account is on Netlify's **legacy** free plan (Starter), which predates credit-based pricing (DECISIONS.md F32). It meters build minutes and bandwidth, not deploys: about 300 build minutes and 100GB of bandwidth a month, and a monthly allowance of function calls for the hit counter (check the team's usage page for the exact figures). A production build takes about a minute, so deploys are cheap; bandwidth is the limit to watch, though pages this size use little of it.
+- **Budgets** (guides, not caps):
   - First visit: about 250KB or less, not counting post images.
   - Bar and switcher JavaScript: about 8KB or less.
-  - Each theme's CSS, fonts and assets: about 150KB or less. Every theme's CSS is in the one bundle, so keep theme CSS lean. A theme's fonts and images load only when it's shown.
-  - As built (October 2026): most themes come to 80–150KB. Two are over: Full Flavor (about 178KB, mostly the display face's two axes) and Petal Lace (about 193KB: 150KB of fonts and a 31KB drawing); Green Marble is at the edge (about 153KB). The CSS bundle with every theme is about 118KB, 20KB compressed. A first visit stays under the 250KB page budget even in the heaviest theme.
+  - Each theme: no cap (DECISIONS.md F35). A theme takes the fonts and images its pack needs, and they load only when it's shown. Every theme's CSS is in the one bundle, so keep theme CSS lean.
+  - As built (October 2026): a theme's CSS, fonts and images come to 80–195KB, the heaviest Petal Lace (about 193KB: 150KB of fonts and a 31KB drawing) and Full Flavor (about 178KB, mostly the display face's two axes). The CSS bundle with every theme is about 118KB, 20KB compressed. A first visit stays under 250KB even in the heaviest theme.
   - Fonts are OFL faces taken from the fontsource npm packages, the Latin subset only, as `woff2`, each with its licence text beside it in `fonts/`.
   - Post images are the biggest lever: resize them, use modern formats, and lazy-load them.
 - **Deploys:** Netlify builds every push to main. Finished, tested work can go straight to main; there's no need to hold it back. A push that changes only docs, tests or the agent notes is skipped (the `ignore` command in `netlify.toml`), which saves build minutes; any doubt, such as a first or clear-cache build, builds. The owner reviews themes on the live site; the CI screenshot gallery is the record.
@@ -252,7 +253,7 @@ Playwright and axe-core, run in GitHub Actions (`.github/workflows/ci.yml`). The
 - `tests/counter.test.mjs`: the hit counter's logic.
 - `tests/production.test.mjs`: builds production and checks that `_control` and fixtures don't ship, that no declared pack name appears in the CSS, scripts, theme assets, manifest or theme index, the CSP hash matches the inline script, and there are no third-party assets or inline styles.
 - `tests/floor.spec.mjs`: the matrix below.
-- `tests/behaviour.spec.mjs`: first visits, the deck, keeping the reader's place, persistence, `themes: false`, no-JS, blocked storage, printing, the theme index, the hit counter. Tests that need two themes skip when there are fewer than two.
+- `tests/behaviour.spec.mjs`: first visits, the deck (with `_control` never in it), keeping the reader's place, persistence, `themes: false`, no-JS, blocked storage, printing, the theme index, the hit counter. Tests that need two themes skip when there are fewer than two.
 - `tests/gallery.spec.mjs`: the screenshot gallery (only with `GALLERY=1`).
 
 The matrix: every theme in the development build (including `_control`, and the plain theme, which the tests switch to the way printing does) × widths of 320, 375, 768 and 1440px × the home page and the kitchen-sink post.

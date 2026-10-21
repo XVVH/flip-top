@@ -100,10 +100,10 @@ Every theme, built or in study, with its private source. This table and each `th
 |---|---|---|---|
 | [`full-flavor`](themes/full-flavor.md) | Marlboro | Red (box) | Built; passed review |
 | [`menthol-stripe`](themes/menthol-stripe.md) | Newport | Menthol (box) | Built; passed review |
-| [`night-gilt`](themes/night-gilt.md) | 芙蓉王 (Furongwang) | 软蓝 soft blue | Built; in review |
-| [`gold-prism`](themes/gold-prism.md) | 黄山 (Huangshan) | 新制皖烟 hard box, laser | Built; in review |
-| [`petal-lace`](themes/petal-lace.md) | 钻石 荷花 (Zuanshi Hehua) | Hard box | Built; in review |
-| [`green-marble`](themes/green-marble.md) | Virginia Slims | Menthol (slim box), the classic green marble design | Built; in review |
+| [`night-gilt`](themes/night-gilt.md) | 芙蓉王 (Furongwang) | 软蓝 soft blue | Built; passed review |
+| [`gold-prism`](themes/gold-prism.md) | 黄山 (Huangshan) | 新制皖烟 hard box, laser | Built; passed review |
+| [`petal-lace`](themes/petal-lace.md) | 钻石 荷花 (Zuanshi Hehua) | Hard box | Built; passed review |
+| [`green-marble`](themes/green-marble.md) | Virginia Slims | Menthol (slim box), the classic green marble design | Built; passed review |
 | [`roundel`](themes/roundel.md) | Lucky Strike | White soft pack (the roundel design) | Built; passed review |
 | [`sun-cured`](themes/sun-cured.md) | Camel | Classic yellow (soft pack) | Built; passed review (the first build took a later hard box and failed) |
 

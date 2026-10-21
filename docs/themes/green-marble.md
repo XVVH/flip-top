@@ -1,6 +1,6 @@
 # Green Marble: pack study and journal
 
-*Status: **built; awaiting the owner's review.** The second pack of phase 4, studied from the owner's reference images (DECISIONS.md F24, F25); the owner approved the study with Sofia Sans Condensed and Spectral, and named it Green Marble (F26).*
+*Status: **built; passed the owner's review** (DECISIONS.md F33). The second pack of phase 4, studied from the owner's reference images (DECISIONS.md F24, F25); the owner approved the study with Sofia Sans Condensed and Spectral, and named it Green Marble (F26).*
 
 *Brand names belong here, in the study, and nowhere that ships.*
 
@@ -102,6 +102,8 @@
 - 2026-10-20: The owner liked the marble but not the heading face: Philosopher reads halfway between serif and sans, and the pack is wholly sans. Replaced with Sofia Sans Condensed Italic after a second specimen (see First instincts).
 - 2026-10-20: The owner approved Sofia Sans Condensed, kept Spectral for the article, and named it Green Marble. **Built.** The band is `.page::before`, the page's full height, with the stripes as a hard-stopped gradient over the marble; the page is padded by the band's width, so the slim column centres in the white. The marble's data URI needed its `url(#m)` filter reference written with percent-encoded brackets, or the theme lint read it as an asset path. Fixes from the screenshots: on a phone the site name came out smaller than a post title, so its minimum size went up; at 320px the navigation dropped "Feed" onto its own line, so it tightens below 360px. All floor tests pass.
 
+- 2026-10-21: **Passed** the owner's review, on the live site (DECISIONS.md F33).
+
 ## Open questions
 
-- The owner's review, on the live site.
+- None.

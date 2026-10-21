@@ -6,7 +6,8 @@
               can allow it by hash
     switcher  the deferred switcher module
     themes    the manifest the browser uses
-  _control (dev_only) is left out of production builds entirely.
+  _control (dev_only) is left out of production builds entirely, and out of
+  the rotation in dev builds: it opens only by ?pack=_control.
 */ -}}
 {{- $prod := hugo.IsProduction -}}
 {{- $themes := slice -}}
@@ -26,14 +27,18 @@
   {{- end -}}
   {{- /* Publish the theme's fonts and images next to their CSS references. */ -}}
   {{- range resources.Match (printf "themes/%s/{fonts,img}/**" $t.id) }}{{ $_ := .RelPermalink }}{{ end -}}
-  {{- $themes = $themes | append (dict
+  {{- $entry := dict
       "id" $t.id
       "name" $t.name
       "front_door" ($t.front_door | default false)
       "legible" (cond (isset $t "legible") $t.legible true)
       "motion" ($t.motion | default false)
       "summary" ($t.summary | default "")
-      "js" $js) -}}
+      "js" $js -}}
+  {{- /* Only dev builds carry dev-only themes, so only they carry the flag:
+         those themes open by ?pack= but stay out of the deck. */ -}}
+  {{- if $t.dev_only }}{{ $entry = merge $entry (dict "dev_only" true) }}{{ end -}}
+  {{- $themes = $themes | append $entry -}}
 {{- end -}}
 {{- $css = $css | append (resources.Get "themes/_floor/floor.css") -}}
 {{- /* Not minified: Hugo's CSS minifier doesn't fully understand native

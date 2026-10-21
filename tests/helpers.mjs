@@ -8,6 +8,8 @@ export const manifest = JSON.parse(html.match(/<script[^>]*\bid="?ft-manifest"?[
 export const THEMES = manifest.themes;
 export const PACKS = THEMES.filter((t) => t.id !== "plain");
 export const FRONT_DOOR = PACKS.filter((t) => t.front_door).map((t) => t.id);
+// The rotation Fresh pack deals from: dev-only themes open by ?pack= only.
+export const DECK = PACKS.filter((t) => !t.dev_only);
 export const theme = (id) => THEMES.find((t) => t.id === id);
 
 export const PAGES = ["/", "/posts/kitchen-sink/"];

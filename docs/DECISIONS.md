@@ -30,7 +30,7 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F13. Health warnings are excluded entirely.** The owner: "this is a study in brand design, not the government-required stickers."
 
-**F14. `_control` and the smell lint stay**, as a guard against defaults filling the gaps a pack leaves (recommended to the owner, who was open to it). `_control` also keeps the tests exercising the switcher until two pack themes exist; revisit it then. *(Two have existed since October 19; eight now. It still serves as the gallery's baseline. Whether to keep it is open: ROADMAP.md.)*
+**F14. `_control` and the smell lint stay**, as a guard against defaults filling the gaps a pack leaves (recommended to the owner, who was open to it). `_control` also keeps the tests exercising the switcher until two pack themes exist; revisit it then. *(Two have existed since October 19; eight now. Kept, as the gallery's baseline, and out of the rotation: F34.)*
 
 **F15. Themes borrow a pack's language by default; literal pack parts are an experiment.** A theme doesn't draw the pack itself unless it's the investigation: one theme can try the lid, the foil liner or the tear strip, and its journal records how it went (the owner: "this is an area of investigation"). *(The first, Full Flavor's lid, was taken out: F23.)*
 
@@ -67,6 +67,12 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 **F31. 芙蓉王's soft blue is Night Gilt, the first dark theme** (the owner, October 21, 2026). Its medallion holds a camellia drawn in the pack's stencil-and-glitter manner: the owner found the empty disc "looks like an album without anything in the middle", and asked for another flower in the pack's style, as for 钻石 荷花.
 
 **F32. No more batching deploys** (the owner, October 21, 2026). The account is on Netlify's legacy free plan, which predates credit-based pricing: it meters build minutes and bandwidth, not deploys. The owner saw no credits used by any deploy. Finished, tested work goes to main without waiting for a batch, and the `next-packs` holding branch is retired. Docs-only pushes still skip the build, to save minutes. *Replaces* the batching half of I9.
+
+**F33. Green Marble, Petal Lace, Gold Prism and Night Gilt pass** (the owner, October 21, 2026), reviewed on the live site. All eight pack themes have now passed.
+
+**F34. `_control` stays, out of the rotation** (the owner, October 21, 2026). It stays in development builds as the gallery's baseline, but it's never a first visit's theme and Fresh pack never deals it: `front_door: false`, and the switcher leaves dev-only themes out of the deck. `?pack=_control` still opens it, for the gallery and the tests. Production builds still leave it out entirely. Settles F14's open question.
+
+**F35. No weight cap per theme** (the owner, October 21, 2026). The 150KB budget for a theme's CSS, fonts and images mattered while deploys seemed to be metered; on the legacy plan they aren't (F32). A theme takes the fonts its pack needs, real italics included. Bandwidth is still metered, so the first-visit and script budgets stay as guides, and a theme's fonts and images still load only when it's shown.
 
 ## Inherited from Turrible Takes
 

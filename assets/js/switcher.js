@@ -9,7 +9,8 @@ const root = document.documentElement;
 const manifest = JSON.parse(document.getElementById("ft-manifest").textContent);
 const themes = new Map(manifest.themes.map((t) => [t.id, t]));
 const copy = manifest.copy;
-const PACKS = manifest.themes.map((t) => t.id).filter((id) => id !== "plain");
+// The deck: every pack theme. Dev-only themes open by ?pack= but are never dealt.
+const PACKS = manifest.themes.filter((t) => t.id !== "plain" && !t.dev_only).map((t) => t.id);
 
 const storage = (name) => {
   try {

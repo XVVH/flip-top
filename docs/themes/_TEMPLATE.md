@@ -48,7 +48,7 @@ Marks and signature shapes are signalled, never reproduced; names, logos, wordma
 - **Typefaces** (freely licensed, self-hosted or system), and why each matches the pack's character, with the candidates the specimen ruled out:
 - **Images** (SVG drawn for the theme: textures, a redrawn figure), and their weight:
 - **Motion,** if any: what moves, what moves it (it follows the reader), and what it does under reduced motion:
-- **Fonts and assets weight,** against the 150KB budget:
+- **Fonts and assets weight** (no cap, but bandwidth is metered: take what the pack needs, Latin subsets, SVG over bitmaps):
 - **Every surface:** post, home, tag list, about, 404, code blocks, tables, images, links, footnotes, the theme controls.
 - **Legibility plan** (how body text and code pass tier 3):
 - **Endorsement test:** where this theme comes closest to the brand, and why it stays on the right side.

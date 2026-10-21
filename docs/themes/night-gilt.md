@@ -1,6 +1,6 @@
 # Night Gilt: pack study and journal
 
-*Status: **built; awaiting the owner's review.** The third Chinese pack (DECISIONS.md F27), the dark one; the owner approved the study with a camellia in the medallion and named it Night Gilt (F31).*
+*Status: **built; passed the owner's review** (DECISIONS.md F33). The third Chinese pack (DECISIONS.md F27), the dark one; the owner approved the study with a camellia in the medallion and named it Night Gilt (F31).*
 
 *Brand names belong here, in the study, and nowhere that ships, in any script.*
 
@@ -104,6 +104,8 @@
 - 2026-10-21: The owner: the empty medallion looked like an album with nothing in the middle; asked for another flower in the pack's style, as for 钻石 荷花. Drawn a camellia: gold petals filled with a radial gradient (centred on the flower's own origin, Petal Lace's lesson) and a glitter pattern of light and dark specks, parted by 2.4px navy cuts; leaves near-black with gold veins. Scaled to 84% so the engraving shows round it.
 - 2026-10-21: The owner approved it and named it Night Gilt. **Built**, with no script: the studs are a 9px data-URI tile on the body, the masthead and the footer; the page itself is the smooth violet band, so the article and the rails sit on it; the masthead and the footer run the full width, each carrying the gold double rule as a background layer at its outer edge. The medallion is the masthead's `::before`, an SVG file in `img/`, with a soft drop shadow, hidden under forced colours. It's the site's first `color-scheme: dark`. All floor tests pass, contrast included, at every width.
 
+- 2026-10-21: **Passed** the owner's review, on the live site (DECISIONS.md F33).
+
 ## Open questions
 
-- The owner's review, on the live site.
+- None.

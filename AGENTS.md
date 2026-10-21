@@ -1,6 +1,6 @@
 # The Smokepit: read this first
 
-This repository, `flip-top`, builds **The Smokepit**, a Markdown-to-static-site blog. Each of its themes is drawn from the design of a US cigarette pack: its palette, the style of its lettering, its shapes and its materials. It replaces Turrible Takes on `synchromeshi.com` and is built on that project's plumbing (the `bad-blog` repository, archived).
+This repository, `flip-top`, builds **The Smokepit**, a Markdown-to-static-site blog. Each of its themes is drawn from the design of a cigarette pack, from the US or, since F27, from China: its palette, the style of its lettering, its shapes and its materials. It replaces Turrible Takes on `synchromeshi.com` and is built on that project's plumbing (the `bad-blog` repository, archived).
 
 ## The short version
 
@@ -49,4 +49,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phase 1 is done: the plumbing is imported from Turrible Takes and reworked (one Fresh pack button with a tear strip, no escape, the plain theme only as a fallback, a private pack registry). Phase 2 is done: Full Flavor, Menthol Stripe and Sun Cured passed the owner's review. Sun Cured took two tries: the first studied the wrong design (F21). Full Flavor's lid, the first literal-part experiment, was taken out (F23). Phase 4 adds packs one at a time, studied from reference images the owner supplies (F24, F25): Roundel (Lucky Strike's white soft pack) passed review; Green Marble (Virginia Slims' green box) is built. Chinese packs joined (F27): Petal Lace (钻石 荷花), Gold Prism (黄山's laser pack) and Night Gilt (芙蓉王's soft blue, the first dark theme) are built, awaiting review. The site is deployed on Netlify, linked to this repository. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Eight pack themes are live, from five US packs and three Chinese (F27): Full Flavor, Menthol Stripe, Sun Cured, Roundel, Green Marble, Petal Lace, Gold Prism and Night Gilt. The first three, and Roundel, passed the owner's review; Sun Cured took two tries, because the first studied the wrong design (F21), and Full Flavor's lid was taken out (F23). New packs come one at a time, studied from reference images the owner supplies (F24, F25). Lessons from building them are in `docs/THEMES.md` ("Lessons so far") and `docs/ARCHITECTURE.md` ("Notes from building themes"). Writing a post: `docs/WRITING.md`. The site is deployed on Netlify's legacy free plan, from this repository's main branch (F32). See [`docs/ROADMAP.md`](docs/ROADMAP.md).

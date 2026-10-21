@@ -7,16 +7,20 @@
 ## The pack
 
 - **Pack** (research name only):
-- **References** (links to public images; never committed to the repository):
+- **References:** the owner's images, described in words (what each shows, its lighting and casts), and any public links. Never committed to the repository; they don't outlive the session, so the study records what they show (DECISIONS.md F24).
 - **Variant studied** (for example the red, or the menthol), and the family's colour code if it has one:
 
 ## What's on it
 
-- **Palette:** each colour with a hex value matched by eye, and roughly how much of the face it covers.
+- **Palette:** each colour with a hex value measured from the images' pixels (say which image, and how far you trust it), and roughly how much of the face it covers.
 - **Lettering:** the wordmark's character (serif or sans, weight, width, stroke contrast, case, spacing) and the secondary type.
 - **Shapes:** bands, angles, crests, borders, roundels, and their proportions.
 - **Material:** foil, embossing, gloss or matte.
 - **Proportion:** how the face is divided, and how much is empty.
+
+## Why this design
+
+Only if the owner offered more than one design or variant: which one, and why.
 
 ## What makes it recognizable
 
@@ -41,10 +45,14 @@ Marks and signature shapes are signalled, never reproduced; names, logos, wordma
 - **Tear strip colour** (`--ft-strip`), if the pack has one.
 - **Literal pack parts** (lid, foil liner, tear strip): none by default; if this theme is the experiment, say what it tries (F15).
 - **Template slots** (THEMES.md): page ground and masthead band; site name and headings; secondary type; signature shape; material; footer and metadata; the article.
-- **Typefaces** (freely licensed, self-hosted or system), and why each matches the pack's character:
+- **Typefaces** (freely licensed, self-hosted or system), and why each matches the pack's character, with the candidates the specimen ruled out:
+- **Images** (SVG drawn for the theme: textures, a redrawn figure), and their weight:
+- **Motion,** if any: what moves, what moves it (it follows the reader), and what it does under reduced motion:
+- **Fonts and assets weight,** against the 150KB budget:
 - **Every surface:** post, home, tag list, about, 404, code blocks, tables, images, links, footnotes, the theme controls.
 - **Legibility plan** (how body text and code pass tier 3):
 - **Endorsement test:** where this theme comes closest to the brand, and why it stays on the right side.
+- **Watch-out:** the template or caricature this pack invites (THEMES.md, "Lessons so far").
 
 ## First instincts
 

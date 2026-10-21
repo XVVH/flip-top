@@ -40,7 +40,7 @@ What you can see in a screenshot.
 
 ## The editorial smell
 
-A second default, which shows up when a model is asked for something "elegant", "warm" or "literary". It's the bigger risk for Not Bad.
+A second default, which shows up when a model is asked for something "elegant", "warm" or "literary". It was the bigger risk for Turrible Takes' Not Bad, now the plain theme, and it's close to any pack with a cream ground and a serif (Sun Cured, Petal Lace), where the pack has to decide instead.
 
 - Cream or warm off-white paper (`#faf9f6`, `#f5f1e8` and friends).
 - A display serif for headlines (Fraunces, Instrument Serif, Playfair Display, DM Serif Display) over an Inter or system sans body.

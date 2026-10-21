@@ -13,6 +13,7 @@ Markdown → Hugo → one semantic HTML page per post → styled by one styleshe
 ```sh
 npm ci                  # test tools and the function's one dependency
 hugo server             # local preview, development environment (fixtures and _control included)
+hugo new content posts/<slug>   # a new post from archetypes/posts/, as a draft (WRITING.md)
 npm test                # theme lint, unit tests, production checks, test build, browser tests
 GALLERY=1 npx playwright test tests/gallery.spec.mjs   # screenshot gallery in gallery/
 npm run serve           # serve the test build (.test-site) the way Netlify would, with _headers applied
@@ -154,6 +155,22 @@ If `theme.js` exists, it exports `activate(root, api)` and `deactivate(root)`. `
 
 **Why one bundle:** every theme's CSS is scoped, so loading them all costs only bytes (a few KB each, compressed) and makes switching instant, with no flash of the wrong theme. Fonts and images still load only when a theme uses them. If the bundle ever gets too big, split it; until then, simplicity wins. The CSS isn't minified, because Hugo's minifier doesn't fully understand native nesting.
 
+## Notes from building themes
+
+Gotchas that each cost a round of screenshots once. The journals have the context.
+
+- **Pseudo-elements can't go inside `:is()`.** `&:has(…) :is(.a::before, .b::after)` is dropped silently; list each selector (Full Flavor).
+- **The tear strip's colour is `--ft-strip`.** A misspelt variable leaves it white, with no error.
+- **Full-width bands don't use `vw`,** which includes a classic scrollbar and overflows. Take the band out of the column's `max-width` and pad it instead: `padding-inline: max(20px, (100% - 44rem) / 2 + 20px)`. A theme's `.page > :not(.deco)` rule outranks a bare `.masthead`, so write `.page > .masthead` (Menthol Stripe).
+- **Fixed decoration behind the page** goes on `.deco` with `position: fixed; z-index: -1`. Leave `body` transparent, or its background covers it, and don't give `.page` a z-index (Gold Prism).
+- **A negative top margin on a `::before`** (a medallion breaking an edge) collapses through its parent unless the parent is `display: flow-root` (Gold Prism).
+- **`url(#id)` inside a data-URI SVG** trips the lint's `url()` rule; percent-encode the brackets as `url%28%23id%29` (Green Marble).
+- **SVG gradients on transformed shapes** use the transformed coordinates: for petals drawn with `translate(cx cy) rotate(a)`, centre the radial gradient at `0 0`, or the shading comes out flat (Petal Lace, Night Gilt).
+- **A sliding repeating gradient** must wrap on a whole repeat, in pixels, or it jumps. Gold Prism's rainbow repeats every 966px along its 105° line, which is exactly 1000px across.
+- **A drawing's viewBox** should be cropped to the drawing, or it sits small in its box (Petal Lace's blossom).
+- **Fonts** come from fontsource: `npm pack @fontsource/<name>` or `@fontsource-variable/<name>`, the Latin subset, with the package's LICENSE beside them. Variable files with several axes are large; static weights can be half the size.
+- **Check contrast before building,** with the real colours, against the brightest point of any texture behind the text, not its average.
+
 ## Cascade layers
 
 ```css
@@ -220,10 +237,11 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 - **Budgets:**
   - First visit: about 250KB or less, not counting post images.
   - Bar and switcher JavaScript: about 8KB or less.
-  - Each theme's CSS, fonts and assets: about 150KB or less. Every theme's CSS is in the one bundle, so keep theme CSS lean. A theme's fonts load only when it's shown. Full Flavor is a little over (about 170KB of fonts, mostly the display face's two axes); see its journal.
+  - Each theme's CSS, fonts and assets: about 150KB or less. Every theme's CSS is in the one bundle, so keep theme CSS lean. A theme's fonts and images load only when it's shown.
+  - As built (October 2026): most themes come to 80–150KB. Two are over: Full Flavor (about 178KB, mostly the display face's two axes) and Petal Lace (about 193KB: 150KB of fonts and a 31KB drawing); Green Marble is at the edge (about 153KB). The CSS bundle with every theme is about 118KB, 20KB compressed. A first visit stays under the 250KB page budget even in the heaviest theme.
   - Fonts are OFL faces taken from the fontsource npm packages, the Latin subset only, as `woff2`, each with its licence text beside it in `fonts/`.
   - Post images are the biggest lever: resize them, use modern formats, and lazy-load them.
-- **Deploys:** Netlify builds every push to main. Finished, tested work can go straight to main; there's no need to hold it back. A push that changes only docs, tests or the agent notes is skipped (the `ignore` command in `netlify.toml`), which saves build minutes; any doubt, such as a first or clear-cache build, builds. Review themes from the CI screenshot gallery.
+- **Deploys:** Netlify builds every push to main. Finished, tested work can go straight to main; there's no need to hold it back. A push that changes only docs, tests or the agent notes is skipped (the `ignore` command in `netlify.toml`), which saves build minutes; any doubt, such as a first or clear-cache build, builds. The owner reviews themes on the live site; the CI screenshot gallery is the record.
 
 ## Testing
 
@@ -234,7 +252,7 @@ Playwright and axe-core, run in GitHub Actions (`.github/workflows/ci.yml`). The
 - `tests/counter.test.mjs`: the hit counter's logic.
 - `tests/production.test.mjs`: builds production and checks that `_control` and fixtures don't ship, that no declared pack name appears in the CSS, scripts, theme assets, manifest or theme index, the CSP hash matches the inline script, and there are no third-party assets or inline styles.
 - `tests/floor.spec.mjs`: the matrix below.
-- `tests/behaviour.spec.mjs`: first visits, the deck, keeping the reader's place, persistence, `themes: false`, no-JS, blocked storage, printing, the theme index, the hit counter. Tests that need two themes skip until two pack themes exist.
+- `tests/behaviour.spec.mjs`: first visits, the deck, keeping the reader's place, persistence, `themes: false`, no-JS, blocked storage, printing, the theme index, the hit counter. Tests that need two themes skip when there are fewer than two.
 - `tests/gallery.spec.mjs`: the screenshot gallery (only with `GALLERY=1`).
 
 The matrix: every theme in the development build (including `_control`, and the plain theme, which the tests switch to the way printing does) × widths of 320, 375, 768 and 1440px × the home page and the kitchen-sink post.
@@ -250,9 +268,9 @@ Checks:
 - Every animation ends within five seconds (WCAG 2.2.2). Tests wait for animations to settle before checking contrast and layout.
 - Body text in legible themes is at least 16px, with line height at least 1.4 and lines under about 90 characters.
 - Broken internal links and missing alt text fail the build.
-- The smell lint (planned) runs over shipped CSS and templates.
+- The smell lint runs over shipped CSS and templates.
 
-The kitchen-sink post (`content/posts/kitchen-sink/`, a draft in production) holds every Markdown feature and the nasty cases:
+The kitchen-sink post (`fixtures/content/posts/kitchen-sink/`, in development builds only) holds every Markdown feature and the nasty cases:
 - an unbroken 60-character URL
 - a 4000px-wide image and a very tall one
 - a wide table

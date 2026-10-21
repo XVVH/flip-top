@@ -50,7 +50,7 @@ Update this as work lands. Tick boxes; don't delete history.
 - [ ] The owner reviews Green Marble
 - [x] The owner researches Chinese packs and picks three (F27): 钻石 荷花, 芙蓉王 软蓝, 黄山 新制皖烟
 - [x] Teach the registry's lint and production test to handle pack names in characters (F27, F28)
-- [ ] For each, one at a time: reference images, a study, the owner's review, the build. 钻石 荷花: Petal Lace, approved with a shorter yellow band and built (F28), awaiting review. 黄山: Gold Prism, approved with a metal medallion and handwritten headings (F29, F30), built, awaiting review. 芙蓉王 软蓝: Night Gilt, approved with a camellia in its medallion (F31), built, awaiting review
+- [x] For each, one at a time: reference images, a study, the owner's review, the build. 钻石 荷花: Petal Lace, approved with a shorter yellow band and built (F28), awaiting review. 黄山: Gold Prism, approved with a metal medallion and handwritten headings (F29, F30), built, awaiting review. 芙蓉王 软蓝: Night Gilt, approved with a camellia in its medallion (F31), built, awaiting review
 
 ## Writing
 
@@ -63,11 +63,10 @@ Update this as work lands. Tick boxes; don't delete history.
 
 For the owner:
 
-- Green Marble, built: the owner's review.
-- Petal Lace, built: the owner's review.
-- Gold Prism, built: the owner's review on the live site.
-- Night Gilt, built: the owner's review on the live site.
-- The next packs: the owner's choice (THEMES.md, candidates).
-- Which pack comes after it. Candidates and what each would test are in THEMES.md.
+- **The review of four themes:** Green Marble, Petal Lace, Gold Prism and Night Gilt are live but not yet marked as passed.
+- **`_control`:** F14 said to revisit it once two pack themes existed. It's still useful as the gallery's baseline and the smell lint's reference. Keep it?
+- **Font weight:** Full Flavor and Petal Lace are over the 150KB per-theme budget (ARCHITECTURE.md). Dropping each one's italic text face would bring them under, at the cost of real italics.
+- **Archive `bad-blog`** (Phase 3), after a last README note there pointing here.
+- **The next packs,** whenever the owner wants more. Candidates and what each would test are in THEMES.md.
 
 Answered (October 2026): the theme controls (F8), the plain theme (F9), the theme index (F10), variants and deduplication (F11), the hit counter (F12), health warnings (F13), the smell (F14), how literal (F15), theme names (F16), the site's name (F17), the Fresh pack animation (F18), the studies: names, the lid testbed, Camel's design, Menthol Stripe's closeness (F20); the gallery review of the first three (F21); the tagline (F22); Full Flavor's lid (F23); Sun Cured's second review and where references come from (F24); one pack at a time, and Roundel's study and name (F25); Green Marble's design, faces and name (F26); Chinese packs, and which three (F27); Petal Lace, and names in any script (F28); Gold Prism's name and its solid column (F29); its medallion and typefaces (F30); Night Gilt, the first dark theme, and its camellia (F31); Netlify's legacy plan, so no more batching (F32).

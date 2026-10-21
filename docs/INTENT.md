@@ -1,10 +1,10 @@
 # Intent
 
-*A draft for the owner's review, October 2026.*
+*Reviewed by the owner, October 2026.*
 
 ## What this is
 
-**The Smokepit** is a personal blog for long-form writing, built from Markdown into a static site and served at `synchromeshi.com`. Every page wears a theme drawn from the design of a US cigarette pack. A first visit gets one at random; readers can switch to explore the rest.
+**The Smokepit** is a personal blog for long-form writing, built from Markdown into a static site and served at `synchromeshi.com`. Every page wears a theme drawn from the design of a cigarette pack, from the US or China. A first visit gets one at random; readers can switch to explore the rest.
 
 It replaces Turrible Takes, an experiment in deliberately bad design, and reuses its plumbing. That project is archived, with its record, in the `bad-blog` repository.
 
@@ -16,6 +16,8 @@ Few pieces of everyday graphic design have been worked over as hard. Once cigare
 - a white top above a band of blue, in a bold sans-serif
 
 They also turned colour into a code. In 2010 federal law banned "light", "mild" and "low" from packs, so the colour carried the meaning instead: lights became gold, ultra lights became silver. A pack's palette is a language its buyers learned to read.
+
+Packs sold in China joined in October 2026 (DECISIONS.md F27). Many use materials the US packs rarely do: laser (holographic) board, embossed textures, gold foil, engraved medallions. They push the themes toward material, where the US packs push toward colour and lettering.
 
 ## The experiment
 
@@ -54,4 +56,4 @@ The article stays easy to read in every theme.
 
 ## Who decides
 
-The owner is the judge of whether a theme reads as its pack, and whether it gets too close. Agents propose, build and record; the owner reviews the studies and the screenshot galleries and decides.
+The owner is the judge of whether a theme reads as its pack, and whether it gets too close. Agents propose, build and record; the owner reviews the studies, mocks and screenshot galleries, judges anything that moves in a live sketch or on the site, and decides.

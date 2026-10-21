@@ -58,7 +58,7 @@ For the owner:
 
 - Green Marble, built: the owner's review.
 - Petal Lace, built: the owner's review.
-- The `gold-prism` study (黄山): the sheen on scroll, and the medallion.
+- The `gold-prism` study (黄山): the sheen is approved; the revised metallic medallion, in the sketch.
 - Then 芙蓉王 软蓝, and its reference images.
 - Which pack comes after it. Candidates and what each would test are in THEMES.md.
 

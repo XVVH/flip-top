@@ -51,7 +51,7 @@
 | The holographic gold | Mirror the material | The page's background: gold, the lattice, and a wide rainbow laid over them in an overlay blend. The rainbow slides as the reader scrolls, and a little with the mouse pointer; it never moves on its own. Drawn with CSS gradients on the markup's decoration layer (`.deco`), with a few lines of theme script setting the offset. |
 | The lattice | Mirror, low contrast | An SVG tile of 12px triangles, lit and shaded at low contrast over the gold, everywhere on the foil, and never behind text (RULES.md: fine patterns low in contrast). |
 | A place for the text | **Solid** | The owner's idea: the foil as the background, with a column for the text on top. The column is **solid** pale gold, edged in a thin gold rule. Not semi-opaque: with a blur it's the frosted glass of the AI look (SMELL.md, and the lint flags it); without one, the rainbow moving behind the words changes their contrast as you scroll. |
-| The crystal medallion | Signal | An **empty** round badge at the top of the column, ringed in gold, holding a faceted blue and violet "crystal" (a conic gradient) that turns slightly as you scroll. Never with anything inside: the emblem is the mark. |
+| The crystal medallion | Signal | An **empty** round badge breaking the top of the column: a smooth pastel conic gradient (pale blue, lilac, mint, cream, rose) in a gold ring, from the research board's effect sketch, with a soft inner glow. The colours turn with the scroll, at the sheen's rate (one turn per sweep of the rainbow); the glow stays put, so it reads as light moving over metal. Never with anything inside: the emblem is the mark. |
 | The red rule | Mirror | Under the masthead, across the column. |
 | Red Song text | Mirror the character | The site name and headings in **Shippori Mincho B1** (OFL), ExtraBold, red: a Mincho (Song-style) family whose Latin is a sturdy, high-contrast serif. Never a brush face. |
 | The small descriptor | Mirror the character | Navigation, dates and labels in Shippori Mincho B1 SemiBold, tracked capitals, dark brown. |
@@ -71,7 +71,7 @@
   - **Material:** the holographic foil, the theme's main subject.
   - **Footer and metadata:** inside the column, under a red rule, in tracked capitals.
   - **The article:** **Newsreader** (OFL), a dark brown-black on the solid pale gold, left-aligned.
-- **Motion:** the sheen moves only with the reader: scrolling, and the mouse pointer on a desktop. No device tilt: on iPhones it needs a permission prompt, which is close to asking the visitor for input. Under reduced motion it holds still at one angle; under forced colours the foil is hidden. Nothing animates by itself, so the five-second rule doesn't come into it.
+- **Motion:** the sheen moves only with the reader: scrolling, and a little with the mouse pointer on a desktop; the medallion with scrolling only. No device tilt: on iPhones it needs a permission prompt, which is close to asking the visitor for input. Under reduced motion it holds still at one angle; under forced colours the foil is hidden. Nothing animates by itself, so the five-second rule doesn't come into it.
 - **Tear strip colour:** red.
 - **Literal pack parts:** the material, the laser board, is the theme. (F15's "literal parts" are the lid, the foil liner and the tear strip.)
 - **Every surface:**
@@ -90,13 +90,14 @@
 - **A semi-opaque column** (the owner's first idea). Made solid, for the reasons in the table.
 - **Device tilt** to drive the sheen, as the pack does in the hand. Scroll and the mouse pointer instead.
 - **The name in red on the foil,** as the research board sketched it. Text never sits on the foil.
+- **A faceted crystal in the medallion,** hard-edged blue and violet wedges, turning with the pointer as well as the scroll. The owner: "half-baked", and with the foil still under a still mouse it read as a loading spinner. Replaced with the research board's smooth metallic conic, turning with the scroll only.
 - **A bright yellow gold** from the laser photos. Under even light the board is a dull grey gold; the theme's gold is the lit board, with the rainbow over it.
 
 ## Log
 
 - 2026-10-21: Study written from four photos (two the owner's, two from the research board), named Gold Prism by the owner. A specimen settled the faces (Shippori Mincho B1 over Zen Old Mincho, Bodoni Moda, Gloock, Libre Caslon Display and Rozha One); an interactive sketch tried the sheen, the lattice, the medallion and the solid column at desktop and phone width.
+- 2026-10-21: The owner approved the sheen. The medallion was half-baked: its faceted crystal followed the mouse while the foil didn't, so it read as a spinner. Replaced with the research board's metallic conic (it lacks the pack's prism facets, but reads as metal), turning with the scroll at the sheen's rate, not with the cursor.
 
 ## Open questions
 
-- The sheen: does it read as the laser board, and is the movement on scroll comfortable?
-- The medallion: keep it, or let the foil and the red carry the pack alone?
+- The revised medallion, in the sketch.

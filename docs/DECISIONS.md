@@ -60,6 +60,8 @@ What's been decided, why, and what was rejected, so none of it needs deciding ag
 
 **F28. Petal Lace, from 钻石 荷花** (the owner, October 21, 2026): the study approved with the name Petal Lace and the lace behind the navigation, and one change: the yellow band is never taller than the green title block, so the page isn't pushed down, even though the pack's yellow is taller. The registry now handles names in any script: `letters()` keeps letters of every script, `pack_also:` lists other spellings (pinyin, a Latin wordmark), and the production test checks names in characters as a whole and word by word, without word boundaries.
 
+**F29. 黄山's laser pack is named Gold Prism** (the owner, October 21, 2026). The owner's idea for it: the hologram as the page's background, with a place for the text on top. The study makes that place solid rather than semi-opaque (frosted glass is the AI look's, and a moving rainbow behind text changes its contrast), and moves the sheen with scrolling and the mouse pointer, not device tilt (which needs a permission prompt on iPhones).
+
 ## Inherited from Turrible Takes
 
 Still in force unless changed. Numbers in brackets are Turrible Takes' own, for looking things up in `bad-blog`.
